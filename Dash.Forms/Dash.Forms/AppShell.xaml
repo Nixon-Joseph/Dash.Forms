@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-       xmlns:local="clr-namespace:Dash.Forms.Views"
+       xmlns:pages="clr-namespace:Dash.Forms.Views.Pages"
        RouteHost="companyname.com"
        RouteScheme="app"
        Route="Dash.Forms"
-       FlyoutBehavior="Disabled"
-       Title="Dash.Forms"
+       Title="Dash"
        x:Class="Dash.Forms.AppShell">
 
     <!--
@@ -68,15 +67,88 @@
         </ResourceDictionary>
     </Shell.Resources>
 
+    <!--https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/shell?tabs=android-->
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout HorizontalOptions="Fill"
+                     VerticalOptions="Fill"
+                     BackgroundColor="White"
+                     Padding="16">
+                <Label FontSize="Medium"
+                   Text="Smart Shopping">
+                    <Label.Margin>
+                        <Thickness Left="8" />
+                    </Label.Margin>
+                </Label>
+                <Button Image="photo"
+                    Text="By taking a photo">
+                    <Button.Margin>
+                        <Thickness Top="16" />
+                    </Button.Margin>
+                </Button>
+                <Button Image="ia"
+                    Text="By using AR">
+                    <Button.Margin>
+                        <Thickness Top="8" />
+                    </Button.Margin>
+                </Button>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
     <!-- Your Pages -->
-    <ShellItem>
+    <ShellItem Title="Home">
+        <ShellSection>
+            <ShellContent>
+                <pages:HomePage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Free Run">
+        <ShellSection>
+            <ShellContent ContentTemplate="{ DataTemplate pages:RunPage }" />
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Logs">
+        <ShellSection>
+            <ShellContent ContentTemplate="{ DataTemplate pages:LogsPage }" />
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Metrics">
+        <ShellSection>
+            <ShellContent ContentTemplate="{ DataTemplate pages:MetricsPage }" />
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Settings">
+        <ShellSection>
+            <ShellContent ContentTemplate="{ DataTemplate pages:SettingsPage }" />
+        </ShellSection>
+    </ShellItem>
+
+    <Shell.MenuItems>
+        <MenuItem Text="Holiday decorations" />
+        <MenuItem Text="Appliances" />
+        <MenuItem Text="Bathrooms" />
+        <!--<MenuItem Command="{Binding ProductTypeCommand}"
+                  CommandParameter="1"
+                  Text="Holiday decorations" />
+        <MenuItem Command="{Binding ProductTypeCommand}"
+                  CommandParameter="2"
+                  Text="Appliances" />
+        <MenuItem Command="{Binding ProductTypeCommand}"
+                  CommandParameter="3"
+                  Text="Bathrooms" />-->
+    </Shell.MenuItems>
+
+    <!--<ShellItem>
         <ShellSection Title="Browse" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
         </ShellSection>
         <ShellSection Title="About" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </ShellSection>
-    </ShellItem>
+    </ShellItem>-->
 
     <!-- Optional Templates 
     // These may be provided inline as below or as separate classes.
