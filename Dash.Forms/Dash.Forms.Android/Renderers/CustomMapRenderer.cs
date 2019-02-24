@@ -70,6 +70,7 @@ namespace Dash.Forms.Droid.Renderers
             }
 
             NativeMap.AddPolyline(polylineOptions);
+            NativeMap.UiSettings.MyLocationButtonEnabled = false;
         }
     }
 }
