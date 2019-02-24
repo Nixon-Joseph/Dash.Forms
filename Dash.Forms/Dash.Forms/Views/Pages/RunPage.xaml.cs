@@ -85,8 +85,9 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 var spent = DateTime.Now - (_startTime + _pauseOffset);
-                Device.BeginInvokeOnMainThread(() => {
-                    TimeElapsedLabel.Text = $"{(spent.Hours > 0 ? $"{spent.Hours.ToString("D2")}:" : "")}{spent.Minutes.ToString("D2")}:{spent.Seconds.ToString("D2")}";
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    TimeElapsedLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                 });
             }
             else
@@ -97,7 +98,7 @@ namespace Dash.Forms.Views.Pages
 
         protected override void OnAppearing()
         {
-            
+
         }
 
         private void _locationService_LocationChanged(object sender, Models.Run.LocationData e)
@@ -110,7 +111,9 @@ namespace Dash.Forms.Views.Pages
                     var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     var useMiles = true; // should be a setting later
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
-                    DistanceGoneSpan.Text = _totalDistance.ToString("N2");
+                    Device.BeginInvokeOnMainThread(() => {
+                        DistanceGoneSpan.Text = _totalDistance.ToString("N2");
+                    });
                 }
                 if (_justUnpaused == true)
                 {
