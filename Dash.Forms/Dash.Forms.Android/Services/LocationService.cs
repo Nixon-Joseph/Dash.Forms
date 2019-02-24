@@ -84,7 +84,7 @@ namespace Dash.Forms.Droid.Services
             // Enlist this instance of the service as a foreground service
             StartForeground(Constants.LOCATION_SERVICE_RUNNING_NOTIFICATION_ID, notification);
         }
-
+         
         private string BuildNotificationChannelId()
         {
             string channelId = string.Empty;

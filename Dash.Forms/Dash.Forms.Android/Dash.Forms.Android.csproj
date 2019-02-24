@@ -82,7 +82,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\AboutResources.txt" />
+    <None Include="Resources\AboutResources.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\tab_about.png" />
@@ -160,7 +160,7 @@
     <AndroidResource Include="Resources\drawable-xhdpi\ic_directions_run_black_18dp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable-xxddpi\ic_directions_run_black_18dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_directions_run_black_18dp.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_directions_run_black_18dp.png" />
