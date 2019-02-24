@@ -1,0 +1,4 @@
+﻿<resources>
+    <string name="app_name">Dash</string>
+    <string name="notification_text">You are running!</string>
+</resources>
