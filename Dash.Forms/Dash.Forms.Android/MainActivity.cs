@@ -1,8 +1,11 @@
 ﻿
 using Android.App;
 using Android.Content.PM;
+using Android.Locations;
 using Android.OS;
+using AutoMapper;
 using Dash.Forms.Droid.DependencyServices;
+using Dash.Forms.Models.Run;
 using System;
 
 namespace Dash.Forms.Droid
@@ -20,6 +23,11 @@ namespace Dash.Forms.Droid
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
+
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Location, LocationData>();
+            });
 
             base.OnCreate(savedInstanceState);
 

@@ -1,5 +1,6 @@
 ﻿using Android;
 using Android.Content.PM;
+using Android.Locations;
 using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Dash.Forms.DependencyInterfaces;
@@ -10,13 +11,13 @@ using Dash.Forms.Droid.Services;
 using Dash.Forms.Models.Run;
 using System;
 using Xamarin.Forms;
+using Xamarin.Forms.Maps;
 
 [assembly: Dependency(typeof(LocationService_Droid))]
 namespace Dash.Forms.Droid.DependencyServices
 {
     public class LocationService_Droid : ILocationService
     {
-        public event EventHandler<LocationData> LocationChanged;
         private static LocationBroadcastReceiver _receiver;
         private static LocationService _service;
 
@@ -29,9 +30,18 @@ namespace Dash.Forms.Droid.DependencyServices
             if (_receiver == null)
             {
                 _receiver = new LocationBroadcastReceiver();
-                _receiver.LocationChanged += (sender, args) => { LocationChanged?.Invoke(sender, AutoMapper.Mapper.Map<LocationData>(args.Location)); };
                 MainActivity._.RegisterReceiver(_receiver, new Android.Content.IntentFilter(Constants.Action.LOCATION_CHANGED));
             }
+        }
+
+        public void AddLocationChangedListener(Action<object, LocationData> listener)
+        {
+            _receiver.LocationChanged += (obj, e) => listener(obj, AutoMapper.Mapper.Map<LocationData>(e.Location));
+        }
+
+        public void RemoveLocationChangedListener(Action<object, LocationData> listener)
+        {
+            _receiver.LocationChanged -= (obj, e) => listener(obj, AutoMapper.Mapper.Map<LocationData>(e.Location));
         }
 
         public void Start()
@@ -62,6 +72,21 @@ namespace Dash.Forms.Droid.DependencyServices
                 ActivityCompat.RequestPermissions(MainActivity._, new string[] { Manifest.Permission.AccessFineLocation }, Constants.Permission.LOCATION_PERMISSION);
             }
             return false;
+        }
+
+        public double GetDistance(Position p1, Position p2)
+        {
+            var coords1 = new Location("")
+            {
+                Latitude = p1.Latitude,
+                Longitude = p1.Longitude
+            };
+            var coords2 = new Location("")
+            {
+                Latitude = p2.Latitude,
+                Longitude = p2.Longitude
+            };
+            return coords1.DistanceTo(coords2);
         }
     }
 }
