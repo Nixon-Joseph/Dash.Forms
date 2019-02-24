@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using Dash.Forms.Droid.DependencyServices;
 using System;
 
 namespace Dash.Forms.Droid
@@ -28,6 +29,9 @@ namespace Dash.Forms.Droid
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            var lService = new LocationService_Droid();
+            lService.CheckGPSPermission();
         }
 
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
