@@ -105,14 +105,13 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 var newPos = new Position(e.Latitude, e.Longitude);
-                if (_locations.Count() > 0 && _locations.Last()?.GetPosition() is Position lastPos)
+                if (_locations.Count() > 0 && _locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                 {
-                    var meters = _locationService.GetDistance(lastPos, newPos);
+                    var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     var useMiles = true; // should be a setting later
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
                     DistanceGoneSpan.Text = _totalDistance.ToString("N2");
                 }
-                _locations.Add(e);
                 if (_justUnpaused == true)
                 {
                     _justUnpaused = false;
@@ -121,6 +120,8 @@ namespace Dash.Forms.Views.Pages
                 RunMap.AddPosition(newPos);
                 RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromMiles(0.1)));
             }
+            e.IsTracked = _isTracking;
+            _locations.Add(e);
         }
 
         protected override bool OnBackButtonPressed()

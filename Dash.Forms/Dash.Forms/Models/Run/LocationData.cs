@@ -20,5 +20,6 @@ namespace Dash.Forms.Models.Run
         public bool HasAltitude { get; set; }
         public bool HasAccuracy { get; set; }
         public bool HasBearing { get; set; }
+        public bool IsTracked { get; set; }
     }
 }
