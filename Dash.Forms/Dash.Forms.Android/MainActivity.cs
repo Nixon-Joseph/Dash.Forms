@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using System;
 
 namespace Dash.Forms.Droid
 {
@@ -21,9 +22,17 @@ namespace Dash.Forms.Droid
 
             base.OnCreate(savedInstanceState);
 
+            AppDomain.CurrentDomain.UnhandledException += HandleExceptions;
+
             global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
+            global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+        }
+
+        private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
+        {
+            var thing = e.ExceptionObject;
         }
     }
 }
