@@ -67,11 +67,15 @@ namespace Dash.Forms.Views.Pages
             RunMap.HasScrollEnabled = !_isTracking;
         }
 
-        private void StopButton_Clicked(object sender, System.EventArgs e)
+        private async void StopButton_Clicked(object sender, System.EventArgs e)
         {
-            if (_hasStoppedService == false) // should always be true here I think.
+            if (await DisplayAlert("Cancel Run?", "Are you sure you want to end your run?", "Yes", "No"))
             {
-                StopLocationService();
+                if (_hasStoppedService == false) // should always be true here I think.
+                {
+                    StopLocationService();
+                    await Navigation.PopAsync();
+                }
             }
         }
 
@@ -110,8 +114,8 @@ namespace Dash.Forms.Views.Pages
                 var newPos = new Position(e.Latitude, e.Longitude);
                 if (_locations.Count() > 0 && _locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                 {
-                    var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     var useMiles = true; // should be a setting later
+                    var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
                     Device.BeginInvokeOnMainThread(() => {
                         DistanceGoneSpan.Text = _totalDistance.ToString("N2");
@@ -123,10 +127,23 @@ namespace Dash.Forms.Views.Pages
                     RunMap.AddPosition(newPos, false);
                 }
                 RunMap.AddPosition(newPos);
-                RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromMiles(0.1)));
+                RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
             }
             e.IsTracked = _isTracking;
             _locations.Add(e);
+        }
+
+        private double GetMaxDistance()
+        {
+            double minLat = 0, minLng = 0, maxLat = 0, maxLng = 0;
+            foreach (var position in RunMap.RouteCoordinates)
+            {
+                minLat = Math.Min(minLat, position.Latitude);
+                minLng = Math.Min(minLng, position.Longitude);
+                maxLat = Math.Max(maxLat, position.Latitude);
+                maxLng = Math.Max(maxLng, position.Longitude);
+            }
+            return Math.Max(0.1d, _locationService.GetDistance(minLat, minLng, maxLat, maxLng));
         }
 
         protected override bool OnBackButtonPressed()

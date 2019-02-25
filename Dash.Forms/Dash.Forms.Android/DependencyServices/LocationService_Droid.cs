@@ -76,15 +76,20 @@ namespace Dash.Forms.Droid.DependencyServices
 
         public double GetDistance(Position p1, Position p2)
         {
+            return GetDistance(p1.Latitude, p1.Longitude, p2.Latitude, p2.Longitude);
+        }
+
+        public double GetDistance(double lat1, double long1, double lat2, double long2)
+        {
             var coords1 = new Location("")
             {
-                Latitude = p1.Latitude,
-                Longitude = p1.Longitude
+                Latitude = lat1,
+                Longitude = long1
             };
             var coords2 = new Location("")
             {
-                Latitude = p2.Latitude,
-                Longitude = p2.Longitude
+                Latitude = lat2,
+                Longitude = long2
             };
             return coords1.DistanceTo(coords2);
         }
