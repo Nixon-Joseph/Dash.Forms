@@ -26,6 +26,8 @@ namespace Dash.Forms.Views.Pages
 
         public RunPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent();
             _locationService = DependencyService.Get<ILocationService>();
             _locationService.AddLocationChangedListener(_locationService_LocationChanged);

@@ -24,16 +24,23 @@ namespace Dash.Forms.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-            Mapper.Initialize(cfg =>
+            try
             {
-                cfg.CreateMap<Location, LocationData>();
-            });
+                Mapper.Initialize(cfg =>
+                {
+                    cfg.CreateMap<Location, LocationData>();
+                });
+            }
+            catch (Exception ex)
+            {
+                var thing = ex.Message;
+            }
 
             base.OnCreate(savedInstanceState);
 
             AppDomain.CurrentDomain.UnhandledException += HandleExceptions;
 
-            global::Xamarin.Forms.Forms.SetFlags("Shell_Experimental", "Visual_Experimental", "CollectionView_Experimental", "FastRenderers_Experimental");
+            global::Xamarin.Forms.Forms.SetFlags(/*"Shell_Experimental", *//*"Visual_Experimental", */"CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());

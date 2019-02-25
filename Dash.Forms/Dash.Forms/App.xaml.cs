@@ -12,8 +12,7 @@ namespace Dash.Forms
         {
             InitializeComponent();
 
-
-            MainPage = new AppShell();
+            MainPage = new AppNav();
         }
 
         protected override void OnStart()
