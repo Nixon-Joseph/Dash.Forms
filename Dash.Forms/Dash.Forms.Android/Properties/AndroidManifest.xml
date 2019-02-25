@@ -4,7 +4,7 @@
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 	<uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
-	<application android:label="Dash.Forms.Android">
+	<application android:label="Dash.Forms.Android" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round">
 		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyC9Z1HFBny77YSWumb76dc8VuVmQ-srJEc" />
 	</application>
 </manifest>

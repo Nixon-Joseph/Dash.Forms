@@ -1,5 +1,4 @@
-﻿
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
 using Android.Locations;
 using Android.OS;
@@ -11,7 +10,7 @@ using System;
 
 namespace Dash.Forms.Droid
 {
-    [Activity(Label = "Dash.Forms", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(Label = "Dash.Forms", Theme = "@style/MainTheme.Launcher", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         internal static MainActivity Instance { get; private set; }
@@ -19,6 +18,8 @@ namespace Dash.Forms.Droid
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
+            SetTheme(Resource.Style.MainTheme);
+
             Instance = Instance ?? this;
 
             TabLayoutResource = Resource.Layout.Tabbar;
