@@ -8,7 +8,10 @@ namespace Dash.Forms.DependencyInterfaces
 {
     public interface IMessageService
     {
-        void ShowToast(string text);
-        void ShowSnackbar(string text);
+        void ShortToast(string message);
+        void LongToast(string message);
+        void ShortSnackbar(string message, params KeyValuePair<string, Action>[] snackbarActions);
+        void LongSnackbar(string message, params KeyValuePair<string, Action>[] snackbarActions);
+        void IndefiniteSnackbar(string message, params KeyValuePair<string, Action>[] snackbarActions);
     }
 }

@@ -23,7 +23,7 @@ namespace Dash.Forms
         {
             if ((Detail as NavigationPage).CurrentPage.GetType() == typeof(HomePage) && _toastOpen == false)
             {
-                //DependencyService.Get<IMessageService>().ShowToast("DON'T DO THAT AGAIN!");
+                DependencyService.Get<IMessageService>().ShortToast("Press the back button once more to exit.");
                 _toastOpen = true;
                 Timer timer = new Timer((scope) => { _toastOpen = false; }, this, 3000, Timeout.Infinite);
                 return true;

@@ -3,6 +3,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Locations;
 using Android.OS;
+using Android.Views;
 using AutoMapper;
 using Dash.Forms.Droid.DependencyServices;
 using Dash.Forms.Models.Run;
@@ -13,13 +14,12 @@ namespace Dash.Forms.Droid
     [Activity(Label = "Dash.Forms", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
-        public static Android.Content.Context _Context { get; private set; }
-        public static Activity _ { get; private set; }
+        internal static MainActivity Instance { get; private set; }
+        internal static View ContentView { get { return Instance.FindViewById(Android.Resource.Id.Content); } }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            _Context = BaseContext;
-            _ = this;
+            Instance = Instance ?? this;
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;

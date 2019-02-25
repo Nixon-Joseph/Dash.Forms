@@ -30,7 +30,7 @@ namespace Dash.Forms.Droid.DependencyServices
             if (_receiver == null)
             {
                 _receiver = new LocationBroadcastReceiver();
-                MainActivity._.RegisterReceiver(_receiver, new Android.Content.IntentFilter(Constants.Action.LOCATION_CHANGED));
+                MainActivity.Instance.RegisterReceiver(_receiver, new Android.Content.IntentFilter(Constants.Action.LOCATION_CHANGED));
             }
         }
 
@@ -46,30 +46,30 @@ namespace Dash.Forms.Droid.DependencyServices
 
         public void Start()
         {
-            MainActivity._Context.StartForegroundServiceCompat<LocationService>(Constants.Action.START_SERVICE);
+            MainActivity.Instance.BaseContext.StartForegroundServiceCompat<LocationService>(Constants.Action.START_SERVICE);
         }
 
         public void Stop()
         {
-            MainActivity._Context.StartForegroundServiceCompat<LocationService>(Constants.Action.STOP_SERVICE);
+            MainActivity.Instance.BaseContext.StartForegroundServiceCompat<LocationService>(Constants.Action.STOP_SERVICE);
         }
 
         public bool CheckGPSPermission()
         {
-            if (Android.Support.V4.Content.ContextCompat.CheckSelfPermission(MainActivity._, Manifest.Permission.AccessFineLocation) == (int)Permission.Granted)
+            if (Android.Support.V4.Content.ContextCompat.CheckSelfPermission(MainActivity.Instance, Manifest.Permission.AccessFineLocation) == (int)Permission.Granted)
             {
                 return true;
             }
-            else if (ActivityCompat.ShouldShowRequestPermissionRationale(MainActivity._, Manifest.Permission.AccessFineLocation))
+            else if (ActivityCompat.ShouldShowRequestPermissionRationale(MainActivity.Instance, Manifest.Permission.AccessFineLocation))
             {
                 //Explain to the user why we need to read the contacts
-                Snackbar.Make(MainActivity._.FindViewById(Android.Resource.Id.Content), "Location access is required to track your runs.", Snackbar.LengthIndefinite)
-                        .SetAction("OK", v => ActivityCompat.RequestPermissions(MainActivity._, new string[] { Manifest.Permission.AccessFineLocation }, Constants.Permission.LOCATION_PERMISSION))
+                Snackbar.Make(MainActivity.Instance.FindViewById(Android.Resource.Id.Content), "Location access is required to track your runs.", Snackbar.LengthIndefinite)
+                        .SetAction("OK", v => ActivityCompat.RequestPermissions(MainActivity.Instance, new string[] { Manifest.Permission.AccessFineLocation }, Constants.Permission.LOCATION_PERMISSION))
                         .Show();
             }
             else
             {
-                ActivityCompat.RequestPermissions(MainActivity._, new string[] { Manifest.Permission.AccessFineLocation }, Constants.Permission.LOCATION_PERMISSION);
+                ActivityCompat.RequestPermissions(MainActivity.Instance, new string[] { Manifest.Permission.AccessFineLocation }, Constants.Permission.LOCATION_PERMISSION);
             }
             return false;
         }

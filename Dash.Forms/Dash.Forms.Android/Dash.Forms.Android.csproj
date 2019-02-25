@@ -68,6 +68,8 @@
     <Compile Include="BroadcastReceivers\LocationBroadcastReceiver.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="DependencyServices\LocationService_Droid.cs" />
+    <Compile Include="DependencyServices\MessageService_Droid.cs" />
+    <Compile Include="DependencyServices\TextToSpeach_Droid.cs" />
     <Compile Include="Extensions\ContextExtensions.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
