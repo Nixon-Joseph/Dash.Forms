@@ -1,12 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Dash.Forms.Views.Pages.LogsPage">
+             x:Class="Dash.Forms.Views.Pages.LogsPage"
+             BackgroundColor="Gray">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ListView x:Name="LogListView" IsGroupingEnabled="True" HasUnevenRows="True" SeparatorVisibility="None">
+            <ListView.Header>
+                <StackLayout HorizontalOptions="FillAndExpand">
+                    <Label TextColor="White" Text="Overview" HorizontalOptions="Center" />
+                    <Label TextColor="White" Text="Poach from Couch to 5k :)" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.GroupHeaderTemplate>
+                <DataTemplate>
+                    <TextCell Text="{ Binding Title }" TextColor="White" />
+                </DataTemplate>
+            </ListView.GroupHeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame HasShadow="True" CornerRadius="10" Margin="10, 5" BackgroundColor="White">
+                            <StackLayout HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                    <Label Text="Day 1" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" />
+                                    <Label Text="2 run" HorizontalOptions="End" />
+                                </StackLayout>
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label TextColor="Black" Text="13/Feb/2019" Grid.Column="0" />
+                                    <Label TextColor="Black" Text="2.77 mi" Grid.Column="1" />
+                                    <Label TextColor="Black" Grid.Column="2">
+                                        <Label.Text>33'00"</Label.Text>
+                                    </Label>
+                                    <Label TextColor="Black" Text="" Grid.Column="3" />
+                                    <Label TextColor="Black" Text=">" Grid.Column="4" />
+                                </Grid>
+                                <Grid HorizontalOptions="FillAndExpand">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label TextColor="Black" Text="13/Feb/2019" Grid.Column="0" />
+                                    <Label TextColor="Black" Text="2.77 mi" Grid.Column="1" />
+                                    <Label TextColor="Black" Grid.Column="2">
+                                        <Label.Text>33'00"</Label.Text>
+                                    </Label>
+                                    <Label TextColor="Black" Text="" Grid.Column="3" />
+                                    <Label TextColor="Black" Text=">" Grid.Column="4" />
+                                </Grid>
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </ContentPage.Content>
 </ContentPage>
