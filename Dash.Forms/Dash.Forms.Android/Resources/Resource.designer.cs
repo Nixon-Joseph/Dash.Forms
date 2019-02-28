@@ -3353,44 +3353,44 @@ namespace Dash.Forms.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0a0058
-			public const int abc_background_cache_hint_selector_material_dark = 2131361880;
-			
-			// aapt resource value: 0x7f0a0059
-			public const int abc_background_cache_hint_selector_material_light = 2131361881;
-			
 			// aapt resource value: 0x7f0a005a
-			public const int abc_btn_colored_borderless_text_material = 2131361882;
+			public const int abc_background_cache_hint_selector_material_dark = 2131361882;
 			
 			// aapt resource value: 0x7f0a005b
-			public const int abc_btn_colored_text_material = 2131361883;
+			public const int abc_background_cache_hint_selector_material_light = 2131361883;
 			
 			// aapt resource value: 0x7f0a005c
-			public const int abc_color_highlight_material = 2131361884;
+			public const int abc_btn_colored_borderless_text_material = 2131361884;
 			
 			// aapt resource value: 0x7f0a005d
-			public const int abc_hint_foreground_material_dark = 2131361885;
+			public const int abc_btn_colored_text_material = 2131361885;
 			
 			// aapt resource value: 0x7f0a005e
-			public const int abc_hint_foreground_material_light = 2131361886;
+			public const int abc_color_highlight_material = 2131361886;
+			
+			// aapt resource value: 0x7f0a005f
+			public const int abc_hint_foreground_material_dark = 2131361887;
+			
+			// aapt resource value: 0x7f0a0060
+			public const int abc_hint_foreground_material_light = 2131361888;
 			
 			// aapt resource value: 0x7f0a000c
 			public const int abc_input_method_navigation_guard = 2131361804;
 			
-			// aapt resource value: 0x7f0a005f
-			public const int abc_primary_text_disable_only_material_dark = 2131361887;
-			
-			// aapt resource value: 0x7f0a0060
-			public const int abc_primary_text_disable_only_material_light = 2131361888;
-			
 			// aapt resource value: 0x7f0a0061
-			public const int abc_primary_text_material_dark = 2131361889;
+			public const int abc_primary_text_disable_only_material_dark = 2131361889;
 			
 			// aapt resource value: 0x7f0a0062
-			public const int abc_primary_text_material_light = 2131361890;
+			public const int abc_primary_text_disable_only_material_light = 2131361890;
 			
 			// aapt resource value: 0x7f0a0063
-			public const int abc_search_url_text = 2131361891;
+			public const int abc_primary_text_material_dark = 2131361891;
+			
+			// aapt resource value: 0x7f0a0064
+			public const int abc_primary_text_material_light = 2131361892;
+			
+			// aapt resource value: 0x7f0a0065
+			public const int abc_search_url_text = 2131361893;
 			
 			// aapt resource value: 0x7f0a000d
 			public const int abc_search_url_text_normal = 2131361805;
@@ -3401,29 +3401,29 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a000f
 			public const int abc_search_url_text_selected = 2131361807;
 			
-			// aapt resource value: 0x7f0a0064
-			public const int abc_secondary_text_material_dark = 2131361892;
-			
-			// aapt resource value: 0x7f0a0065
-			public const int abc_secondary_text_material_light = 2131361893;
-			
 			// aapt resource value: 0x7f0a0066
-			public const int abc_tint_btn_checkable = 2131361894;
+			public const int abc_secondary_text_material_dark = 2131361894;
 			
 			// aapt resource value: 0x7f0a0067
-			public const int abc_tint_default = 2131361895;
+			public const int abc_secondary_text_material_light = 2131361895;
 			
 			// aapt resource value: 0x7f0a0068
-			public const int abc_tint_edittext = 2131361896;
+			public const int abc_tint_btn_checkable = 2131361896;
 			
 			// aapt resource value: 0x7f0a0069
-			public const int abc_tint_seek_thumb = 2131361897;
+			public const int abc_tint_default = 2131361897;
 			
 			// aapt resource value: 0x7f0a006a
-			public const int abc_tint_spinner = 2131361898;
+			public const int abc_tint_edittext = 2131361898;
 			
 			// aapt resource value: 0x7f0a006b
-			public const int abc_tint_switch_track = 2131361899;
+			public const int abc_tint_seek_thumb = 2131361899;
+			
+			// aapt resource value: 0x7f0a006c
+			public const int abc_tint_spinner = 2131361900;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int abc_tint_switch_track = 2131361901;
 			
 			// aapt resource value: 0x7f0a0010
 			public const int accent_material_dark = 2131361808;
@@ -3488,8 +3488,8 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a0055
 			public const int colorPrimaryDark = 2131361877;
 			
-			// aapt resource value: 0x7f0a006c
-			public const int common_google_signin_btn_text_dark = 2131361900;
+			// aapt resource value: 0x7f0a006e
+			public const int common_google_signin_btn_text_dark = 2131361902;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int common_google_signin_btn_text_dark_default = 2131361792;
@@ -3503,8 +3503,8 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a0003
 			public const int common_google_signin_btn_text_dark_pressed = 2131361795;
 			
-			// aapt resource value: 0x7f0a006d
-			public const int common_google_signin_btn_text_light = 2131361901;
+			// aapt resource value: 0x7f0a006f
+			public const int common_google_signin_btn_text_light = 2131361903;
 			
 			// aapt resource value: 0x7f0a0004
 			public const int common_google_signin_btn_text_light_default = 2131361796;
@@ -3518,14 +3518,14 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a0007
 			public const int common_google_signin_btn_text_light_pressed = 2131361799;
 			
-			// aapt resource value: 0x7f0a006e
-			public const int common_google_signin_btn_tint = 2131361902;
+			// aapt resource value: 0x7f0a0070
+			public const int common_google_signin_btn_tint = 2131361904;
 			
 			// aapt resource value: 0x7f0a0048
 			public const int design_bottom_navigation_shadow_color = 2131361864;
 			
-			// aapt resource value: 0x7f0a006f
-			public const int design_error = 2131361903;
+			// aapt resource value: 0x7f0a0071
+			public const int design_error = 2131361905;
 			
 			// aapt resource value: 0x7f0a0049
 			public const int design_fab_shadow_end_color = 2131361865;
@@ -3551,8 +3551,8 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a0050
 			public const int design_snackbar_background_color = 2131361872;
 			
-			// aapt resource value: 0x7f0a0070
-			public const int design_tint_password_toggle = 2131361904;
+			// aapt resource value: 0x7f0a0072
+			public const int design_tint_password_toggle = 2131361906;
 			
 			// aapt resource value: 0x7f0a001e
 			public const int dim_foreground_disabled_material_dark = 2131361822;
@@ -3674,17 +3674,20 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0a0040
 			public const int secondary_text_disabled_material_light = 2131361856;
 			
+			// aapt resource value: 0x7f0a0059
+			public const int splash_background = 2131361881;
+			
 			// aapt resource value: 0x7f0a0041
 			public const int switch_thumb_disabled_material_dark = 2131361857;
 			
 			// aapt resource value: 0x7f0a0042
 			public const int switch_thumb_disabled_material_light = 2131361858;
 			
-			// aapt resource value: 0x7f0a0071
-			public const int switch_thumb_material_dark = 2131361905;
+			// aapt resource value: 0x7f0a0073
+			public const int switch_thumb_material_dark = 2131361907;
 			
-			// aapt resource value: 0x7f0a0072
-			public const int switch_thumb_material_light = 2131361906;
+			// aapt resource value: 0x7f0a0074
+			public const int switch_thumb_material_light = 2131361908;
 			
 			// aapt resource value: 0x7f0a0043
 			public const int switch_thumb_normal_material_dark = 2131361859;
@@ -3697,6 +3700,9 @@ namespace Dash.Forms.Droid
 			
 			// aapt resource value: 0x7f0a0046
 			public const int tooltip_background_light = 2131361862;
+			
+			// aapt resource value: 0x7f0a0058
+			public const int window_background = 2131361880;
 			
 			static Color()
 			{
@@ -4468,26 +4474,26 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02014a
-			public const int avd_hide_password_1 = 2130837834;
-			
 			// aapt resource value: 0x7f02014b
-			public const int avd_hide_password_2 = 2130837835;
+			public const int avd_hide_password_1 = 2130837835;
 			
 			// aapt resource value: 0x7f02014c
-			public const int avd_hide_password_3 = 2130837836;
+			public const int avd_hide_password_2 = 2130837836;
+			
+			// aapt resource value: 0x7f02014d
+			public const int avd_hide_password_3 = 2130837837;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02014d
-			public const int avd_show_password_1 = 2130837837;
-			
 			// aapt resource value: 0x7f02014e
-			public const int avd_show_password_2 = 2130837838;
+			public const int avd_show_password_1 = 2130837838;
 			
 			// aapt resource value: 0x7f02014f
-			public const int avd_show_password_3 = 2130837839;
+			public const int avd_show_password_2 = 2130837839;
+			
+			// aapt resource value: 0x7f020150
+			public const int avd_show_password_3 = 2130837840;
 			
 			// aapt resource value: 0x7f020055
 			public const int common_full_open_on_phone = 2130837589;
@@ -5197,11 +5203,11 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f020140
 			public const int notification_icon_background = 2130837824;
 			
-			// aapt resource value: 0x7f020148
-			public const int notification_template_icon_bg = 2130837832;
-			
 			// aapt resource value: 0x7f020149
-			public const int notification_template_icon_low_bg = 2130837833;
+			public const int notification_template_icon_bg = 2130837833;
+			
+			// aapt resource value: 0x7f02014a
+			public const int notification_template_icon_low_bg = 2130837834;
 			
 			// aapt resource value: 0x7f020141
 			public const int notification_tile_bg = 2130837825;
@@ -5210,19 +5216,22 @@ namespace Dash.Forms.Droid
 			public const int notify_panel_notification_icon_bg = 2130837826;
 			
 			// aapt resource value: 0x7f020143
-			public const int tab_about = 2130837827;
+			public const int splash_screen = 2130837827;
 			
 			// aapt resource value: 0x7f020144
-			public const int tab_feed = 2130837828;
+			public const int tab_about = 2130837828;
 			
 			// aapt resource value: 0x7f020145
-			public const int tooltip_frame_dark = 2130837829;
+			public const int tab_feed = 2130837829;
 			
 			// aapt resource value: 0x7f020146
-			public const int tooltip_frame_light = 2130837830;
+			public const int tooltip_frame_dark = 2130837830;
 			
 			// aapt resource value: 0x7f020147
-			public const int xamarin_logo = 2130837831;
+			public const int tooltip_frame_light = 2130837831;
+			
+			// aapt resource value: 0x7f020148
+			public const int xamarin_logo = 2130837832;
 			
 			static Drawable()
 			{
@@ -6235,10 +6244,7 @@ namespace Dash.Forms.Droid
 			public const int icon = 2130903042;
 			
 			// aapt resource value: 0x7f030003
-			public const int icon_round = 2130903043;
-			
-			// aapt resource value: 0x7f030004
-			public const int launcher_foreground = 2130903044;
+			public const int launcher_foreground = 2130903043;
 			
 			static Mipmap()
 			{
@@ -7118,6 +7124,12 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0d0047
 			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131558471;
 			
+			// aapt resource value: 0x7f0d0194
+			public const int SplashTheme = 2131558804;
+			
+			// aapt resource value: 0x7f0d0193
+			public const int SplashTheme_Base = 2131558803;
+			
 			// aapt resource value: 0x7f0d00d6
 			public const int TextAppearance_AppCompat = 2131558614;
 			
@@ -7423,6 +7435,9 @@ namespace Dash.Forms.Droid
 			
 			// aapt resource value: 0x7f0d0006
 			public const int Theme_MediaRouter_LightControlPanel = 2131558406;
+			
+			// aapt resource value: 0x7f0d0195
+			public const int Theme_MyTheme = 2131558805;
 			
 			// aapt resource value: 0x7f0d0116
 			public const int ThemeOverlay_AppCompat = 2131558678;
