@@ -21,6 +21,7 @@
                 <DataTemplate>
                     <ViewCell>
                         <material:MaterialCard Elevation="2" HorizontalOptions="FillAndExpand" IsClickable="True">
+                            <StackLayout HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="Day 1" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" />
                                     <Label Text="2 run" HorizontalOptions="End" />
@@ -63,6 +64,7 @@
                                     <Label TextColor="Black" Text="" Grid.Column="3" />
                                     <Label TextColor="Black" Text=">" Grid.Column="4" />
                                 </Grid>
+                            </StackLayout>
                         </material:MaterialCard>
                     </ViewCell>
                 </DataTemplate>
