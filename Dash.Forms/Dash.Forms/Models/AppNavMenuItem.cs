@@ -15,7 +15,7 @@ namespace Dash.Forms.Models
         public Type TargetType { get; set; }
     }
 
-    public class AppNavMenuItem<T> : AppNavMenuItem, IAppNavMenuItem where T : ContentPage
+    public class AppNavMenuItem<T> : AppNavMenuItem, IAppNavMenuItem where T : Page
     {
         public AppNavMenuItem()
         {
