@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="Dash.Forms.Views.Pages.LogsPage"
-             BackgroundColor="Gray">
+             BackgroundColor="#eeefef">
     <ContentPage.Content>
-        <ListView x:Name="LogListView" IsGroupingEnabled="True" HasUnevenRows="True" SeparatorVisibility="None">
+        <ListView x:Name="LogListView" IsGroupingEnabled="True" HasUnevenRows="True" SeparatorVisibility="None" Margin="15">
             <ListView.Header>
                 <StackLayout HorizontalOptions="FillAndExpand">
                     <Label TextColor="White" Text="Overview" HorizontalOptions="Center" />
@@ -19,8 +20,7 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <Frame HasShadow="True" CornerRadius="10" Margin="10, 5" BackgroundColor="White">
-                            <StackLayout HorizontalOptions="FillAndExpand">
+                        <material:MaterialCard Elevation="2" HorizontalOptions="FillAndExpand" IsClickable="True">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
                                     <Label Text="Day 1" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" />
                                     <Label Text="2 run" HorizontalOptions="End" />
@@ -63,8 +63,7 @@
                                     <Label TextColor="Black" Text="" Grid.Column="3" />
                                     <Label TextColor="Black" Text=">" Grid.Column="4" />
                                 </Grid>
-                            </StackLayout>
-                        </Frame>
+                        </material:MaterialCard>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

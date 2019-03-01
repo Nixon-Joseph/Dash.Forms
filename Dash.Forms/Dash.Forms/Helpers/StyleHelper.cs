@@ -17,5 +17,6 @@ namespace Dash.Forms.Helpers
         public static readonly string Accent = "4484ff";
         public static readonly string Black = "040404";
         public static readonly string White = "FFFFFF";
+        public static readonly string OffWhite = "EBF2FA";
     }
 }

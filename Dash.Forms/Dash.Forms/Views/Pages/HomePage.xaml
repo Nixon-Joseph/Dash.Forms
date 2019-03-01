@@ -2,13 +2,92 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
-             x:Class="Dash.Forms.Views.Pages.HomePage">
+             x:Class="Dash.Forms.Views.Pages.HomePage"
+             BackgroundColor="#eeefef">
     <ContentPage.Content>
-        <StackLayout Padding="30">
-            <material:MaterialCard CornerRadius="2" Elevation="1" HeightRequest="80" HorizontalOptions="FillAndExpand">
-                <material:MaterialButton BackgroundColor="#EAEAEA" HorizontalOptions="Center" Text="Elevated Button" TextColor="Black" VerticalOptions="Center" />
+        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout Padding="15,30">
+                <StackLayout x:Name="Week1">
+                    <material:MaterialLabel Text="Week 1" TypeScale="Subtitle1" />
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 1" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="1 run" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="25/Jan/2018" TypeScale="Body2" HorizontalOptions="StartAndExpand" />
+                                <material:MaterialIcon WidthRequest="30" HorizontalOptions="End" Source="ic_chevron_right_teal_400_18dp" Margin="0,0,-10,0"  />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 2" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="2 runs" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="1/Feb/2018" TypeScale="Body2" HorizontalOptions="StartAndExpand" />
+                                <material:MaterialIcon WidthRequest="30" HorizontalOptions="End" Source="ic_chevron_right_teal_400_18dp" Margin="0,0,-10,0"  />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="3/Feb/2018" TypeScale="Body2" HorizontalOptions="StartAndExpand" />
+                                <material:MaterialIcon WidthRequest="30" HorizontalOptions="End" Source="ic_chevron_right_teal_400_18dp" Margin="0,0,-10,0"  />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 3" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="Not Started" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialButton BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                </StackLayout>
+                <StackLayout x:Name="Week2">
+                    <material:MaterialLabel Text="Week 2" TypeScale="Subtitle1" />
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 1" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="Not Started" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialButton BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 2" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="Not Started" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialButton BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                        <StackLayout HorizontalOptions="FillAndExpand">
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialLabel Text="Day 3" TypeScale="Body1" HorizontalOptions="Start" />
+                                <material:MaterialLabel Text="Not Started" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
+                            </StackLayout>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                                <material:MaterialButton BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
+                            </StackLayout>
+                        </StackLayout>
+                    </material:MaterialCard>
+                </StackLayout>
 
-            </material:MaterialCard>
-        </StackLayout>
+            </StackLayout>
+
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
