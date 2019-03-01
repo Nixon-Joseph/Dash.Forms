@@ -44,6 +44,7 @@ namespace Dash.Forms.Droid
             global::Xamarin.Forms.Forms.SetFlags(/*"Shell_Experimental", *//*"Visual_Experimental", */"CollectionView_Experimental", "FastRenderers_Experimental");
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            XF.Material.Droid.Material.Init(this, savedInstanceState);
             LoadApplication(new App());
 
             var lService = new LocationService_Droid();
