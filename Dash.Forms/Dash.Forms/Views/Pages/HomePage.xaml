@@ -9,7 +9,7 @@
             <StackLayout Padding="15,30">
                 <StackLayout x:Name="Week1">
                     <material:MaterialLabel Text="Week 1" TypeScale="Subtitle1" />
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 1" TypeScale="Body1" HorizontalOptions="Start" />
@@ -21,7 +21,7 @@
                             </StackLayout>
                         </StackLayout>
                     </material:MaterialCard>
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 2" TypeScale="Body1" HorizontalOptions="Start" />
@@ -37,7 +37,7 @@
                             </StackLayout>
                         </StackLayout>
                     </material:MaterialCard>
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 3" TypeScale="Body1" HorizontalOptions="Start" />
@@ -51,7 +51,7 @@
                 </StackLayout>
                 <StackLayout x:Name="Week2">
                     <material:MaterialLabel Text="Week 2" TypeScale="Subtitle1" />
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 1" TypeScale="Body1" HorizontalOptions="Start" />
@@ -62,7 +62,7 @@
                             </StackLayout>
                         </StackLayout>
                     </material:MaterialCard>
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 2" TypeScale="Body1" HorizontalOptions="Start" />
@@ -73,7 +73,7 @@
                             </StackLayout>
                         </StackLayout>
                     </material:MaterialCard>
-                    <material:MaterialCard CornerRadius="2" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
+                    <material:MaterialCard CornerRadius="8" Elevation="2" HorizontalOptions="FillAndExpand" Margin="0,0,0,10">
                         <StackLayout HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
                                 <material:MaterialLabel Text="Day 3" TypeScale="Body1" HorizontalOptions="Start" />
