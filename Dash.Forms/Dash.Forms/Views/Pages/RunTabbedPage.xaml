@@ -24,12 +24,12 @@
                     </StackLayout>
                 </Grid>
             </material:MaterialCard>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="0" Padding="0">
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
                 <!--<Button Text="Start" Padding="20" CornerRadius="0" BackgroundColor="#05668D" TextColor="White" HorizontalOptions="FillAndExpand" Margin="0" />
                 <Button Text="Cancel" Padding="20" CornerRadius="0" BackgroundColor="#EBF2FA" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0" />-->
                 
-                <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Flat" HeightRequest="60" />
-                <material:MaterialButton HorizontalOptions="FillAndExpand" BorderColor="#05668D" BorderWidth="2" Text="Cancel" TextColor="#05668D" VerticalOptions="Center"  CornerRadius="30" ButtonType="Outlined" HeightRequest="60" />
+                <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" />
+                <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" BorderColor="#05668D" BorderWidth="2" Text="Cancel" TextColor="#05668D" VerticalOptions="Center"  CornerRadius="30" ButtonType="Elevated" HeightRequest="60" />
             </StackLayout>
         </StackLayout>
     </ContentPage>
