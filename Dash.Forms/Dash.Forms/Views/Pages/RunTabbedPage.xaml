@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+            xmlns:controls="clr-namespace:Dash.Forms.Controls"
             x:Class="Dash.Forms.Views.Pages.RunTabbedPage">
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Map">
@@ -10,7 +11,8 @@
                 <RowDefinition Height="100*" />
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <Image Source="map.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />
+            <controls:CustomMap HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="RunMap" IsShowingUser="true" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HasZoomEnabled="False" />
+            <!--<Image Source="map.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />-->
             <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="End">
                 <material:MaterialCard CornerRadius="4" Elevation="8" HorizontalOptions="FillAndExpand" Margin="15">
                     <Grid RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
