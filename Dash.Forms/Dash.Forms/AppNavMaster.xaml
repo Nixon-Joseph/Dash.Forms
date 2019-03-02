@@ -1,34 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="Dash.Forms.AppNavMaster"
              Title="Master">
-    <StackLayout>
+    <StackLayout Spacing="0">
         <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
               ItemsSource="{ Binding MenuItems }">
             <ListView.Header>
-                <Grid BackgroundColor="#8cc34b">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#8cc34b" Padding="15">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50" />
                     </Grid.RowDefinitions>
-                    <Label Grid.Column="1" Grid.Row="2" Text="Dash" Style="{ DynamicResource SubtitleStyle }"/>
+                    <Frame Grid.Row="0" Grid.Column="0" BackgroundColor="#689f3a" CornerRadius="25" HasShadow="False" Padding="10" Margin="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <Image Source="nav_header_icon.png" WidthRequest="25" HeightRequest="25" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+                    <material:MaterialLabel Text="Dash Fitness" TypeScale="H6" HorizontalOptions="Start" Grid.Row="0" Grid.Column="1" HeightRequest="60" VerticalTextAlignment="Center" TextColor="#ffffff" Margin="15,0" />
                 </Grid>
             </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="15,10" HorizontalOptions="FillAndExpand">
-                            <Label VerticalOptions="FillAndExpand" VerticalTextAlignment="Center" Text="{Binding Title}" FontSize="24"/>
+                        <StackLayout Padding="25,10" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Image Source="ic_directions_run_black_18dp.png" />
+                            <material:MaterialLabel VerticalTextAlignment="Center" Text="{Binding Title}" TypeScale="Body1" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
