@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:Dash.Forms.Controls"
+             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             x:Class="Dash.Forms.Views.RunMapView">
+    <ContentView.Content>
+        <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <controls:CustomMap HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="RunMap" IsShowingUser="true" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HasZoomEnabled="False" />
+            <!--<Image Source="map.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />-->
+            <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="End">
+                <material:MaterialCard CornerRadius="4" Elevation="8" HorizontalOptions="FillAndExpand" Margin="15">
+                    <Grid RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="49*" />
+                            <ColumnDefinition Width="1" />
+                            <ColumnDefinition Width="49*" />
+                        </Grid.ColumnDefinitions>
+                        <material:MaterialLabel Text="Time" TypeScale="Subtitle1" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" />
+                        <material:MaterialLabel Text="Distance" TypeScale="Subtitle1" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" />
+                        <BoxView WidthRequest="1" BackgroundColor="#EBF2FA" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="0" />
+                        <material:MaterialLabel Text="0:00" x:Name="TimeElapsedLabel" TypeScale="H4" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center" Margin="0,-10,0,0" />
+                        <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="1" HorizontalOptions="Center">
+                            <material:MaterialLabel Text="0.0" x:Name="DistanceGoneLabel" TypeScale="H4" Margin="0,-10,0,0" HorizontalTextAlignment="End" />
+                            <material:MaterialLabel Text="miles" TypeScale="Subtitle2" HorizontalOptions="Start" Margin="0,8,0,0" />
+                        </StackLayout>
+                    </Grid>
+                </material:MaterialCard>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
+                    <!--<Button Text="Start" Padding="20" CornerRadius="0" BackgroundColor="#05668D" TextColor="White" HorizontalOptions="FillAndExpand" Margin="0" />
+                    <Button Text="Cancel" Padding="20" CornerRadius="0" BackgroundColor="#EBF2FA" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0" />-->
+
+                    <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                    <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" BorderColor="#05668D" BorderWidth="2" Text="Cancel" TextColor="#05668D" VerticalOptions="Center"  CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

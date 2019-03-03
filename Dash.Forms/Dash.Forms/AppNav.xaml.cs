@@ -17,6 +17,16 @@ namespace Dash.Forms
         {
             InitializeComponent();
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
+            (Detail as NavigationPage).Popped += AppNav_Changed;
+            (Detail as NavigationPage).Pushed += AppNav_Changed;
+        }
+
+        private void AppNav_Changed(object sender, NavigationEventArgs e)
+        {
+            if (sender is NavigationPage navPage)
+            {
+                IsGestureEnabled = IsRunPage(navPage.CurrentPage.GetType()) == false;
+            }
         }
 
         protected override bool OnBackButtonPressed()
@@ -32,6 +42,11 @@ namespace Dash.Forms
             {
                 return base.OnBackButtonPressed();
             }
+        }
+
+        private bool IsRunPage(Type pageType)
+        {
+            return pageType == typeof(RunPage) || pageType == typeof(RunTabbedPage);
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

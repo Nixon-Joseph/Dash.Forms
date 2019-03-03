@@ -30,7 +30,8 @@ namespace Dash.Forms
                 MenuItems = new ObservableCollection<IAppNavMenuItem>(new IAppNavMenuItem[]
                 {
                     new AppNavMenuItem<HomePage> { Title = "Home", Icon = "menu_home.png" },
-                    new AppNavMenuItem<RunTabbedPage> { Title = "Free Run", Icon = "menu_run.png" },
+                    //new AppNavMenuItem<RunTabbedPage> { Title = "Free Run", Icon = "menu_run.png" },
+                    new AppNavMenuItem<RunPage> { Title = "Free Run", Icon = "menu_run.png" },
                     new AppNavMenuItem<LogsPage> { Title = "Logs", Icon = "menu_logs.png" },
                     new AppNavMenuItem<MetricsPage> { Title = "Metrics", Icon = "menu_metrics.png" },
                     new AppNavMenuItem<SettingsPage> { Title = "Settings", Icon = "menu_settings.png" },

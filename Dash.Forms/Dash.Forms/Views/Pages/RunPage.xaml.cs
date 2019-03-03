@@ -26,15 +26,15 @@ namespace Dash.Forms.Views.Pages
 
         public RunPage()
         {
-            NavigationPage.SetHasNavigationBar(this, false);
+            //NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
-            _locationService = DependencyService.Get<ILocationService>();
-            _locationService.AddLocationChangedListener(_locationService_LocationChanged);
-            _locationService.Start();
+            //_locationService = DependencyService.Get<ILocationService>();
+            //_locationService.AddLocationChangedListener(_locationService_LocationChanged);
+            //_locationService.Start();
 
-            StopButton.Clicked += StopButton_Clicked;
-            PauseButton.Clicked += PauseButton_Clicked;
+            //StopButton.Clicked += StopButton_Clicked;
+            //PauseButton.Clicked += PauseButton_Clicked;
 
             _timer = new Timer() { Interval = 1000 };
             _timer.Elapsed += _timer_Elapsed;
@@ -42,6 +42,12 @@ namespace Dash.Forms.Views.Pages
             _startTime = DateTime.Now;
 
             _locations = new List<LocationData>();
+
+            RunCarousel.ItemsSource = new List<View>()
+            {
+                new RunMapView(),
+                new RunStatsView()
+            };
         }
 
         ~RunPage()
@@ -58,13 +64,13 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 _justUnpaused = true;
-                PauseButton.Text = "Pause";
+                //PauseButton.Text = "Pause";
             }
             else
             {
-                PauseButton.Text = "Resume";
+                //PauseButton.Text = "Resume";
             }
-            RunMap.HasScrollEnabled = !_isTracking;
+            //RunMap.HasScrollEnabled = !_isTracking;
         }
 
         private async void StopButton_Clicked(object sender, System.EventArgs e)
@@ -93,7 +99,7 @@ namespace Dash.Forms.Views.Pages
                 var spent = DateTime.Now - (_startTime + _pauseOffset);
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    TimeElapsedLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
+                    //TimeElapsedLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                 });
             }
             else
@@ -118,16 +124,16 @@ namespace Dash.Forms.Views.Pages
                     var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
                     Device.BeginInvokeOnMainThread(() => {
-                        DistanceGoneSpan.Text = _totalDistance.ToString("N2");
+                        //DistanceGoneLabel.Text = _totalDistance.ToString("N2");
                     });
                 }
                 if (_justUnpaused == true)
                 {
                     _justUnpaused = false;
-                    RunMap.AddPosition(newPos, false);
+                    //RunMap.AddPosition(newPos, false);
                 }
-                RunMap.AddPosition(newPos);
-                RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
+                //RunMap.AddPosition(newPos);
+                //RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
             }
             e.IsTracked = _isTracking;
             _locations.Add(e);
@@ -136,13 +142,13 @@ namespace Dash.Forms.Views.Pages
         private double GetMaxDistance()
         {
             double minLat = 0, minLng = 0, maxLat = 0, maxLng = 0;
-            foreach (var position in RunMap.RouteCoordinates)
-            {
-                minLat = Math.Min(minLat, position.Latitude);
-                minLng = Math.Min(minLng, position.Longitude);
-                maxLat = Math.Max(maxLat, position.Latitude);
-                maxLng = Math.Max(maxLng, position.Longitude);
-            }
+            //foreach (var position in RunMap.RouteCoordinates)
+            //{
+            //    minLat = Math.Min(minLat, position.Latitude);
+            //    minLng = Math.Min(minLng, position.Longitude);
+            //    maxLat = Math.Max(maxLat, position.Latitude);
+            //    maxLng = Math.Max(maxLng, position.Longitude);
+            //}
             return Math.Max(0.1d, _locationService.GetDistance(minLat, minLng, maxLat, maxLng));
         }
 

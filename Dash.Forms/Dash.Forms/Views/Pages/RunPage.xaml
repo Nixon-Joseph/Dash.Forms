@@ -1,29 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
-             xmlns:controls="clr-namespace:Dash.Forms.Controls"
-             x:Class="Dash.Forms.Views.Pages.RunPage">
+             x:Class="Dash.Forms.Views.Pages.RunPage"
+             NavigationPage.HasNavigationBar="False">
+
     <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <controls:CustomMap HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="RunMap" IsShowingUser="true" Grid.Row="0" Grid.Column="0" HasZoomEnabled="False" />
-            <StackLayout HorizontalOptions="Start" VerticalOptions="Start" Grid.Row="0" Grid.Column="0">
-                <Label Text="Time" />
-                <Label x:Name="TimeElapsedLabel" Text="00:00" FontSize="Medium" />
+        <StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal" VerticalOptions="Start">
+                <Button Text="Map" HorizontalOptions="Center" />
+                <Button Text="Stats" HorizontalOptions="Center" />
             </StackLayout>
-            <Button HorizontalOptions="End" VerticalOptions="Start" Grid.Row="0" Grid.Column="0" Text="Pause" x:Name="PauseButton" />
-            <Button HorizontalOptions="Start" VerticalOptions="End" Grid.Row="0" Grid.Column="0" Text="Stop" x:Name="StopButton" />
-            <StackLayout HorizontalOptions="End" VerticalOptions="End" Grid.Row="0" Grid.Column="0">
-                <Label Text="Distance" />
-                <Label Text="0:00 Miles" FontSize="Medium">
-                    <Label.FormattedText>
-                        <FormattedString>
-                            <Span x:Name="DistanceGoneSpan" Text="0.00" />
-                            <Span Text=" Miles" />
-                        </FormattedString>
-                    </Label.FormattedText>
-                </Label>
-            </StackLayout>
-        </Grid>
+            <CarouselView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="RunCarousel">
+                <CarouselView.ItemsLayout>
+                    <GridItemsLayout Orientation="Horizontal" SnapPointsAlignment="Center" SnapPointsType="Mandatory" />
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentView Content="{Binding}" />
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
