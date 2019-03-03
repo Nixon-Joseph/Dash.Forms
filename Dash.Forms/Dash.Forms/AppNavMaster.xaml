@@ -8,9 +8,10 @@
         <ListView x:Name="MenuItemsListView"
               SeparatorVisibility="None"
               HasUnevenRows="true"
-              ItemsSource="{ Binding MenuItems }">
+              ItemsSource="{ Binding MenuItems }"
+              VerticalOptions="FillAndExpand">
             <ListView.Header>
-                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#8cc34b" Padding="15">
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#8cc34b" Padding="15" Margin="0,0,0,15">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="50" />
                         <ColumnDefinition Width="*" />
@@ -27,18 +28,17 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Padding="25,10" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                            <Image Source="ic_directions_run_black_18dp.png" />
+                        <StackLayout Padding="25,15" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+                            <Image Source="{Binding Icon}" WidthRequest="25" HeightRequest="25" Margin="0,0,20,0" />
                             <material:MaterialLabel VerticalTextAlignment="Center" Text="{Binding Title}" TypeScale="Body1" />
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-            <ListView.Footer>
-                <StackLayout>
-                    
-                </StackLayout>
-            </ListView.Footer>
         </ListView>
+        <StackLayout BackgroundColor="#f1f1f1" Padding="15,10" VerticalOptions="End" Spacing="0">
+            <material:MaterialLabel Text="Version 1.0a" TextColor="#999" TypeScale="Body2" HorizontalTextAlignment="Center" />
+            <material:MaterialLabel Text="Copyright © Dash Fitness. All Rights Reserved" TextColor="#999" TypeScale="Caption" HorizontalTextAlignment="Center" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>
