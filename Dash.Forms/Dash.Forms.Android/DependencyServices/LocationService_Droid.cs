@@ -93,5 +93,14 @@ namespace Dash.Forms.Droid.DependencyServices
             };
             return coords1.DistanceTo(coords2);
         }
+
+        public LocationData GetQuickLocation()
+        {
+            var criteria = new Criteria();
+            LocationManager locManager = MainActivity.Instance.GetSystemService(Android.Content.Context.LocationService) as LocationManager;
+            var provider = locManager.GetBestProvider(criteria, true);
+            var locData = locManager.GetLastKnownLocation(provider);
+            return locData == null ? null : AutoMapper.Mapper.Map<LocationData>(locData);
+        }
     }
 }

@@ -29,7 +29,7 @@ namespace Dash.Forms.Views.Pages
             //NavigationPage.SetHasNavigationBar(this, false);
 
             InitializeComponent();
-            //_locationService = DependencyService.Get<ILocationService>();
+            _locationService = DependencyService.Get<ILocationService>();
             //_locationService.AddLocationChangedListener(_locationService_LocationChanged);
             //_locationService.Start();
 
@@ -42,6 +42,11 @@ namespace Dash.Forms.Views.Pages
             _startTime = DateTime.Now;
 
             _locations = new List<LocationData>();
+
+            if (_locationService.GetQuickLocation() is LocationData currentLoc)
+            {
+                var test = this;
+            }
 
             RunCarousel.ItemsSource = new List<View>()
             {

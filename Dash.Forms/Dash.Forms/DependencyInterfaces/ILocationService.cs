@@ -17,5 +17,6 @@ namespace Dash.Forms.DependencyInterfaces
         bool CheckGPSPermission();
         double GetDistance(Position p1, Position p2);
         double GetDistance(double lat1, double long1, double lat2, double long2);
+        LocationData GetQuickLocation();
     }
 }
