@@ -43,14 +43,16 @@ namespace Dash.Forms.Views.Pages
 
             _locations = new List<LocationData>();
 
+            var runMapView = new RunMapView();
+
             if (_locationService.GetQuickLocation() is LocationData currentLoc)
             {
-                var test = this;
+                runMapView.GetMap().MoveToRegion(MapSpan.FromCenterAndRadius(new Position(currentLoc.Latitude, currentLoc.Longitude), Distance.FromKilometers(0.1d)));
             }
 
             RunCarousel.ItemsSource = new List<View>()
             {
-                new RunMapView(),
+                runMapView,
                 new RunStatsView()
             };
         }

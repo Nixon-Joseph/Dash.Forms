@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dash.Forms.Controls;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +11,11 @@ namespace Dash.Forms.Views
         public RunMapView()
         {
             InitializeComponent();
+        }
+
+        public CustomMap GetMap()
+        {
+            return RunMap;
         }
     }
 }
