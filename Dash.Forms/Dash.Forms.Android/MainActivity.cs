@@ -7,6 +7,7 @@ using AutoMapper;
 using Dash.Forms.Droid.DependencyServices;
 using Dash.Forms.Models.Run;
 using System;
+using XF.Material.Droid;
 
 namespace Dash.Forms.Droid
 {
@@ -41,14 +42,19 @@ namespace Dash.Forms.Droid
 
             AppDomain.CurrentDomain.UnhandledException += HandleExceptions;
 
-            global::Xamarin.Forms.Forms.SetFlags(/*"Shell_Experimental", *//*"Visual_Experimental", */"CollectionView_Experimental", "FastRenderers_Experimental");
-            global::Xamarin.FormsMaps.Init(this, savedInstanceState);
-            global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            XF.Material.Droid.Material.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.SetFlags(/*"Shell_Experimental", *//*"Visual_Experimental", */"CollectionView_Experimental", "FastRenderers_Experimental");
+            Xamarin.FormsMaps.Init(this, savedInstanceState);
+            Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            Material.Init(this, savedInstanceState);
             LoadApplication(new App());
 
             var lService = new LocationService_Droid();
             lService.CheckGPSPermission();
+        }
+
+        public override void OnBackPressed()
+        {
+            Material.HandleBackButton(base.OnBackPressed);
         }
 
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)

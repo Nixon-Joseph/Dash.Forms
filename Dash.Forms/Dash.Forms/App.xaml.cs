@@ -1,7 +1,4 @@
-﻿using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using Dash.Forms.Views;
+﻿using Xamarin.Forms;
 
 namespace Dash.Forms
 {
@@ -11,7 +8,7 @@ namespace Dash.Forms
         public App()
         {
             InitializeComponent();
-            XF.Material.Forms.Material.Init(this);
+            XF.Material.Forms.Material.Init(this, "Material.Configuration");
             MainPage = new AppNav();
         }
 
