@@ -34,6 +34,9 @@
     <Compile Update="MasterDetailPageMenuItem.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\Pages\PlansPage.xaml.cs">
+      <DependentUpon>PlansPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

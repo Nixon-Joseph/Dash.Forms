@@ -33,6 +33,7 @@ namespace Dash.Forms
                     new AppNavMenuItem<RunTabbedPage> { Title = "Free Run", Icon = "menu_run.png" },
                     //new AppNavMenuItem<RunPage> { Title = "Free Run", Icon = "menu_run.png" },
                     new AppNavMenuItem<LogsPage> { Title = "Logs", Icon = "menu_logs.png" },
+                    new AppNavMenuItem<PlansPage> { Title = "Plans", Icon = "menu_plan.png" },
                     new AppNavMenuItem<MetricsPage> { Title = "Metrics", Icon = "menu_metrics.png" },
                     new AppNavMenuItem<SettingsPage> { Title = "Settings", Icon = "menu_settings.png" },
                 });
