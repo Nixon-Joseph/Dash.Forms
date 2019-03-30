@@ -25,7 +25,7 @@ namespace Dash.Forms
         {
             if (sender is NavigationPage navPage)
             {
-                IsGestureEnabled = IsRunPage(navPage.CurrentPage.GetType()) == false;
+                IsGestureEnabled = navPage.CurrentPage.GetType() != typeof(RunTabbedPage);
             }
         }
 
@@ -42,11 +42,6 @@ namespace Dash.Forms
             {
                 return base.OnBackButtonPressed();
             }
-        }
-
-        private bool IsRunPage(Type pageType)
-        {
-            return pageType == typeof(RunPage) || pageType == typeof(RunTabbedPage);
         }
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)

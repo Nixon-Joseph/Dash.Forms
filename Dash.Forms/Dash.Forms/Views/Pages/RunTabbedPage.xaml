@@ -4,7 +4,6 @@
             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
             xmlns:controls="clr-namespace:Dash.Forms.Controls"
             x:Class="Dash.Forms.Views.Pages.RunTabbedPage">
-  <!--Pages can be added as references or inline-->
     <ContentPage Title="Map">
         <Grid ColumnSpacing="0" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <Grid.RowDefinitions>
@@ -12,7 +11,6 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <controls:CustomMap HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" x:Name="RunMap" IsShowingUser="true" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HasZoomEnabled="False" />
-            <!--<Image Source="map.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" />-->
             <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="End">
                 <material:MaterialCard CornerRadius="4" Elevation="8" HorizontalOptions="FillAndExpand" Margin="15">
                     <Grid RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
@@ -24,19 +22,16 @@
                         <material:MaterialLabel Text="Time" TypeScale="Subtitle1" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" />
                         <material:MaterialLabel Text="Distance" TypeScale="Subtitle1" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" />
                         <BoxView WidthRequest="1" BackgroundColor="#f1f1f1" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Margin="0" />
-                        <material:MaterialLabel Text="0:00" TypeScale="H4" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center" Margin="0,-10,0,0" />
+                        <material:MaterialLabel x:Name="MapTimeLabel" Text="0:00" TypeScale="H4" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center" Margin="0,-10,0,0" />
                         <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="1" HorizontalOptions="Center">
-                            <material:MaterialLabel Text="0.0" TypeScale="H4" Margin="0,-10,0,0" HorizontalTextAlignment="End" />
+                            <material:MaterialLabel x:Name="RunDistanceLabel" Text="0.0" TypeScale="H4" Margin="0,-10,0,0" HorizontalTextAlignment="End" />
                             <material:MaterialLabel Text="miles" TypeScale="Subtitle2" HorizontalOptions="Start" Margin="0,8,0,0" />
                         </StackLayout>
                     </Grid>
                 </material:MaterialCard>
                 <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
-                    <!--<Button Text="Start" Padding="20" CornerRadius="0" BackgroundColor="#05668D" TextColor="White" HorizontalOptions="FillAndExpand" Margin="0" />
-                <Button Text="Cancel" Padding="20" CornerRadius="0" BackgroundColor="#EBF2FA" TextColor="Black" HorizontalOptions="FillAndExpand" Margin="0" />-->
-
                     <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
-                    <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" BorderColor="#05668D" BorderWidth="2" Text="Cancel" TextColor="#05668D" VerticalOptions="Center"  CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                    <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Cancel" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
                 </StackLayout>
             </StackLayout>
         </Grid>
@@ -46,7 +41,7 @@
             <material:MaterialCard Elevation="4" HorizontalOptions="FillAndExpand" Margin="0,0,0,20" Padding="10">
                 <StackLayout HorizontalOptions="FillAndExpand" Padding="0,15">
                     <material:MaterialLabel Text="TIME ELAPSED" TypeScale="Body1" HorizontalTextAlignment="Center" />
-                    <material:MaterialLabel Text="1:25:05" TypeScale="H2" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="End" Margin="0" TextColor="#333" />
+                    <material:MaterialLabel x:Name="StatsTimeLabel" Text="0:00" TypeScale="H2" FontAttributes="Bold" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" VerticalTextAlignment="End" Margin="0" TextColor="#333" />
                 </StackLayout>
             </material:MaterialCard>
             <Grid HorizontalOptions="FillAndExpand" Margin="15">
@@ -60,7 +55,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <material:MaterialLabel Text="Distance" TypeScale="Subtitle1" HorizontalTextAlignment="Center" />
                         <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" Spacing="0">
-                            <material:MaterialLabel Text="1.58" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#f0ab44" FontAttributes="Bold" />
+                            <material:MaterialLabel x:Name="StatsDistanceLabel" Text="0.0" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#f0ab44" FontAttributes="Bold" />
                             <material:MaterialLabel Text="mi" TypeScale="Subtitle2" HorizontalOptions="Start" VerticalTextAlignment="End" Margin="3,0,0,6" />
                         </StackLayout>
                     </StackLayout>
@@ -84,45 +79,9 @@
                     </StackLayout>
                 </material:MaterialCard>
             </Grid>
-            <!--<StackLayout HorizontalOptions="FillAndExpand" Margin="15" Orientation="Horizontal">
-                <Grid RowSpacing="0" ColumnSpacing="0" HorizontalOptions="FillAndExpand">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="49*" />
-                        <ColumnDefinition Width="1" />
-                        <ColumnDefinition Width="49*" />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="*" />
-                        <RowDefinition Height="1" />
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <material:MaterialLabel Text="Time" TypeScale="Subtitle1" Grid.Column="0" Grid.Row="0" HorizontalTextAlignment="Center" />
-                    <material:MaterialLabel Text="Distance" TypeScale="Subtitle1" Grid.Column="2" Grid.Row="0" HorizontalTextAlignment="Center" />
-                        
-                    <BoxView WidthRequest="1" BackgroundColor="#f1f1f1" VerticalOptions="FillAndExpand" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1" Margin="0" />
-                        
-                    <material:MaterialLabel Text="0:00" TypeScale="H4" Grid.Column="0" Grid.Row="1" HorizontalTextAlignment="Center" Margin="0,-10,0,0" />
-                    <material:MaterialLabel Text="1.56" TypeScale="H4" Grid.Column="2" Grid.Row="1" HorizontalTextAlignment="Center" Margin="0,-10,0,0" />
-
-                    <BoxView HeightRequest="1" BackgroundColor="#f1f1f1" HorizontalOptions="FillAndExpand" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="0" Margin="0" />
-
-                    <material:MaterialLabel Text="Pace" TypeScale="Subtitle1" Grid.Column="0" Grid.Row="3" HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
-                    <material:MaterialLabel Text="Calories" TypeScale="Subtitle1" Grid.Column="2" Grid.Row="3" HorizontalTextAlignment="Center" VerticalTextAlignment="End" />
-                        
-                    <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="4" HorizontalOptions="Center" Spacing="0">
-                        <material:MaterialLabel Text="5.2" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" />
-                        <material:MaterialLabel Text="mph" TypeScale="Subtitle2" HorizontalOptions="Start" Margin="0,8,0,0" />
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Grid.Column="2" Grid.Row="4" HorizontalOptions="Center" Spacing="0">
-                        <material:MaterialLabel Text="143" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" />
-                        <material:MaterialLabel Text="kcal" TypeScale="Subtitle2" HorizontalOptions="Start" Margin="0,8,0,0" />
-                    </StackLayout>
-                </Grid>
-            </StackLayout>-->
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
                 <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Resume" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
-                <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" BorderColor="#05668D" BorderWidth="2" Text="Finish" TextColor="#05668D" VerticalOptions="Center"  CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Finish" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
             </StackLayout>
         </StackLayout>
     </ContentPage>
