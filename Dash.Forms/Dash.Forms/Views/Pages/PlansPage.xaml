@@ -5,37 +5,50 @@
              x:Class="Dash.Forms.Views.Pages.PlansPage"
              BackgroundColor="White">
     <ContentPage.Content>
-        <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#f2f2f2" Padding="15,10">
-                    <material:MaterialLabel Text="Training for a race?" />
-                    <material:MaterialLabel Text="Stay prepared with one of our training programs!" />
-                </StackLayout>
-                <!--Needs converted to a listview-->
-                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                    <Image Source="plan_5k.jpg" Margin="0,0,15,0" />
-                    <StackLayout>
-                        <material:MaterialLabel Text="5k Training" TypeScale="H6" />
-                        <material:MaterialLabel Text="3.1 miles. Wherever you want, as fast as you can!" TypeScale="Caption" />
-                    </StackLayout>
-                </StackLayout>
-                <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
-                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                    <Image Source="plan_10k.jpg" Margin="0,0,15,0" />
-                    <StackLayout>
-                        <material:MaterialLabel Text="10k Training" TypeScale="H6" />
-                        <material:MaterialLabel Text="Think you can handle 6.2 miles? No time like the present!" TypeScale="Caption" />
-                    </StackLayout>
-                </StackLayout>
-                <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
-                <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                    <Image Source="plan_half.jpg" Margin="0,0,15,0" />
-                    <StackLayout>
-                        <material:MaterialLabel Text="Half Marathon Training" TypeScale="H6" />
-                        <material:MaterialLabel Text="Step up to a full half marathon. You can do this!" TypeScale="Caption" />
-                    </StackLayout>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#f2f2f2" Padding="15,10">
+                <material:MaterialLabel Text="Training for a race?" />
+                <material:MaterialLabel Text="Stay prepared with one of our training programs!" />
+            </StackLayout>
+            <!--Needs converted to a listview-->
+            <ListView x:Name="PlansListView" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
+                                <Image Source="{Binding Image}" Margin="0,0,15,0" />
+                                <StackLayout>
+                                    <material:MaterialLabel Text="{Binding Title}" TypeScale="H6" />
+                                    <material:MaterialLabel Text="{Binding Caption}" TypeScale="Caption" />
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <!--<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
+                <Image Source="plan_5k.jpg" Margin="0,0,15,0" />
+                <StackLayout>
+                    <material:MaterialLabel Text="5k Training" TypeScale="H6" />
+                    <material:MaterialLabel Text="3.1 miles. Wherever you want, as fast as you can!" TypeScale="Caption" />
                 </StackLayout>
             </StackLayout>
-        </ScrollView>
+            <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
+                <Image Source="plan_10k.jpg" Margin="0,0,15,0" />
+                <StackLayout>
+                    <material:MaterialLabel Text="10k Training" TypeScale="H6" />
+                    <material:MaterialLabel Text="Think you can handle 6.2 miles? No time like the present!" TypeScale="Caption" />
+                </StackLayout>
+            </StackLayout>
+            <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
+            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
+                <Image Source="plan_half.jpg" Margin="0,0,15,0" />
+                <StackLayout>
+                    <material:MaterialLabel Text="Half Marathon Training" TypeScale="H6" />
+                    <material:MaterialLabel Text="Step up to a full half marathon. You can do this!" TypeScale="Caption" />
+                </StackLayout>
+            </StackLayout>-->
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
