@@ -23,10 +23,7 @@ namespace Dash.Forms.Droid.DependencyServices
 
         public LocationService_Droid()
         {
-            if (_service == null)
-            {
-                _service = new LocationService();
-            }
+            _service = _service ?? new LocationService();
             if (_receiver == null)
             {
                 _receiver = new LocationBroadcastReceiver();

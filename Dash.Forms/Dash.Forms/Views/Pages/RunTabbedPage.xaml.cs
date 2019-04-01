@@ -17,14 +17,15 @@ namespace Dash.Forms.Views.Pages
     public partial class RunTabbedPage : TabbedPage
     {
         private readonly ILocationService _locationService;
-        private readonly DateTime _startTime;
         private readonly Timer _timer;
         private readonly TimeSpan _pauseOffset = new TimeSpan();
         private readonly List<LocationData> _locations;
+        private readonly DateTime _startTime;
         private bool _isTracking = false;
         private bool _justUnpaused = false;
         private bool _hasStoppedService = false;
         private double _totalDistance = 0d;
+        private RunState _currentState = RunState.Unstarted;
 
         public RunTabbedPage()
         {
@@ -32,15 +33,28 @@ namespace Dash.Forms.Views.Pages
 
             _locationService = DependencyService.Get<ILocationService>();
             _locationService.AddLocationChangedListener(_locationService_LocationChanged);
-            _locationService.Start();
 
             //StopButton.Clicked += StopButton_Clicked;
             //PauseButton.Clicked += PauseButton_Clicked;
+            RunStartRunButton.Clicked += StartRunButton_Clicked;
+            StatsStartRunButton.Clicked += StartRunButton_Clicked;
+
+            RunPauseButton.Clicked += PauseButton_Clicked;
+            StatsPauseButton.Clicked += PauseButton_Clicked;
+
+            RunCancelButton.Clicked += RunCancelButton_Clicked;
+            StatsCancelButton.Clicked += RunCancelButton_Clicked;
+
+            RunResumeButton.Clicked += PauseButton_Clicked;
+            StatsResumeButton.Clicked += PauseButton_Clicked;
+
+            RunFinishButton.Clicked += FinishButton_Clicked;
+            StatsFinishButton.Clicked += FinishButton_Clicked;
 
             _timer = new Timer() { Interval = 1000 };
             _timer.Elapsed += _timer_Elapsed;
-            _timer.Start();
             _startTime = DateTime.Now;
+            _timer.Start();
 
             _locations = new List<LocationData>();
 
@@ -48,6 +62,19 @@ namespace Dash.Forms.Views.Pages
             {
                 RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentLoc.GetPosition(), Distance.FromKilometers(0.1d)));
             }
+        }
+
+        private async void RunCancelButton_Clicked(object sender, EventArgs e)
+        {
+            StopLocationService();
+            await Navigation.PopAsync();
+        }
+
+        private void StartRunButton_Clicked(object sender, EventArgs e)
+        {
+            _locationService.Start();
+            SetRunState(RunState.Running);
+            _isTracking = true;
         }
 
         ~RunTabbedPage()
@@ -64,22 +91,28 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 _justUnpaused = true;
-                //PauseButton.Text = "Pause";
+                SetRunState(RunState.Running);
             }
             else
             {
-                //PauseButton.Text = "Resume";
+                SetRunState(RunState.Paused);
             }
             RunMap.HasScrollEnabled = !_isTracking;
         }
 
-        private async void StopButton_Clicked(object sender, System.EventArgs e)
+        private async void FinishButton_Clicked(object sender, System.EventArgs e)
+        {
+            await EndRun();
+        }
+
+        private async Task EndRun()
         {
             if (await DisplayAlert("Cancel Run?", "Are you sure you want to end your run?", "Yes", "No"))
             {
                 if (_hasStoppedService == false) // should always be true here I think.
                 {
                     StopLocationService();
+                    _timer.Stop();
                     await Navigation.PopAsync();
                 }
             }
@@ -156,7 +189,34 @@ namespace Dash.Forms.Views.Pages
 
         protected override bool OnBackButtonPressed()
         {
-            return base.OnBackButtonPressed();
+            if (_currentState != RunState.Unstarted)
+            {
+                Task.Run(EndRun);
+                return true;
+            }
+            else
+            {
+                return base.OnBackButtonPressed();
+            }
+        }
+
+        private void SetRunState(RunState state)
+        {
+            _currentState = state;
+            RunUnstartedButtonStack.IsVisible = state == RunState.Unstarted;
+            StatsUnstartedButtonStack.IsVisible = state == RunState.Unstarted;
+            RunRunningButtonStack.IsVisible = state == RunState.Running;
+            StatsRunningButtonStack.IsVisible = state == RunState.Running;
+            RunPausedButtonStack.IsVisible = state == RunState.Paused;
+            StatsPausedButtonStack.IsVisible = state == RunState.Paused;
+        }
+
+        private enum RunState
+        {
+            Unstarted,
+            Paused,
+            Running,
+            Finished
         }
     }
 }

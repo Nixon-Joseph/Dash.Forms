@@ -29,9 +29,16 @@
                         </StackLayout>
                     </Grid>
                 </material:MaterialCard>
-                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
-                    <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
-                    <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Cancel" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="RunUnstartedButtonStack">
+                    <material:MaterialButton x:Name="RunStartRunButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                    <material:MaterialButton x:Name="RunCancelButton" BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Cancel" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
+                </StackLayout>
+                <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="RunRunningButtonStack">
+                    <material:MaterialButton x:Name="RunPauseButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Pause" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                </StackLayout>
+                <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="RunPausedButtonStack">
+                    <material:MaterialButton x:Name="RunResumeButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Resume" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                    <material:MaterialButton x:Name="RunFinishButton" BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Finish" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
                 </StackLayout>
             </StackLayout>
         </Grid>
@@ -79,9 +86,16 @@
                     </StackLayout>
                 </material:MaterialCard>
             </Grid>
-            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0">
-                <material:MaterialButton BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Resume" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
-                <material:MaterialButton BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Finish" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
+            <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="StatsUnstartedButtonStack">
+                <material:MaterialButton x:Name="StatsStartRunButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                <material:MaterialButton x:Name="StatsCancelButton" BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Cancel" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
+            </StackLayout>
+            <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="StatsRunningButtonStack">
+                <material:MaterialButton x:Name="StatsPauseButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Pause" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+            </StackLayout>
+            <StackLayout IsVisible="False" HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="StatsPausedButtonStack">
+                <material:MaterialButton x:Name="StatsResumeButton"  BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Resume" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
+                <material:MaterialButton x:Name="StatsFinishButton" BackgroundColor="#ffffff" HorizontalOptions="FillAndExpand" Text="Finish" TextColor="#05668D" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" BorderColor="#05668D" BorderWidth="2" />
             </StackLayout>
         </StackLayout>
     </ContentPage>

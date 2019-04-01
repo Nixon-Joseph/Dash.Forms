@@ -46,18 +46,14 @@ namespace Dash.Forms
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            MasterPage.ListView.SelectedItem = null;
             if (e.SelectedItem is IAppNavMenuItem item)
             {
                 var page = (Page)Activator.CreateInstance(item.TargetType);
-                MasterPage.ListView.SelectedItem = null;
                 page.Title = item.Title;
 
                 await (Detail as NavigationPage).PushAsync(page);
                 IsPresented = false;
-            }
-            else
-            {
-                MasterPage.ListView.SelectedItem = null;
             }
         }
     }

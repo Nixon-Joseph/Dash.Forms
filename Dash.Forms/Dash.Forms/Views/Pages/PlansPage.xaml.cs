@@ -1,7 +1,5 @@
-﻿using Dash.Forms.Helpers;
-using Dash.Forms.Models.Run;
+﻿using Dash.Forms.Models.Run;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -27,7 +25,7 @@ namespace Dash.Forms.Views.Pages
             PlansListView.SelectedItem = null;
             if (e.SelectedItem is Plan plan)
             {
-                await NavigationHelper.PushAsync(new PlanDetailPage(plan));
+                await Navigation.PushAsync(new PlanDetailPage(plan));
             }
         }
     }

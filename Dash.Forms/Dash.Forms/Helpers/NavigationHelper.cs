@@ -9,12 +9,12 @@ namespace Dash.Forms.Helpers
 {
     public class NavigationHelper
     {
-        public static async Task PushAsync(Page page)
-        {
-            if (App.Current.MainPage is MasterDetailPage masterDetail)
-            {
-                await (masterDetail.Detail as NavigationPage).Navigation.PushAsync(page);
-            }
-        }
+        //public static async Task PushAsync(Page page)
+        //{
+        //    if (App.Current.MainPage is MasterDetailPage masterDetail)
+        //    {
+        //        await (masterDetail.Detail as NavigationPage).;
+        //    }
+        //}
     }
 }
