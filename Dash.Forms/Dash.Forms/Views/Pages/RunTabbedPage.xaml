@@ -55,7 +55,7 @@
                 <material:MaterialCard CornerRadius="8" Elevation="4" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Margin="0,0,5,5">
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <material:MaterialLabel Text="Avg Pace" TypeScale="Subtitle1" HorizontalTextAlignment="Center" />
-                        <material:MaterialLabel Text="11:32" TypeScale="H4" Margin="0" HorizontalTextAlignment="Center" TextColor="#2b8fc9" FontAttributes="Bold" />
+                        <material:MaterialLabel x:Name="StatsPaceLabel" Text="0:00" TypeScale="H4" Margin="0" HorizontalTextAlignment="Center" TextColor="#2b8fc9" FontAttributes="Bold" />
                     </StackLayout>
                 </material:MaterialCard>
                 <material:MaterialCard CornerRadius="8" Elevation="4" HorizontalOptions="FillAndExpand" Grid.Row="0" Grid.Column="1" Margin="5,0,0,5">
@@ -71,7 +71,7 @@
                     <StackLayout HorizontalOptions="FillAndExpand">
                         <material:MaterialLabel Text="Calories" TypeScale="Subtitle1" HorizontalTextAlignment="Center" />
                         <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" Spacing="0">
-                            <material:MaterialLabel Text="275" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#8cc34b" />
+                            <material:MaterialLabel x:Name="StatsCaloriesLabel" Text="275" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#8cc34b" />
                             <material:MaterialLabel Text="kcal" TypeScale="Subtitle2" HorizontalOptions="Start" VerticalTextAlignment="End" Margin="3,0,0,6" />
                         </StackLayout>
                     </StackLayout>

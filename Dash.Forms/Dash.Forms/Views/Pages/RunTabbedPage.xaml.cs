@@ -34,8 +34,6 @@ namespace Dash.Forms.Views.Pages
             _locationService = DependencyService.Get<ILocationService>();
             _locationService.AddLocationChangedListener(_locationService_LocationChanged);
 
-            //StopButton.Clicked += StopButton_Clicked;
-            //PauseButton.Clicked += PauseButton_Clicked;
             RunStartRunButton.Clicked += StartRunButton_Clicked;
             StatsStartRunButton.Clicked += StartRunButton_Clicked;
 
@@ -130,10 +128,15 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 var spent = DateTime.Now - (_startTime + _pauseOffset);
+                var pace = TimeSpan.FromMinutes(spent.TotalMinutes / _totalDistance);
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                     StatsTimeLabel.Text = MapTimeLabel.Text;
+                    StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                    //https://fitness.stackexchange.com/a/36045
+                    //                                 distance * weight * constant // should be in metric
+                    StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
                 });
             }
             else
