@@ -18,9 +18,9 @@ namespace Dash.Forms.Views.Pages
     {
         private readonly ILocationService _locationService;
         private readonly Timer _timer;
-        private readonly TimeSpan _pauseOffset = new TimeSpan();
         private readonly List<LocationData> _locations;
         private readonly DateTime _startTime;
+        private TimeSpan _pauseOffset = new TimeSpan();
         private bool _isTracking = false;
         private bool _justUnpaused = false;
         private bool _hasStoppedService = false;
@@ -133,7 +133,14 @@ namespace Dash.Forms.Views.Pages
                 {
                     MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                     StatsTimeLabel.Text = MapTimeLabel.Text;
-                    StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                    if (_totalDistance < 0.1d || pace > TimeSpan.FromHours(1))
+                    {
+                        StatsPaceLabel.Text = "∞";
+                    }
+                    else
+                    {
+                        StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                    }
                     //https://fitness.stackexchange.com/a/36045
                     //                                 distance * weight * constant // should be in metric
                     StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
@@ -141,7 +148,7 @@ namespace Dash.Forms.Views.Pages
             }
             else
             {
-                _pauseOffset.Add(TimeSpan.FromSeconds(1));
+                _pauseOffset = _pauseOffset.Add(TimeSpan.FromSeconds(1));
             }
         }
 
@@ -179,15 +186,20 @@ namespace Dash.Forms.Views.Pages
 
         private double GetMaxDistance()
         {
-            double minLat = 0, minLng = 0, maxLat = 0, maxLng = 0;
-            foreach (var position in RunMap.RouteCoordinates)
+            double? minLat = null, minLng = null, maxLat = null, maxLng = null;
+            double distance = 0.1d;
+            if (RunMap?.RouteCoordinates.Count() > 0)
             {
-                minLat = Math.Min(minLat, position.Latitude);
-                minLng = Math.Min(minLng, position.Longitude);
-                maxLat = Math.Max(maxLat, position.Latitude);
-                maxLng = Math.Max(maxLng, position.Longitude);
+                foreach (var position in RunMap.RouteCoordinates)
+                {
+                    minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
+                    minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
+                    maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
+                    maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
+                }
+                distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
             }
-            return Math.Max(0.1d, _locationService.GetDistance(minLat, minLng, maxLat, maxLng));
+            return distance;
         }
 
         protected override bool OnBackButtonPressed()

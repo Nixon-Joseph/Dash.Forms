@@ -47,11 +47,14 @@ namespace Dash.Forms.Droid.Renderers
         {
             if (_isMapReady == true && routeCoordinates.Count() > 0 && e.ShowPath == true && routeCoordinates.Last() is Position lastPos)
             {
-                var polylineOptions = new PolylineOptions();
-                polylineOptions.InvokeColor(_mapLineColor);
-                polylineOptions.Add(new LatLng(lastPos.Latitude, lastPos.Longitude));
-                polylineOptions.Add(new LatLng(e.Position.Latitude, e.Position.Longitude));
-                NativeMap.AddPolyline(polylineOptions);
+                if (NativeMap != null)
+                {
+                    var polylineOptions = new PolylineOptions();
+                    polylineOptions.InvokeColor(_mapLineColor);
+                    polylineOptions.Add(new LatLng(lastPos.Latitude, lastPos.Longitude));
+                    polylineOptions.Add(new LatLng(e.Position.Latitude, e.Position.Longitude));
+                    NativeMap.AddPolyline(polylineOptions);
+                }
             }
             routeCoordinates.Add(e.Position);
         }
@@ -61,16 +64,19 @@ namespace Dash.Forms.Droid.Renderers
             base.OnMapReady(map);
             _isMapReady = true;
 
-            var polylineOptions = new PolylineOptions();
-            polylineOptions.InvokeColor(_mapLineColor);
-
-            foreach (var position in routeCoordinates)
+            if (NativeMap != null)
             {
-                polylineOptions.Add(new LatLng(position.Latitude, position.Longitude));
-            }
+                var polylineOptions = new PolylineOptions();
+                polylineOptions.InvokeColor(_mapLineColor);
 
-            NativeMap.AddPolyline(polylineOptions);
-            NativeMap.UiSettings.MyLocationButtonEnabled = false;
+                foreach (var position in routeCoordinates)
+                {
+                    polylineOptions.Add(new LatLng(position.Latitude, position.Longitude));
+                }
+
+                NativeMap.AddPolyline(polylineOptions);
+                NativeMap.UiSettings.MyLocationButtonEnabled = false;
+            }
         }
     }
 }
