@@ -1,5 +1,6 @@
 ﻿using Dash.Forms.DependencyInterfaces;
 using Dash.Forms.Extensions;
+using Dash.Forms.Helpers.Storage;
 using Dash.Forms.Models.Run;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,9 @@ namespace Dash.Forms.Views.Pages
         private RunState _currentState = RunState.Unstarted;
         private double? _maxElevation = null;
         private double? _minElevation = null;
+        private double? _lastMaxDistance;
+        private int _lastDistanceCheckCounter;
+        private readonly int _lastDistanceCheckThreshold = 4;
 
         public RunTabbedPage()
         {
@@ -113,6 +117,28 @@ namespace Dash.Forms.Views.Pages
                 {
                     StopLocationService();
                     _timer.Stop();
+                    var duration = DateTime.Now - (_startTime + _pauseOffset);
+                    var runData = new RunData()
+                    {
+                        Start = _startTime,
+                        End = DateTime.Now,
+                        Distance = _totalDistance,
+                        Elapsed = duration,
+                        Segments = /*TrainingDay != null ? RunSegments :*/ new List<RunSegment>() {
+                            new RunSegment()
+                            {
+                                Distance = _totalDistance,
+                                Duration = duration,
+                                Locations = _locations,
+                                Speed = SegmentSpeeds.None,
+                                StartDate = _startTime,
+                                Type = SegmentTypes.Time,
+                                ValueType = SegmentValueTypes.Minutes
+                            }
+                        }
+                    };
+                    var runStorage = new RunDataStorageHelper();
+                    var response = runStorage.Insert(runData);
                     await Navigation.PopAsync();
                 }
             }
@@ -191,18 +217,22 @@ namespace Dash.Forms.Views.Pages
 
         private double GetMaxDistance()
         {
-            double? minLat = null, minLng = null, maxLat = null, maxLng = null;
-            double distance = 0.1d;
-            if (RunMap?.RouteCoordinates.Count() > 0)
+            double distance = _lastMaxDistance ?? 0.1d;
+            if (_lastMaxDistance != null && _lastDistanceCheckCounter++ < _lastDistanceCheckThreshold)
             {
-                foreach (var position in RunMap.RouteCoordinates)
+                double? minLat = null, minLng = null, maxLat = null, maxLng = null;
+                if (RunMap?.RouteCoordinates.Count() > 0)
                 {
-                    minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
-                    minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
-                    maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
-                    maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
+                    foreach (var position in RunMap.RouteCoordinates)
+                    {
+                        minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
+                        minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
+                        maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
+                        maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
+                    }
+                    distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
+                    _lastMaxDistance = distance;
                 }
-                distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
             }
             return distance;
         }

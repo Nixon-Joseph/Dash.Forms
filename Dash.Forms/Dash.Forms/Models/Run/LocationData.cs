@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Dash.Forms.Models.Storage;
 
 namespace Dash.Forms.Models.Run
 {
-    public class LocationData
+    public class LocationData : DBSubItemBase
     {
         public int Index { get; set; }
         public string SegmentId { get; set; }
