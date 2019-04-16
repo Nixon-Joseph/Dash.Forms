@@ -26,6 +26,8 @@ namespace Dash.Forms.Views.Pages
         private bool _hasStoppedService = false;
         private double _totalDistance = 0d;
         private RunState _currentState = RunState.Unstarted;
+        private double? _maxElevation = null;
+        private double? _minElevation = null;
 
         public RunTabbedPage()
         {
@@ -164,10 +166,13 @@ namespace Dash.Forms.Views.Pages
                 var newPos = new Position(e.Latitude, e.Longitude);
                 if (_locations.Count() > 0 && _locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                 {
+                    _minElevation = Math.Min(_minElevation ?? lastLoc.Altitude, lastLoc.Altitude);
+                    _maxElevation = Math.Max(_maxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
                     var useMiles = true; // should be a setting later
                     var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
                     Device.BeginInvokeOnMainThread(() => {
+                        ElevationLabel.Text = (_maxElevation.Value - _minElevation.Value).ToString("N1");
                         RunDistanceLabel.Text = _totalDistance.ToString("N2");
                         StatsDistanceLabel.Text = _totalDistance.ToString("N2");
                     });

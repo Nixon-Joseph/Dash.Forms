@@ -78,13 +78,22 @@
                 </material:MaterialCard>
                 <material:MaterialCard CornerRadius="8" Elevation="4" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1" Margin="5,5,0,0">
                     <StackLayout HorizontalOptions="FillAndExpand">
+                        <material:MaterialLabel Text="Elevation Change" TypeScale="Subtitle1" HorizontalTextAlignment="Center" />
+                        <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" Spacing="0">
+                            <material:MaterialLabel Text="0" x:Name="ElevationLabel" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#e27070" />
+                            <material:MaterialLabel Text="ft" TypeScale="Subtitle2" HorizontalOptions="Start" VerticalTextAlignment="End" Margin="3,0,0,6" />
+                        </StackLayout>
+                    </StackLayout>
+                </material:MaterialCard>
+                <!--<material:MaterialCard CornerRadius="8" Elevation="4" HorizontalOptions="FillAndExpand" Grid.Row="1" Grid.Column="1" Margin="5,5,0,0">
+                    <StackLayout HorizontalOptions="FillAndExpand">
                         <material:MaterialLabel Text="Heart Rate" TypeScale="Subtitle1" HorizontalTextAlignment="Center" />
                         <StackLayout Orientation="Horizontal"  HorizontalOptions="Center" Spacing="0">
                             <material:MaterialLabel Text="122" TypeScale="H4" Margin="0" HorizontalTextAlignment="End" TextColor="#e27070" />
                             <material:MaterialLabel Text="bpm" TypeScale="Subtitle2" HorizontalOptions="Start" VerticalTextAlignment="End" Margin="3,0,0,6" />
                         </StackLayout>
                     </StackLayout>
-                </material:MaterialCard>
+                </material:MaterialCard>-->
             </Grid>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" Orientation="Horizontal" Spacing="0" Margin="10,0,10,10" Padding="0" x:Name="StatsUnstartedButtonStack">
                 <material:MaterialButton x:Name="StatsStartRunButton" BackgroundColor="#05668D" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" ButtonType="Elevated" HeightRequest="60" Elevation="8" />
