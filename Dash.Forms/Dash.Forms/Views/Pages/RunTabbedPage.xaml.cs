@@ -5,7 +5,6 @@ using Dash.Forms.Models.Run;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using Xamarin.Forms;
@@ -20,7 +19,7 @@ namespace Dash.Forms.Views.Pages
         private readonly ILocationService _locationService;
         private readonly Timer _timer;
         private readonly List<LocationData> _locations;
-        private readonly DateTime _startTime;
+        private DateTime _startTime;
         private TimeSpan _pauseOffset = new TimeSpan();
         private bool _isTracking = false;
         private bool _justUnpaused = false;
@@ -29,7 +28,7 @@ namespace Dash.Forms.Views.Pages
         private RunState _currentState = RunState.Unstarted;
         private double? _maxElevation = null;
         private double? _minElevation = null;
-        private double? _lastMaxDistance;
+        private double? _lastMaxDistance = null;
         private int _lastDistanceCheckCounter;
         private readonly int _lastDistanceCheckThreshold = 4;
 
@@ -57,7 +56,6 @@ namespace Dash.Forms.Views.Pages
 
             _timer = new Timer() { Interval = 1000 };
             _timer.Elapsed += _timer_Elapsed;
-            _startTime = DateTime.Now;
             _timer.Start();
 
             _locations = new List<LocationData>();
@@ -77,6 +75,7 @@ namespace Dash.Forms.Views.Pages
         private void StartRunButton_Clicked(object sender, EventArgs e)
         {
             _locationService.Start();
+            _startTime = DateTime.UtcNow;
             SetRunState(RunState.Running);
             _isTracking = true;
         }
@@ -117,11 +116,11 @@ namespace Dash.Forms.Views.Pages
                 {
                     StopLocationService();
                     _timer.Stop();
-                    var duration = DateTime.Now - (_startTime + _pauseOffset);
+                    var duration = DateTime.UtcNow - (_startTime + _pauseOffset);
                     var runData = new RunData()
                     {
                         Start = _startTime,
-                        End = DateTime.Now,
+                        End = DateTime.UtcNow,
                         Distance = _totalDistance,
                         Elapsed = duration,
                         Segments = /*TrainingDay != null ? RunSegments :*/ new List<RunSegment>() {
@@ -155,7 +154,7 @@ namespace Dash.Forms.Views.Pages
         {
             if (_isTracking == true)
             {
-                var spent = DateTime.Now - (_startTime + _pauseOffset);
+                var spent = DateTime.UtcNow - (_startTime + _pauseOffset);
                 var pace = TimeSpan.FromMinutes(spent.TotalMinutes / _totalDistance);
                 Device.BeginInvokeOnMainThread(() =>
                 {
@@ -174,7 +173,7 @@ namespace Dash.Forms.Views.Pages
                     StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
                 });
             }
-            else
+            else if (_currentState == RunState.Paused)
             {
                 _pauseOffset = _pauseOffset.Add(TimeSpan.FromSeconds(1));
             }
