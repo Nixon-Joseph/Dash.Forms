@@ -110,7 +110,7 @@ namespace Dash.Forms.Views.Pages
 
         private async Task EndRun()
         {
-            if (await DisplayAlert("Cancel Run?", "Are you sure you want to end your run?", "Yes", "No"))
+            if (await DisplayAlert("Finish Run?", "Are you sure you want to end your run?", "Yes", "No"))
             {
                 if (_hasStoppedService == false) // should always be true here I think.
                 {
@@ -155,22 +155,10 @@ namespace Dash.Forms.Views.Pages
             if (_isTracking == true)
             {
                 var spent = DateTime.UtcNow - (_startTime + _pauseOffset);
-                var pace = TimeSpan.FromMinutes(spent.TotalMinutes / _totalDistance);
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                     StatsTimeLabel.Text = MapTimeLabel.Text;
-                    if (_totalDistance < 0.1d || pace > TimeSpan.FromHours(1))
-                    {
-                        StatsPaceLabel.Text = "∞";
-                    }
-                    else
-                    {
-                        StatsPaceLabel.Text = pace.ToString("mm':'ss");
-                    }
-                    //https://fitness.stackexchange.com/a/36045
-                    //                                 distance * weight * constant // should be in metric
-                    StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
                 });
             }
             else if (_currentState == RunState.Paused)
@@ -191,15 +179,29 @@ namespace Dash.Forms.Views.Pages
                 var newPos = new Position(e.Latitude, e.Longitude);
                 if (_locations.Count() > 0 && _locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                 {
+                    RunMap.AddPosition(newPos);
+                    RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
                     _minElevation = Math.Min(_minElevation ?? lastLoc.Altitude, lastLoc.Altitude);
                     _maxElevation = Math.Max(_maxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
                     var useMiles = true; // should be a setting later
                     var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
                     _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
+                    var pace = _totalDistance > 0d ? TimeSpan.FromMinutes((DateTime.UtcNow - (_startTime + _pauseOffset)).TotalMinutes / _totalDistance) : TimeSpan.FromMinutes(0);
                     Device.BeginInvokeOnMainThread(() => {
                         ElevationLabel.Text = (_maxElevation.Value - _minElevation.Value).ToString("N1");
                         RunDistanceLabel.Text = _totalDistance.ToString("N2");
                         StatsDistanceLabel.Text = _totalDistance.ToString("N2");
+                        if (_totalDistance > 0.1d)
+                        {
+                        //    StatsPaceLabel.Text = "∞";
+                        //}
+                        //else
+                        //{
+                            StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                        }
+                        //https://fitness.stackexchange.com/a/36045
+                        //                                 distance * weight * constant // should be in metric
+                        StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
                     });
                 }
                 if (_justUnpaused == true)
@@ -207,8 +209,6 @@ namespace Dash.Forms.Views.Pages
                     _justUnpaused = false;
                     RunMap.AddPosition(newPos, false);
                 }
-                RunMap.AddPosition(newPos);
-                RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
             }
             e.IsTracked = _isTracking;
             _locations.Add(e);
@@ -217,21 +217,29 @@ namespace Dash.Forms.Views.Pages
         private double GetMaxDistance()
         {
             double distance = _lastMaxDistance ?? 0.1d;
-            if (_lastMaxDistance != null && _lastDistanceCheckCounter++ < _lastDistanceCheckThreshold)
+            if (_lastMaxDistance != null)
             {
-                double? minLat = null, minLng = null, maxLat = null, maxLng = null;
-                if (RunMap?.RouteCoordinates.Count() > 0)
+                if (_lastDistanceCheckCounter++ > _lastDistanceCheckThreshold)
                 {
-                    foreach (var position in RunMap.RouteCoordinates)
+                    _lastDistanceCheckCounter = 0;
+                    double? minLat = null, minLng = null, maxLat = null, maxLng = null;
+                    if (RunMap?.RouteCoordinates.Count() > 0)
                     {
-                        minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
-                        minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
-                        maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
-                        maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
+                        foreach (var position in RunMap.RouteCoordinates)
+                        {
+                            minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
+                            minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
+                            maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
+                            maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
+                        }
+                        distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
+                        _lastMaxDistance = distance;
                     }
-                    distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
-                    _lastMaxDistance = distance;
                 }
+            }
+            else
+            {
+                _lastMaxDistance = distance;
             }
             return distance;
         }

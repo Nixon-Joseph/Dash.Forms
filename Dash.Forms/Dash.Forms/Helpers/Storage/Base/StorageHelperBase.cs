@@ -10,7 +10,7 @@ namespace Dash.Forms.Helpers.Storage
 {
     public class StorageHelperBase<T> where T : DBBase, new()
     {
-        protected string DBPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "database.db3"); } }
+        protected string DBPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "dash_data.db3"); } }
         protected object Locker = new object();
         protected SQLiteConnection Connection { get { return new SQLiteConnection(DBPath); } }
         protected bool Initialized { get; set; }
