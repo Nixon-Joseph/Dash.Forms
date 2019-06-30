@@ -17,6 +17,19 @@ namespace Dash.Forms.Models.Run
         public DateTime End { get; set; }
         public double Distance { get; set; }
 
+        [Ignore()]
+        public string DataDisplay
+        {
+            get
+            {
+                if (IsFreeRun == true)
+                {
+                    return $"{Start.ToShortDateString()} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToString("N2")}";
+                }
+                return $"Week: {WeekNumber}, Day: {DayNumber} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToString("N2")}";
+            }
+        }
+
         private IEnumerable<RunSegment> _Segments { get; set; }
         [Ignore()]
         public IEnumerable<RunSegment> Segments

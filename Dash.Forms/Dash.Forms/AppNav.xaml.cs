@@ -49,10 +49,24 @@ namespace Dash.Forms
             MasterPage.ListView.SelectedItem = null;
             if (e.SelectedItem is IAppNavMenuItem item)
             {
-                var page = (Page)Activator.CreateInstance(item.TargetType);
-                page.Title = item.Title;
+                try
+                {
+                    if (item.TargetType == typeof(HomePage))
+                    {
+                        await (Detail as NavigationPage).PopToRootAsync();
+                    }
+                    else
+                    {
+                        var page = (Page)Activator.CreateInstance(item.TargetType);
+                        page.Title = item.Title;
 
-                await (Detail as NavigationPage).PushAsync(page);
+                        await (Detail as NavigationPage).PushAsync(page);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    var thing = ex.Message;
+                }
                 IsPresented = false;
             }
         }

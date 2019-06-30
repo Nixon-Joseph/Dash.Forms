@@ -16,6 +16,7 @@ namespace Dash.Forms.Droid
     {
         internal static MainActivity Instance { get; private set; }
         internal static View ContentView { get { return Instance.FindViewById(Android.Resource.Id.Content); } }
+        public static IMapper Mapper { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -28,10 +29,11 @@ namespace Dash.Forms.Droid
 
             try
             {
-                Mapper.Initialize(cfg =>
+                Mapper = new MapperConfiguration(cfg =>
                 {
-                    cfg.CreateMap<Location, LocationData>();
-                });
+                    cfg.CreateMap<Location, LocationData>()
+                        .AfterMap((s, d) => d.Timestamp = DateTime.UtcNow.Ticks);
+                }).CreateMapper();
             }
             catch (Exception ex)
             {
@@ -50,6 +52,7 @@ namespace Dash.Forms.Droid
 
             var lService = new LocationService_Droid();
             lService.CheckGPSPermission();
+
         }
 
         public override void OnBackPressed()

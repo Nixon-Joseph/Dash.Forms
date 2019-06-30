@@ -17,5 +17,6 @@ namespace Dash.Forms.Models.Run
         public bool HasAccuracy { get; set; }
         public bool HasBearing { get; set; }
         public bool IsTracked { get; set; }
+        public long Timestamp { get; set; }
     }
 }

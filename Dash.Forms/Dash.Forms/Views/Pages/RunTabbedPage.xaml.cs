@@ -193,11 +193,11 @@ namespace Dash.Forms.Views.Pages
                         StatsDistanceLabel.Text = _totalDistance.ToString("N2");
                         if (_totalDistance > 0.1d)
                         {
-                        //    StatsPaceLabel.Text = "∞";
-                        //}
-                        //else
-                        //{
                             StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                        }
+                        else
+                        {
+                            StatsPaceLabel.Text = "∞";
                         }
                         //https://fitness.stackexchange.com/a/36045
                         //                                 distance * weight * constant // should be in metric
@@ -222,16 +222,9 @@ namespace Dash.Forms.Views.Pages
                 if (_lastDistanceCheckCounter++ > _lastDistanceCheckThreshold)
                 {
                     _lastDistanceCheckCounter = 0;
-                    double? minLat = null, minLng = null, maxLat = null, maxLng = null;
                     if (RunMap?.RouteCoordinates.Count() > 0)
                     {
-                        foreach (var position in RunMap.RouteCoordinates)
-                        {
-                            minLat = Math.Min(minLat ?? position.Latitude, position.Latitude);
-                            minLng = Math.Min(minLng ?? position.Longitude, position.Longitude);
-                            maxLat = Math.Max(maxLat ?? position.Latitude, position.Latitude);
-                            maxLng = Math.Max(maxLng ?? position.Longitude, position.Longitude);
-                        }
+                        var (minLat, minLng, maxLat, maxLng) = RunMap.RouteCoordinates.GetMinsAndMaxes();
                         distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
                         _lastMaxDistance = distance;
                     }

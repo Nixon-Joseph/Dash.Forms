@@ -8,62 +8,27 @@
         <ListView x:Name="LogListView" IsGroupingEnabled="True" HasUnevenRows="True" SeparatorVisibility="None" Margin="15">
             <ListView.Header>
                 <StackLayout HorizontalOptions="FillAndExpand">
-                    <Label TextColor="White" Text="Overview" HorizontalOptions="Center" />
-                    <Label TextColor="White" Text="Poach from Couch to 5k :)" />
+                    <Picker />
                 </StackLayout>
             </ListView.Header>
             <ListView.GroupHeaderTemplate>
                 <DataTemplate>
-                    <TextCell Text="{ Binding Title }" TextColor="White" />
+                    <ViewCell>
+                        <ContentView>
+                            <Label Text="{ Binding Title }" FontAttributes="Bold" TextColor="Gray" />
+                        </ContentView>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.GroupHeaderTemplate>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <material:MaterialCard Elevation="2" HorizontalOptions="FillAndExpand" IsClickable="True">
+                        <material:MaterialCard Elevation="2" HorizontalOptions="FillAndExpand">
                             <StackLayout HorizontalOptions="FillAndExpand">
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
-                                    <Label Text="Day 1" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" />
-                                    <Label Text="2 run" HorizontalOptions="End" />
+                                    <Label Text="{ Binding DataDisplay }" FontSize="Medium" FontAttributes="Bold" HorizontalOptions="Start" />
+                                    <Label Text=">" HorizontalOptions="End" />
                                 </StackLayout>
-                                <Grid HorizontalOptions="FillAndExpand">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Label TextColor="Black" Text="13/Feb/2019" Grid.Column="0" />
-                                    <Label TextColor="Black" Text="2.77 mi" Grid.Column="1" />
-                                    <Label TextColor="Black" Grid.Column="2">
-                                        <Label.Text>33'00"</Label.Text>
-                                    </Label>
-                                    <Label TextColor="Black" Text="" Grid.Column="3" />
-                                    <Label TextColor="Black" Text=">" Grid.Column="4" />
-                                </Grid>
-                                <Grid HorizontalOptions="FillAndExpand">
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Label TextColor="Black" Text="13/Feb/2019" Grid.Column="0" />
-                                    <Label TextColor="Black" Text="2.77 mi" Grid.Column="1" />
-                                    <Label TextColor="Black" Grid.Column="2">
-                                        <Label.Text>33'00"</Label.Text>
-                                    </Label>
-                                    <Label TextColor="Black" Text="" Grid.Column="3" />
-                                    <Label TextColor="Black" Text=">" Grid.Column="4" />
-                                </Grid>
                             </StackLayout>
                         </material:MaterialCard>
                     </ViewCell>

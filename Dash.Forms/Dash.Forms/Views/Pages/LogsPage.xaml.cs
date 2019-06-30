@@ -1,4 +1,6 @@
 ﻿using Dash.Forms.Helpers.Storage;
+using Dash.Forms.Models.Run;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -10,44 +12,51 @@ namespace Dash.Forms.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LogsPage : ContentPage
     {
-        public IEnumerable<LogGroup> Logs;// = new List<LogGroup>() {
-        //    new LogGroup("Week 1", "1") { new Log(), new Log() },
-        //    new LogGroup("Week 2", "2") { new Log(), new Log() },
-        //    new LogGroup("Week 3", "3") { new Log() },
-        //    new LogGroup("Week 4", "4") { new Log(), new Log() },
-        //    new LogGroup("Week 5", "5") { new Log(), new Log() },
-        //    new LogGroup("Week 6", "6") { new Log(), new Log() },
-        //    new LogGroup("Week 7", "7") { new Log(), new Log() }
-        //};
+        public IEnumerable<LogGroup> Logs;
 
         public LogsPage()
         {
             InitializeComponent();
             var runData = new RunDataStorageHelper().GetAll();
-            Logs = runData.Select(r => new LogGroup(r.Start.ToShortDateString(), ""));
+            try
+            {
+                var logs = runData.GroupBy(r => r.TrainingProgramId).Select(g => new LogGroup(GetPlanTitle(g.Key), g.OrderByDescending(r => r.Start)));
+                Logs = logs;
+            }
+            catch (Exception ex)
+            {
+                var thing = ex.Message;
+            }
             LogListView.ItemsSource = Logs;
             LogListView.ItemSelected += LogListView_ItemSelected;
+        }
+
+        private string GetPlanTitle(string key)
+        {
+            switch (key)
+            {
+                default:
+                    return "Free Run";
+            }
         }
 
         private void LogListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             LogListView.SelectedItem = null;
+            if (e.SelectedItem is RunData run)
+            {
+                Navigation.PushAsync(new LogDetailPage(run));
+            }
         }
     }
 
-    public class LogGroup : List<Log>
+    public class LogGroup : List<RunData>
     {
         public string Title { get; set; }
-        public string ShortName { get; set; }
-        public LogGroup(string title, string shortName)
+        public LogGroup(string title, IEnumerable<RunData> runDatas)
         {
             Title = title;
-            ShortName = shortName;
+            AddRange(runDatas);
         }
-    }
-
-    public class Log
-    {
-
     }
 }

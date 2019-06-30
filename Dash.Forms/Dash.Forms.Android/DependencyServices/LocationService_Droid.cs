@@ -33,12 +33,12 @@ namespace Dash.Forms.Droid.DependencyServices
 
         public void AddLocationChangedListener(Action<object, LocationData> listener)
         {
-            _receiver.LocationChanged += (obj, e) => listener(obj, AutoMapper.Mapper.Map<LocationData>(e.Location));
+            _receiver.LocationChanged += (obj, e) => listener(obj, MainActivity.Mapper.Map<LocationData>(e.Location));
         }
 
         public void RemoveLocationChangedListener(Action<object, LocationData> listener)
         {
-            _receiver.LocationChanged -= (obj, e) => listener(obj, AutoMapper.Mapper.Map<LocationData>(e.Location));
+            _receiver.LocationChanged -= (obj, e) => listener(obj, MainActivity.Mapper.Map<LocationData>(e.Location));
         }
 
         public void Start()
@@ -97,7 +97,7 @@ namespace Dash.Forms.Droid.DependencyServices
             LocationManager locManager = MainActivity.Instance.GetSystemService(Android.Content.Context.LocationService) as LocationManager;
             var provider = locManager.GetBestProvider(criteria, true);
             var locData = locManager.GetLastKnownLocation(provider);
-            return locData == null ? null : AutoMapper.Mapper.Map<LocationData>(locData);
+            return locData == null ? null : MainActivity.Mapper.Map<LocationData>(locData);
         }
     }
 }
