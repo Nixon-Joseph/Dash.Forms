@@ -36,6 +36,8 @@ namespace Dash.Forms.Views.Pages
         {
             InitializeComponent();
 
+            NavigationPage.SetHasBackButton(this, false);
+
             _locationService = DependencyService.Get<ILocationService>();
             _locationService.AddLocationChangedListener(_locationService_LocationChanged);
 
