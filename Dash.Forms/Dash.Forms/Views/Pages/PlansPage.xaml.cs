@@ -11,11 +11,11 @@ namespace Dash.Forms.Views.Pages
         public PlansPage()
         {
             InitializeComponent();
-            PlansListView.ItemsSource = new List<Plan>()
+            PlansListView.ItemsSource = new List<TrainingPlan>()
             {
-                new Plan() { Title = "5k Training", Image = "plan_5k.jpg", Caption = "3.1 miles. Wherever you want, as fast as you can!" },
-                new Plan() { Title = "10k Training", Image = "plan_10k.jpg", Caption = "Think you can handle 6.2 miles? No time like the present!" },
-                new Plan() { Title = "Half Marathon Training", Image = "plan_half.jpg", Caption = "Step up to a full half marathon. You can do this!" }
+                new TrainingPlan5K(),
+                new TrainingPlan() { Type = PlanType.TenK, Title = "10k Training", Image = "plan_10k.jpg", Caption = "Think you can handle 6.2 miles? No time like the present!" },
+                new TrainingPlan() { Type = PlanType.HalfMarathon, Title = "Half Marathon Training", Image = "plan_half.jpg", Caption = "Step up to a full half marathon. You can do this!" }
             };
             PlansListView.ItemSelected += PlansListView_ItemSelected;
         }
@@ -23,7 +23,7 @@ namespace Dash.Forms.Views.Pages
         private async void PlansListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             PlansListView.SelectedItem = null;
-            if (e.SelectedItem is Plan plan)
+            if (e.SelectedItem is TrainingPlan plan)
             {
                 await Navigation.PushAsync(new PlanDetailPage(plan));
             }
