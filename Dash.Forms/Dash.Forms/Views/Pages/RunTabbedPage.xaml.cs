@@ -68,6 +68,11 @@ namespace Dash.Forms.Views.Pages
             }
         }
 
+        public RunTabbedPage(TrainingDay day) : this()
+        {
+
+        }
+
         private async void RunCancelButton_Clicked(object sender, EventArgs e)
         {
             StopLocationService();
