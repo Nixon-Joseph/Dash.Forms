@@ -36,7 +36,7 @@ namespace Dash.Forms.Views.Pages
         {
             InitializeComponent();
 
-            NavigationPage.SetHasBackButton(this, false);
+            NavigationPage.SetHasNavigationBar(this, false);
 
             _locationService = DependencyService.Get<ILocationService>();
             _locationService.AddLocationChangedListener(_locationService_LocationChanged);
@@ -68,7 +68,12 @@ namespace Dash.Forms.Views.Pages
             }
         }
 
-        public RunTabbedPage(TrainingDay day) : this()
+        public RunTabbedPage(TrainingDay day) : this(day.Segments)
+        {
+
+        }
+
+        public RunTabbedPage(IEnumerable<TrainingSegment> segments) : this()
         {
 
         }

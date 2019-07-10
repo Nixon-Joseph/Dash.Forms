@@ -1,8 +1,8 @@
 ﻿using Dash.Forms.Controls;
 using Dash.Forms.Models.Run;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,7 +21,16 @@ namespace Dash.Forms.Views.Pages
 
         public QuickRunStartupPage()
         {
-            ToolbarItems.Add(new ToolbarItem("Go!", "", async () => { await Navigation.PushAsync(new RunTabbedPage()); }));
+            ToolbarItems.Add(new ToolbarItem("Go!", "", async () =>
+            {
+                List<TrainingSegment> segments = new List<TrainingSegment>();
+                var index = 1;
+                foreach (var segment in Segments)
+                {
+                    segments.Add(new TrainingSegment(index++, segment.Speed, segment.Value));
+                }
+                await Navigation.PushAsync(new RunTabbedPage(segments));
+            }));
             Segments = new ObservableCollection<BindableTrainingSegment>();
 
             InitializeComponent();
