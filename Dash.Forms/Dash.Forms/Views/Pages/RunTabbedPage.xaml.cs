@@ -31,6 +31,7 @@ namespace Dash.Forms.Views.Pages
         private double? _lastMaxDistance = null;
         private int _lastDistanceCheckCounter;
         private readonly int _lastDistanceCheckThreshold = 4;
+        private bool _locationServiceStarted = false;
 
         public RunTabbedPage()
         {
@@ -80,13 +81,17 @@ namespace Dash.Forms.Views.Pages
 
         private async void RunCancelButton_Clicked(object sender, EventArgs e)
         {
-            StopLocationService();
+            if (_locationServiceStarted == true)
+            {
+                StopLocationService();
+            }
             await Navigation.PopAsync();
         }
 
         private void StartRunButton_Clicked(object sender, EventArgs e)
         {
             _locationService.Start();
+            _locationServiceStarted = true;
             _startTime = DateTime.UtcNow;
             SetRunState(RunState.Running);
             _isTracking = true;
