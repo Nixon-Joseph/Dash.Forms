@@ -29,7 +29,7 @@ namespace Dash.Forms.Views.Pages
                 {
                     segments.Add(new TrainingSegment(index++, segment.Speed, segment.Value));
                 }
-                await Navigation.PushAsync(new RunTabbedPage(segments));
+                await Navigation.PushAsync(new RunTabbedPage(segments, TrainingType.Time));
             }));
             Segments = new ObservableCollection<BindableTrainingSegment>();
 

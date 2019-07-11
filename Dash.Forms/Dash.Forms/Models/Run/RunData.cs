@@ -42,7 +42,7 @@ namespace Dash.Forms.Models.Run
                     var response = storage.GetByParentId(Id);
                     if (response != null)
                     {
-                        _Segments = response.OrderBy(l => l.StartDate);
+                        _Segments = response.OrderBy(l => l.StartTime);
                     }
                 }
                 return _Segments;

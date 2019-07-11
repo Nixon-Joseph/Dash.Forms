@@ -17,7 +17,7 @@ namespace Dash.Forms.Views.Pages
         {
             InitializeComponent();
 
-            foreach (var segment in runData.Segments.OrderBy(s => s.StartDate))
+            foreach (var segment in runData.Segments.OrderBy(s => s.StartTime))
             {
                 foreach (var loc in segment.Locations.OrderBy(l => l.Timestamp))
                 {

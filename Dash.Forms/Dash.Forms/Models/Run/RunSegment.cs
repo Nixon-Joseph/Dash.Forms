@@ -13,20 +13,32 @@ namespace Dash.Forms.Models.Run
 
         public RunSegment(TrainingSegment segment)
         {
-            Type = segment.Type;
             Speed = segment.Speed;
-            ValueType = segment.ValueType;
+            _Locations = new List<LocationData>();
         }
 
-        public DateTime StartDate { get; set; }
+        /// <summary>
+        /// Start date and time for segment
+        /// </summary>
+        public DateTime StartTime { get; set; }
+        /// <summary>
+        /// Run duration
+        /// </summary>
         public TimeSpan Duration { get; set; }
+        /// <summary>
+        /// Distance stored in Meteres
+        /// </summary>
         public double Distance { get; set; }
-        public SegmentTypes Type { get; set; }
+        /// <summary>
+        /// Segment Speed
+        /// </summary>
         public SegmentSpeeds Speed { get; set; }
-        public SegmentValueTypes ValueType { get; set; }
-        private IEnumerable<LocationData> _Locations { get; set; }
+        private List<LocationData> _Locations { get; set; }
+        /// <summary>
+        /// List of locations
+        /// </summary>
         [Ignore()]
-        public IEnumerable<LocationData> Locations
+        public List<LocationData> Locations
         {
             get
             {
@@ -36,7 +48,7 @@ namespace Dash.Forms.Models.Run
                     var response = locStorage.GetByParentId(Id);
                     if (response != null)
                     {
-                        _Locations = response.OrderBy(l => l.Index);
+                        _Locations = response.OrderBy(l => l.Index).ToList();
                     }
                 }
                 return _Locations;

@@ -16,22 +16,36 @@ namespace Dash.Forms.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RunTabbedPage : TabbedPage
     {
-        private readonly ILocationService _locationService;
-        private readonly Timer _timer;
-        private readonly List<LocationData> _locations;
-        private DateTime _startTime;
-        private TimeSpan _pauseOffset = new TimeSpan();
-        private bool _isTracking = false;
-        private bool _justUnpaused = false;
-        private bool _hasStoppedService = false;
-        private double _totalDistance = 0d;
-        private RunState _currentState = RunState.Unstarted;
-        private double? _maxElevation = null;
-        private double? _minElevation = null;
-        private double? _lastMaxDistance = null;
-        private int _lastDistanceCheckCounter;
-        private readonly int _lastDistanceCheckThreshold = 4;
-        private bool _locationServiceStarted = false;
+        private readonly ILocationService LocationService;
+        private readonly ITextToSpeach TextToSpeach;
+        private readonly Timer Timer;
+        private readonly List<LocationData> Locations;
+        private DateTime StartTime;
+        private TimeSpan PauseOffset = new TimeSpan();
+        private TimeSpan SegmentPauseOffset = new TimeSpan();
+        private bool IsTracking = false;
+        private bool JustUnpaused = false;
+        private bool HasStoppedService = false;
+        private double TotalDistance = 0d;
+        private double TotalSegmentDistance = 0d;
+        private RunState CurrentState = RunState.Unstarted;
+        private double? MaxElevation = null;
+        private double? MinElevation = null;
+        private double? LastMaxDistance = null;
+        private int LastDistanceCheckCounter;
+        private readonly int LastDistanceCheckThreshold = 4;
+        private bool LocationServiceStarted = false;
+        private readonly IEnumerable<TrainingSegment> TrainingSegments;
+        private int CurrentSegmentIndex = 0;
+        private readonly List<RunSegment> RunSegments = null;
+        private readonly string ProgramId;
+        private readonly int WeekNum;
+        private readonly int DayNum;
+        private readonly TrainingType TrainingType;
+        private readonly double TrainingEndValue;
+        public bool HitHalfway = false;
+        public bool HitEnd = false;
+        public bool UseMiles = true;
 
         public RunTabbedPage()
         {
@@ -39,8 +53,10 @@ namespace Dash.Forms.Views.Pages
 
             NavigationPage.SetHasNavigationBar(this, false);
 
-            _locationService = DependencyService.Get<ILocationService>();
-            _locationService.AddLocationChangedListener(_locationService_LocationChanged);
+            LocationService = DependencyService.Get<ILocationService>();
+            LocationService.AddLocationChangedListener(_locationService_LocationChanged);
+
+            TextToSpeach = DependencyService.Get<ITextToSpeach>();
 
             RunStartRunButton.Clicked += StartRunButton_Clicked;
             StatsStartRunButton.Clicked += StartRunButton_Clicked;
@@ -57,31 +73,39 @@ namespace Dash.Forms.Views.Pages
             RunFinishButton.Clicked += FinishButton_Clicked;
             StatsFinishButton.Clicked += FinishButton_Clicked;
 
-            _timer = new Timer() { Interval = 1000 };
-            _timer.Elapsed += _timer_Elapsed;
-            _timer.Start();
+            Timer = new Timer() { Interval = 1000 };
+            Timer.Elapsed += _timer_Elapsed;
+            Timer.Start();
 
-            _locations = new List<LocationData>();
+            Locations = new List<LocationData>();
 
-            if (_locationService.GetQuickLocation() is LocationData currentLoc)
+            if (LocationService.GetQuickLocation() is LocationData currentLoc)
             {
                 RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(currentLoc.GetPosition(), Distance.FromKilometers(0.1d)));
             }
         }
 
-        public RunTabbedPage(TrainingDay day) : this(day.Segments)
+        public RunTabbedPage(IEnumerable<TrainingSegment> segments, TrainingType type) : this()
         {
-
+            TrainingType = type;
+            TrainingSegments = segments.OrderBy(s => s.SegmentNumber);
+            if (TrainingSegments.Count() > 0)
+            {
+                TrainingEndValue = TrainingSegments.Sum(t => t.Value);
+                RunSegments = new List<RunSegment> { new RunSegment(segments.FirstOrDefault()) };
+            }
         }
 
-        public RunTabbedPage(IEnumerable<TrainingSegment> segments) : this()
+        public RunTabbedPage(TrainingDay day, string programId, int weekNum) : this(day.Segments, day.TrainingType)
         {
-
+            ProgramId = programId;
+            WeekNum = weekNum;
+            DayNum = day.DayNumber;
         }
 
         private async void RunCancelButton_Clicked(object sender, EventArgs e)
         {
-            if (_locationServiceStarted == true)
+            if (LocationServiceStarted == true)
             {
                 StopLocationService();
             }
@@ -90,16 +114,58 @@ namespace Dash.Forms.Views.Pages
 
         private void StartRunButton_Clicked(object sender, EventArgs e)
         {
-            _locationService.Start();
-            _locationServiceStarted = true;
-            _startTime = DateTime.UtcNow;
+            LocationService.Start();
+            LocationServiceStarted = true;
+            StartTime = DateTime.UtcNow;
             SetRunState(RunState.Running);
-            _isTracking = true;
+            TextToSpeach.Speak("Lets go!");
+            if (GetCurrentSegment() is RunSegment curSegment)
+            {
+                SpeakNextSegment(curSegment);
+                curSegment.StartTime = StartTime;
+            }
+            IsTracking = true;
+        }
+
+        private void SpeakNextSegment(RunSegment segment)
+        {
+            string message = null;
+            switch (segment.Speed)
+            {
+                case SegmentSpeeds.Walk:
+                    message = "Walk.";
+                    break;
+                case SegmentSpeeds.FastWalk:
+                    message = "Brisk Walk.";
+                    break;
+                case SegmentSpeeds.Jog:
+                    message = "Jog.";
+                    break;
+                case SegmentSpeeds.Run:
+                    message = "Run.";
+                    break;
+                case SegmentSpeeds.SteadyRun:
+                    message = "Steady Run.";
+                    break;
+                case SegmentSpeeds.TempoRun:
+                    message = "Tempo Run.";
+                    break;
+                case SegmentSpeeds.Sprint:
+                    message = "Sprint. Maximum Effort.";
+                    break;
+                case SegmentSpeeds.None:
+                default:
+                    break;
+            }
+            if (message.IsNullOrEmpty() == false)
+            {
+                TextToSpeach.Speak(message);
+            }
         }
 
         ~RunTabbedPage()
         {
-            if (_hasStoppedService == false)
+            if (HasStoppedService == false)
             {
                 StopLocationService();
             }
@@ -107,17 +173,17 @@ namespace Dash.Forms.Views.Pages
 
         private void PauseButton_Clicked(object sender, System.EventArgs e)
         {
-            _isTracking = !_isTracking;
-            if (_isTracking == true)
+            IsTracking = !IsTracking;
+            if (IsTracking == true)
             {
-                _justUnpaused = true;
+                JustUnpaused = true;
                 SetRunState(RunState.Running);
             }
             else
             {
                 SetRunState(RunState.Paused);
             }
-            RunMap.HasScrollEnabled = !_isTracking;
+            RunMap.HasScrollEnabled = !IsTracking;
         }
 
         private async void FinishButton_Clicked(object sender, System.EventArgs e)
@@ -129,86 +195,151 @@ namespace Dash.Forms.Views.Pages
         {
             if (await DisplayAlert("Finish Run?", "Are you sure you want to end your run?", "Yes", "No"))
             {
-                if (_hasStoppedService == false) // should always be true here I think.
+                if (HasStoppedService == false) // should always be true here I think.
                 {
                     StopLocationService();
-                    _timer.Stop();
-                    var duration = DateTime.UtcNow - (_startTime + _pauseOffset);
+                    Timer.Stop();
+                    if (GetCurrentSegment() is RunSegment curSegment)
+                    {
+                        curSegment.Duration = GetSegmentDuration(curSegment);
+                    }
+
+                    var duration = DateTime.UtcNow - (StartTime + PauseOffset);
                     var runData = new RunData()
                     {
-                        Start = _startTime,
+                        Start = StartTime,
                         End = DateTime.UtcNow,
-                        Distance = _totalDistance,
+                        Distance = TotalDistance,
                         Elapsed = duration,
-                        Segments = /*TrainingDay != null ? RunSegments :*/ new List<RunSegment>() {
+                        DayNumber = DayNum,
+                        TrainingProgramId = ProgramId,
+                        IsFreeRun = ProgramId.IsNullOrEmpty(),
+                        WeekNumber = WeekNum,
+                        Segments = RunSegments ?? new List<RunSegment>() {
                             new RunSegment()
                             {
-                                Distance = _totalDistance,
+                                Distance = TotalDistance,
                                 Duration = duration,
-                                Locations = _locations,
+                                Locations = Locations,
                                 Speed = SegmentSpeeds.None,
-                                StartDate = _startTime,
-                                Type = SegmentTypes.Time,
-                                ValueType = SegmentValueTypes.Minutes
+                                StartTime = StartTime
                             }
                         }
                     };
                     var runStorage = new RunDataStorageHelper();
-                    var response = runStorage.Insert(runData);
+                    runStorage.Insert(runData);
                     await Navigation.PopAsync();
                 }
             }
         }
 
+        private RunSegment GetCurrentSegment()
+        {
+            if (RunSegments != null)
+            {
+                return RunSegments.ElementAt(CurrentSegmentIndex);
+            }
+            return null;
+        }
+
         private void StopLocationService()
         {
-            _hasStoppedService = true;
-            _locationService.RemoveLocationChangedListener(_locationService_LocationChanged);
-            _locationService.Stop();
+            HasStoppedService = true;
+            LocationService.RemoveLocationChangedListener(_locationService_LocationChanged);
+            LocationService.Stop();
         }
 
         private void _timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            if (_isTracking == true)
+            if (IsTracking == true)
             {
-                var spent = DateTime.UtcNow - (_startTime + _pauseOffset);
+                var spent = GetRunDuration();
+                if (GetCurrentSegment() is RunSegment curSegment)
+                {
+                    if (TrainingType == TrainingType.Time)
+                    {
+                        if (HitHalfway == false && spent.TotalMinutes >= TrainingEndValue / 2)
+                        {
+                            HitHalfway = true;
+                            SpeakHalfway();
+                        }
+                        // end of segment
+                        if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && GetSegmentDuration(curSegment).TotalMinutes >= trainingSegment.Value)
+                        {
+                            HandleNextSegment();
+                        }
+                    }
+                }
                 Device.BeginInvokeOnMainThread(() =>
                 {
                     MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                     StatsTimeLabel.Text = MapTimeLabel.Text;
                 });
             }
-            else if (_currentState == RunState.Paused)
+            else if (CurrentState == RunState.Paused)
             {
-                _pauseOffset = _pauseOffset.Add(TimeSpan.FromSeconds(1));
+                PauseOffset = PauseOffset.Add(TimeSpan.FromSeconds(1));
+                SegmentPauseOffset = SegmentPauseOffset.Add(TimeSpan.FromSeconds(1));
             }
         }
 
-        protected override void OnAppearing()
+        private void SpeakHalfway()
         {
-
+            TextToSpeach.Speak("You're halfway there! Keep going!");
         }
 
-        private void _locationService_LocationChanged(object sender, Models.Run.LocationData e)
+        private void SpeakEnd()
         {
-            if (_isTracking == true)
+            TextToSpeach.Speak("Whew! You made it, well done!");
+        }
+
+        private TrainingSegment GetCurrentTrainingSegment()
+        {
+            if (TrainingSegments != null && TrainingSegments.Count() > 0)
             {
-                var newPos = new Position(e.Latitude, e.Longitude);
-                if (_locations.Count() > 0 && _locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
+                return TrainingSegments.ElementAt(CurrentSegmentIndex);
+            }
+            return null;
+        }
+
+        private void _locationService_LocationChanged(object sender, LocationData loc)
+        {
+            if (IsTracking == true)
+            {
+                var newPos = new Position(loc.Latitude, loc.Longitude);
+                if (Locations.Count() > 0 && Locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                 {
                     RunMap.AddPosition(newPos);
                     RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
-                    _minElevation = Math.Min(_minElevation ?? lastLoc.Altitude, lastLoc.Altitude);
-                    _maxElevation = Math.Max(_maxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
-                    var useMiles = true; // should be a setting later
-                    var meters = _locationService.GetDistance(lastLoc.GetPosition(), newPos);
-                    _totalDistance += useMiles ? (meters / 1609.344) : (meters / 1000);
-                    var pace = _totalDistance > 0d ? TimeSpan.FromMinutes((DateTime.UtcNow - (_startTime + _pauseOffset)).TotalMinutes / _totalDistance) : TimeSpan.FromMinutes(0);
-                    Device.BeginInvokeOnMainThread(() => {
-                        ElevationLabel.Text = (_maxElevation.Value - _minElevation.Value).ToString("N1");
-                        RunDistanceLabel.Text = _totalDistance.ToString("N2");
-                        StatsDistanceLabel.Text = _totalDistance.ToString("N2");
-                        if (_totalDistance > 0.1d)
+                    MinElevation = Math.Min(MinElevation ?? lastLoc.Altitude, lastLoc.Altitude);
+                    MaxElevation = Math.Max(MaxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
+                    var meters = LocationService.GetDistance(lastLoc.GetPosition(), newPos);
+                    TotalDistance += meters;
+                    var convertedDistance = ConvertMeters(TotalDistance);
+                    if (GetCurrentSegment() is RunSegment curSegment && curSegment.Locations.Count() > 0)
+                    {
+                        TotalSegmentDistance += meters;
+                        if (TrainingType == TrainingType.Distance)
+                        {
+                            if (HitHalfway == false && convertedDistance >= TrainingEndValue / 2)
+                            {
+                                HitHalfway = true;
+                                SpeakHalfway();
+                            }
+                            // end of segment
+                            if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && ConvertMeters(TotalSegmentDistance) >= trainingSegment.Value)
+                            {
+                                HandleNextSegment();
+                            }
+                        }
+                    }
+                    var pace = convertedDistance > 0d ? TimeSpan.FromMinutes(GetRunDuration().TotalMinutes / convertedDistance) : TimeSpan.FromMinutes(0);
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        ElevationLabel.Text = (MaxElevation.Value - MinElevation.Value).ToString("N1");
+                        RunDistanceLabel.Text = convertedDistance.ToString("N2");
+                        StatsDistanceLabel.Text = convertedDistance.ToString("N2");
+                        if (convertedDistance > 0.1d)
                         {
                             StatsPaceLabel.Text = pace.ToString("mm':'ss");
                         }
@@ -218,45 +349,77 @@ namespace Dash.Forms.Views.Pages
                         }
                         //https://fitness.stackexchange.com/a/36045
                         //                                 distance * weight * constant // should be in metric
-                        StatsCaloriesLabel.Text = ((int)(_totalDistance * 190 * 1.036)).ToString();
+                        StatsCaloriesLabel.Text = ((int)((TotalDistance / 1000) * 190 * 1.036)).ToString();
                     });
                 }
-                if (_justUnpaused == true)
+                if (JustUnpaused == true)
                 {
-                    _justUnpaused = false;
+                    JustUnpaused = false;
                     RunMap.AddPosition(newPos, false);
                 }
             }
-            e.IsTracked = _isTracking;
-            _locations.Add(e);
+            loc.IsTracked = IsTracking;
+            Locations.Add(loc);
+            GetCurrentSegment()?.Locations.Add(loc);
+        }
+
+        private void HandleNextSegment()
+        {
+            SegmentPauseOffset = new TimeSpan();
+            if (CurrentSegmentIndex < TrainingSegments.Count() - 1)
+            {
+                CurrentSegmentIndex++;
+                RunSegments.Add(new RunSegment(GetCurrentTrainingSegment()) { StartTime = DateTime.UtcNow });
+                SpeakNextSegment(GetCurrentSegment());
+            }
+            else if (HitEnd == false)
+            {
+                HitEnd = true;
+                SpeakEnd();
+            }
+        }
+
+        private double ConvertMeters(double meteres)
+        {
+            return UseMiles == true ? (meteres / 1609.344) : (meteres / 1000);
+        }
+
+        private TimeSpan GetRunDuration()
+        {
+            return DateTime.UtcNow - (StartTime + PauseOffset);
+        }
+
+        private TimeSpan GetSegmentDuration(RunSegment runSegment)
+        {
+            return DateTime.UtcNow - (runSegment.StartTime + SegmentPauseOffset);
         }
 
         private double GetMaxDistance()
         {
-            double distance = _lastMaxDistance ?? 0.1d;
-            if (_lastMaxDistance != null)
+            double distance = LastMaxDistance ?? 0.1d;
+            if (LastMaxDistance != null)
             {
-                if (_lastDistanceCheckCounter++ > _lastDistanceCheckThreshold)
+                if (LastDistanceCheckCounter++ > LastDistanceCheckThreshold)
                 {
-                    _lastDistanceCheckCounter = 0;
+                    LastDistanceCheckCounter = 0;
                     if (RunMap?.RouteCoordinates.Count() > 0)
                     {
                         var (minLat, minLng, maxLat, maxLng) = RunMap.RouteCoordinates.GetMinsAndMaxes();
-                        distance = Math.Max(distance, _locationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
-                        _lastMaxDistance = distance;
+                        distance = Math.Max(distance, LocationService.GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value));
+                        LastMaxDistance = distance;
                     }
                 }
             }
             else
             {
-                _lastMaxDistance = distance;
+                LastMaxDistance = distance;
             }
             return distance;
         }
 
         protected override bool OnBackButtonPressed()
         {
-            if (_currentState != RunState.Unstarted)
+            if (CurrentState != RunState.Unstarted)
             {
                 Task.Run(EndRun);
                 return true;
@@ -269,7 +432,7 @@ namespace Dash.Forms.Views.Pages
 
         private void SetRunState(RunState state)
         {
-            _currentState = state;
+            CurrentState = state;
             RunUnstartedButtonStack.IsVisible = state == RunState.Unstarted;
             StatsUnstartedButtonStack.IsVisible = state == RunState.Unstarted;
             RunRunningButtonStack.IsVisible = state == RunState.Running;

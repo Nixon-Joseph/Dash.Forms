@@ -20,10 +20,7 @@ namespace Dash.Forms.Droid.DependencyServices
             {
                 speaker = new TextToSpeech(MainActivity.Instance, this);
             }
-            else
-            {
-                speaker.Speak(toSpeak, QueueMode.Add, null, null);
-            }
+            speaker?.Speak(toSpeak, QueueMode.Add, null, null);
         }
 
         public void OnInit(OperationResult status)

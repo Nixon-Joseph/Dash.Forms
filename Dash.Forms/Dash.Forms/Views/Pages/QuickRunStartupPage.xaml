@@ -27,11 +27,11 @@
                             </Label.FormattedText>
                         </Label>
                         <Slider Maximum="60" Minimum="1" Value="{Binding Value}"  />
-                        <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                        <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
                             <Label Text="Time" />
                             <Switch IsEnabled="False" />
                             <Label Text="Distance" />
-                        </StackLayout>
+                        </StackLayout>-->
                     </StackLayout>
                     <!--<StackLayout>
                         </StackLayout>-->
