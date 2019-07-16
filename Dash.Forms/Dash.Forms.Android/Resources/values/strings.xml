@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">Dash</string>
     <string name="notification_text">You are running!</string>
+  <string name="shortcut_quick_run">Quick Run</string>
 </resources>

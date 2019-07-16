@@ -19,6 +19,20 @@ namespace Dash.Forms
             MasterPage.ListView.ItemSelected += ListView_ItemSelected;
             (Detail as NavigationPage).Popped += AppNav_Changed;
             (Detail as NavigationPage).Pushed += AppNav_Changed;
+
+            MessagingCenter.Subscribe<string, string>(string.Empty, Constants.DroidAppShortcutInvoked, DroidAppShortcutInvokedHandler);
+        }
+
+        private async void DroidAppShortcutInvokedHandler(string sender, string intentDataLastPathSegment)
+        {
+            switch (intentDataLastPathSegment)
+            {
+                case Constants.ShortcutActivities.QuickRun:
+                    await Navigation.PushAsync(new QuickRunStartupPage());
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void AppNav_Changed(object sender, NavigationEventArgs e)

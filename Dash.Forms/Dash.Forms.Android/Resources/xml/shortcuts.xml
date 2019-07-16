@@ -1,0 +1,20 @@
+﻿<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+  <shortcut
+    android:shortcutId="bookings"
+    android:enabled="true"
+    android:icon="@drawable/ic_directions_run_white_24dp"
+    android:shortcutShortLabel="@string/shortcut_quick_run"
+    android:shortcutLongLabel="@string/shortcut_quick_run"
+    android:shortcutDisabledMessage="@string/shortcut_quick_run">
+    <!--
+    If there are more than one intent defined,
+    the last intent in the list determines
+    what the user sees when they launch this shortcut
+    -->
+    <intent
+      android:action="android.intent.action.VIEW"
+      android:targetPackage="com.DashFitness.AppBeta"
+      android:targetClass="com.DashFitness.AppBeta.MainActivity"
+      android:data="content://actions/QuickRun"/>
+  </shortcut>
+</shortcuts>

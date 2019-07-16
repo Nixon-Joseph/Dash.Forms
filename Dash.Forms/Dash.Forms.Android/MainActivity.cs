@@ -11,7 +11,14 @@ using XF.Material.Droid;
 
 namespace Dash.Forms.Droid
 {
-    [Activity(Label = "Dash", Theme = "@style/MainTheme.Launcher", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
+    [Activity(
+        Label = "Dash",
+        Theme = "@style/MainTheme.Launcher",
+        MainLauncher = true,
+        ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation,
+        Exported = true,
+        Name = "com.DashFitness.AppBeta.MainActivity")]
+    [MetaData("android.app.shortcuts", Resource = "@xml/shortcuts")]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         internal static MainActivity Instance { get; private set; }
@@ -48,7 +55,7 @@ namespace Dash.Forms.Droid
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
             Material.Init(this, savedInstanceState);
-            LoadApplication(new App());
+            LoadApplication(new App(Intent?.Data?.LastPathSegment));
 
             var lService = new LocationService_Droid();
             lService.CheckGPSPermission();
