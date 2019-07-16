@@ -1,4 +1,7 @@
 ﻿using Dash.Forms.Extensions;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Xamarin.Forms;
 
 namespace Dash.Forms
@@ -21,6 +24,9 @@ namespace Dash.Forms
         protected override void OnStart()
         {
             // Handle when your app starts
+            AppCenter.Start("android=c4130136-3e17-463f-a147-626b41dff809;",// +
+                              //"ios={Your iOS App secret here}",
+                              typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
