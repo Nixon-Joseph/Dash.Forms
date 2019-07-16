@@ -53,6 +53,8 @@
     <AndroidLinkTool>proguard</AndroidLinkTool>
     <MandroidI18n />
     <AndroidSupportedAbis>armeabi-v7a;arm64-v8a</AndroidSupportedAbis>
+    <AndroidStoreUncompressedFileExtensions>
+    </AndroidStoreUncompressedFileExtensions>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -109,6 +111,7 @@
     <AndroidAsset Include="Assets\Fonts\Roboto-Bold.ttf" />
     <AndroidAsset Include="Assets\Fonts\Roboto-Medium.ttf" />
     <AndroidAsset Include="Assets\Fonts\Roboto-Regular.ttf" />
+    <ProguardConfiguration Include="proguard.cfg" />
     <None Include="Properties\AndroidManifest.xml">
       <SubType>Designer</SubType>
     </None>
