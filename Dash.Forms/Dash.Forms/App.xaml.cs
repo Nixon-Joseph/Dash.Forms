@@ -24,8 +24,8 @@ namespace Dash.Forms
         protected override void OnStart()
         {
             // Handle when your app starts
-            AppCenter.Start("android=c4130136-3e17-463f-a147-626b41dff809;",// +
-                              //"ios={Your iOS App secret here}",
+            AppCenter.Start("android=c4130136-3e17-463f-a147-626b41dff809;" +
+                              "ios=a5315d74-ee68-430c-a60f-da68a7c4f13e",
                               typeof(Analytics), typeof(Crashes));
         }
 
