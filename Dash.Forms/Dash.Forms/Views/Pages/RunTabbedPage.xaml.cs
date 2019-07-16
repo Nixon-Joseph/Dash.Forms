@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Timers;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -17,7 +18,6 @@ namespace Dash.Forms.Views.Pages
     public partial class RunTabbedPage : TabbedPage
     {
         private readonly ILocationService LocationService;
-        private readonly ITextToSpeach TextToSpeach;
         private readonly Timer Timer;
         private readonly List<LocationData> Locations;
         private DateTime StartTime;
@@ -55,8 +55,6 @@ namespace Dash.Forms.Views.Pages
 
             LocationService = DependencyService.Get<ILocationService>();
             LocationService.AddLocationChangedListener(_locationService_LocationChanged);
-
-            TextToSpeach = DependencyService.Get<ITextToSpeach>();
 
             RunStartRunButton.Clicked += StartRunButton_Clicked;
             StatsStartRunButton.Clicked += StartRunButton_Clicked;
@@ -118,13 +116,21 @@ namespace Dash.Forms.Views.Pages
             LocationServiceStarted = true;
             StartTime = DateTime.UtcNow;
             SetRunState(RunState.Running);
-            TextToSpeach.Speak("Lets go!");
+            Speak("Lets go!");
             if (GetCurrentSegment() is RunSegment curSegment)
             {
                 SpeakNextSegment(curSegment);
                 curSegment.StartTime = StartTime;
             }
             IsTracking = true;
+        }
+
+        private void Speak(string text)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                TextToSpeech.SpeakAsync(text);
+            });
         }
 
         private void SpeakNextSegment(RunSegment segment)
@@ -159,7 +165,7 @@ namespace Dash.Forms.Views.Pages
             }
             if (message.IsNullOrEmpty() == false)
             {
-                TextToSpeach.Speak(message);
+                Speak(message);
             }
         }
 
@@ -285,12 +291,12 @@ namespace Dash.Forms.Views.Pages
 
         private void SpeakHalfway()
         {
-            TextToSpeach.Speak("You're halfway there! Keep going!");
+            Speak("You're halfway there! Keep going!");
         }
 
         private void SpeakEnd()
         {
-            TextToSpeach.Speak("Whew! You made it, well done!");
+            Speak("You made it, way to go!");
         }
 
         private TrainingSegment GetCurrentTrainingSegment()
@@ -347,9 +353,7 @@ namespace Dash.Forms.Views.Pages
                         {
                             StatsPaceLabel.Text = "∞";
                         }
-                        //https://fitness.stackexchange.com/a/36045
-                        //                                 distance * weight * constant // should be in metric
-                        StatsCaloriesLabel.Text = ((int)((TotalDistance / 1000) * 190 * 1.036)).ToString();
+                        StatsCaloriesLabel.Text = ((int)TotalDistance.CalculateCalories(86.1826)).ToString();
                     });
                 }
                 if (JustUnpaused == true)

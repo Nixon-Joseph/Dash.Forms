@@ -1,4 +1,5 @@
-﻿using Dash.Forms.Helpers.Storage;
+﻿using Dash.Forms.Extensions;
+using Dash.Forms.Helpers.Storage;
 using Dash.Forms.Models.Storage;
 using SQLite;
 using System;
@@ -24,9 +25,9 @@ namespace Dash.Forms.Models.Run
             {
                 if (IsFreeRun == true)
                 {
-                    return $"{Start.ToShortDateString()} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToString("N2")}";
+                    return $"{Start.ToShortDateString()} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToMiles().ToString("N2")}";
                 }
-                return $"Week: {WeekNumber}, Day: {DayNumber} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToString("N2")}";
+                return $"Week: {WeekNumber}, Day: {DayNumber} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToMiles().ToString("N2")}";
             }
         }
 

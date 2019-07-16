@@ -29,11 +29,11 @@ namespace Dash.Forms.Views.Pages
             var distance = DependencyService.Get<ILocationService>().GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value);
 
             var useMiles = true;
-            var convertedDistance = useMiles ? (distance / 1609.344) : (distance / 1000);
+            var convertedDistance = useMiles ? (distance.ToMiles()) : (distance.ToKilometers());
             RunDistanceLabel.Text = convertedDistance.ToString("N2");
             StatsDistanceLabel.Text = convertedDistance.ToString("N2");
             StatsPaceLabel.Text = TimeSpan.FromMinutes(runData.Elapsed.TotalMinutes / convertedDistance).ToString("mm':'ss");
-            StatsCaloriesLabel.Text = ((int)(convertedDistance * 190 * 1.036)).ToString();
+            StatsCaloriesLabel.Text = ((int)distance.CalculateCalories(86.1826)).ToString();
             MapTimeLabel.Text = runData.Elapsed.ToString(runData.Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
             StatsTimeLabel.Text = MapTimeLabel.Text;
 
