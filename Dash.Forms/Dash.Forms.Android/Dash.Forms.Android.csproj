@@ -56,7 +56,7 @@
     <AndroidStoreUncompressedFileExtensions>
     </AndroidStoreUncompressedFileExtensions>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidDexTool>d8</AndroidDexTool>
+    <AndroidDexTool>dx</AndroidDexTool>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
