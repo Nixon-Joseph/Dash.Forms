@@ -28,7 +28,7 @@ namespace Dash.Forms
             switch (intentDataLastPathSegment)
             {
                 case Constants.ShortcutActivities.QuickRun:
-                    await Navigation.PushAsync(new QuickRunStartupPage());
+                    await Detail.Navigation.PushAsync(new QuickRunStartupPage());
                     break;
                 default:
                     break;
