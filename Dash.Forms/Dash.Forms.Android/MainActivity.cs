@@ -1,11 +1,8 @@
 ﻿using Android.App;
 using Android.Content.PM;
-using Android.Locations;
 using Android.OS;
 using Android.Views;
-using AutoMapper;
 using Dash.Forms.Droid.DependencyServices;
-using Dash.Forms.Models.Run;
 using System;
 using XF.Material.Droid;
 
@@ -23,7 +20,6 @@ namespace Dash.Forms.Droid
     {
         internal static MainActivity Instance { get; private set; }
         internal static View ContentView { get { return Instance.FindViewById(Android.Resource.Id.Content); } }
-        public static IMapper Mapper { get; private set; }
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,19 +29,6 @@ namespace Dash.Forms.Droid
 
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
-
-            try
-            {
-                Mapper = new MapperConfiguration(cfg =>
-                {
-                    cfg.CreateMap<Location, LocationData>()
-                        .AfterMap((s, d) => d.Timestamp = DateTime.UtcNow.Ticks);
-                }).CreateMapper();
-            }
-            catch (Exception ex)
-            {
-                var thing = ex.Message;
-            }
 
             base.OnCreate(savedInstanceState);
 

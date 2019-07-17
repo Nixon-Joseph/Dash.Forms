@@ -33,12 +33,12 @@ namespace Dash.Forms.Droid.DependencyServices
 
         public void AddLocationChangedListener(Action<object, LocationData> listener)
         {
-            _receiver.LocationChanged += (obj, e) => listener(obj, MainActivity.Mapper.Map<LocationData>(e.Location));
+            _receiver.LocationChanged += (obj, e) => listener(obj, e.Location.ToLocData());
         }
 
         public void RemoveLocationChangedListener(Action<object, LocationData> listener)
         {
-            _receiver.LocationChanged -= (obj, e) => listener(obj, MainActivity.Mapper.Map<LocationData>(e.Location));
+            _receiver.LocationChanged -= (obj, e) => listener(obj, e.Location.ToLocData());
         }
 
         public void Start()
@@ -97,7 +97,30 @@ namespace Dash.Forms.Droid.DependencyServices
             LocationManager locManager = MainActivity.Instance.GetSystemService(Android.Content.Context.LocationService) as LocationManager;
             var provider = locManager.GetBestProvider(criteria, true);
             var locData = locManager.GetLastKnownLocation(provider);
-            return locData == null ? null : MainActivity.Mapper.Map<LocationData>(locData);
+            return locData.ToLocData();
+        }
+    }
+
+    internal static class LocExtensions
+    {
+        public static LocationData ToLocData(this Location loc)
+        {
+            if (loc != null)
+            {
+                return new LocationData()
+                {
+                    Accuracy = loc.Accuracy,
+                    Altitude = loc.Altitude,
+                    Bearing = loc.Bearing,
+                    HasAccuracy = loc.HasAccuracy,
+                    HasAltitude = loc.HasAltitude,
+                    HasBearing = loc.HasBearing,
+                    Latitude = loc.Latitude,
+                    Longitude = loc.Longitude,
+                    Timestamp = DateTime.UtcNow.Ticks
+                };
+            }
+            return null;
         }
     }
 }
