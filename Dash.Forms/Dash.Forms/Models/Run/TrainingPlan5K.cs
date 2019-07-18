@@ -9,7 +9,7 @@ namespace Dash.Forms.Models.Run
             Id = "plan_5k";
             Type = PlanType.FiveK;
             Title = "5k Training";
-            Image = "plan_5k.jpg";
+            Image = "plan_5k";
             Caption = "3.1 miles. Wherever you want, as fast as you can!";
             Weeks = BuildWeeks();
         }

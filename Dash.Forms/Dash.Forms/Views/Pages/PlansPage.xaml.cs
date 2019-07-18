@@ -14,8 +14,8 @@ namespace Dash.Forms.Views.Pages
             PlansListView.ItemsSource = new List<TrainingPlan>()
             {
                 new TrainingPlan5K(),
-                new TrainingPlan() { Type = PlanType.TenK, Title = "10k Training", Image = "plan_10k.jpg", Caption = "Think you can handle 6.2 miles? No time like the present!" },
-                new TrainingPlan() { Type = PlanType.HalfMarathon, Title = "Half Marathon Training", Image = "plan_half.jpg", Caption = "Step up to a full half marathon. You can do this!" }
+                new TrainingPlan10K(),
+                new TrainingPlan() { Type = PlanType.HalfMarathon, Title = "Half Marathon Training", Image = "plan_half", Caption = "Step up to a full half marathon. You can do this!" }
             };
             PlansListView.ItemSelected += PlansListView_ItemSelected;
         }
