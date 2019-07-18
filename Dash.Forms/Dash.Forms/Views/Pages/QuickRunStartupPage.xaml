@@ -6,12 +6,12 @@
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:Dash.Forms.Controls"
              x:Class="Dash.Forms.Views.Pages.QuickRunStartupPage">
-            
+
     <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
         <CollectionView x:Name="SegmentCollectionView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
             <CollectionView.EmptyView>
                 <StackLayout Padding="20">
-                    <Label Text="No segments selected. You can add segments with the + button below. Or click 'GO!' to proceed without segments. " FontSize="Large" />
+                    <Label Text="No segments selected. You can add segments with the + button below. Or click 'GO!' to proceed without segments." FontSize="Large" />
                 </StackLayout>
             </CollectionView.EmptyView>
             <CollectionView.ItemTemplate>
@@ -45,34 +45,46 @@
                  IsVisible="False"
                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
                  AbsoluteLayout.LayoutFlags="SizeProportional" />
-        <controls:FAButton x:Name="RunFAB"
-                           Opacity="0"
-                           ImageSource="ic_directions_run_white_24dp"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                           AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
-                           Size="Large"
-                           BackgroundColor="#6CA42D" />
-        <controls:FAButton x:Name="WalkFAB"
-                           Opacity="0"
-                           ImageSource="ic_directions_walk_white_24dp"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                           AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
-                           Size="Large"
-                           BackgroundColor="#D79253" />
-        <controls:FAButton x:Name="WarmupFAB"
-                           Opacity="0"
-                           ImageSource="ic_whatshot_white_24dp"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                           AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
-                           Size="Large"
-                           BackgroundColor="#BA4774" />
-        <controls:FAButton x:Name="CoolFAB"
-                           Opacity="0"
-                           ImageSource="ic_ac_unit_white_24dp"
-                           AbsoluteLayout.LayoutFlags="PositionProportional"
-                           AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
-                           Size="Large"
-                           BackgroundColor="#347A84" />
+        <AbsoluteLayout x:Name="RunFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+            <controls:FAButton x:Name="RunFAB"
+                               Opacity="0"
+                               ImageSource="ic_directions_run_white_24dp" 
+                               Size="Large"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" 
+                               AbsoluteLayout.LayoutBounds="0,0,-1,-1"
+                               BackgroundColor="#6CA42D" />
+            <Label Text="Run" TextColor="White" x:Name="RunFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+        </AbsoluteLayout>
+        <AbsoluteLayout x:Name="WalkFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+            <controls:FAButton x:Name="WalkFAB"
+                               Opacity="0"
+                               ImageSource="ic_directions_walk_white_24dp" 
+                               Size="Large"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" 
+                               AbsoluteLayout.LayoutBounds="0,0,-1,-1"
+                               BackgroundColor="#D79253" />
+            <Label Text="Walk" TextColor="White" x:Name="WalkFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+        </AbsoluteLayout>
+        <AbsoluteLayout x:Name="WarmupFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+            <controls:FAButton x:Name="WarmupFAB"
+                               Opacity="0"
+                               ImageSource="ic_whatshot_white_24dp" 
+                               Size="Large"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" 
+                               AbsoluteLayout.LayoutBounds="0,0,-1,-1"
+                               BackgroundColor="#BA4774" />
+            <Label Text="Warm" TextColor="White" x:Name="WarmupFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+        </AbsoluteLayout>
+        <AbsoluteLayout x:Name="CoolFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+            <controls:FAButton x:Name="CoolFAB"
+                               Opacity="0"
+                               ImageSource="ic_ac_unit_white_24dp" 
+                               Size="Large"
+                               AbsoluteLayout.LayoutFlags="PositionProportional" 
+                               AbsoluteLayout.LayoutBounds="0,0,-1,-1"
+                               BackgroundColor="#347A84" />
+            <Label Text="Cool" TextColor="White" x:Name="CoolFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+        </AbsoluteLayout>
         <controls:FAButton x:Name="FAB"
                            Size="Large"
                            ImageSource="ic_add_white_24dp"

@@ -83,7 +83,7 @@ namespace Dash.Forms.Views.Pages
         {
             if (IsOpen == true)
             {
-                CloseSubFABs(CoolFAB, WarmupFAB, WalkFAB, RunFAB);
+                CloseSubFABs(CoolFABContainer, WarmupFABContainer, WalkFABContainer, RunFABContainer);
                 FAB.RotateTo(0, ExpandDuration, OpeningEasing);
                 Backdrop.FadeTo(0, ExpandDuration);
                 Device.StartTimer(TimeSpan.FromMilliseconds(ExpandDuration), () =>
@@ -100,7 +100,7 @@ namespace Dash.Forms.Views.Pages
             }
             else
             {
-                OpenSubFABs((CoolFAB, 270), (WarmupFAB, 300), (WalkFAB, 330), (RunFAB, 0));
+                OpenSubFABs((CoolFABContainer, 270), (WarmupFABContainer, 300), (WalkFABContainer, 330), (RunFABContainer, 0));
                 FAB.RotateTo(225, ExpandDuration, OpeningEasing);
                 Backdrop.IsVisible = true;
                 Backdrop.FadeTo(0.5, ExpandDuration);
@@ -109,21 +109,33 @@ namespace Dash.Forms.Views.Pages
             IsOpen = !IsOpen;
         }
 
-        private void OpenSubFABs(params (FAButton fab, double angleDegrees)[] fabTuples)
+        private void OpenSubFABs(params (AbsoluteLayout fabContainer, double angleDegrees)[] fabTuples)
         {
-            foreach (var (fab, angleDegrees) in fabTuples)
+            foreach (var (fabContainer, angleDegrees) in fabTuples)
             {
-                fab.TranslateTo(DistanceWhenOpen * Math.Sin(angleDegrees * RadMult), DistanceWhenOpen * -Math.Cos(angleDegrees * RadMult), ExpandDuration, OpeningEasing);
-                fab.FadeTo(1, ExpandDuration, OpeningEasing);
+                fabContainer.TranslateTo(DistanceWhenOpen * Math.Sin(angleDegrees * RadMult), DistanceWhenOpen * -Math.Cos(angleDegrees * RadMult), ExpandDuration, OpeningEasing);
+                foreach (var fabContainerChild in fabContainer.Children)
+                {
+                    if (fabContainerChild is View view)
+                    {
+                        view.FadeTo(1, ExpandDuration, OpeningEasing);
+                    }
+                }
             }
         }
 
-        private void CloseSubFABs(params FAButton[] fabs)
+        private void CloseSubFABs(params AbsoluteLayout[] fabContainers)
         {
-            foreach (var fab in fabs)
+            foreach (var fabContainer in fabContainers)
             {
-                fab.TranslateTo(0, 0, ExpandDuration, OpeningEasing);
-                fab.FadeTo(0, ExpandDuration, OpeningEasing);
+                fabContainer.TranslateTo(0, 0, ExpandDuration, OpeningEasing);
+                foreach (var fabContainerChild in fabContainer.Children)
+                {
+                    if (fabContainerChild is View view)
+                    {
+                        view.FadeTo(0, ExpandDuration, OpeningEasing);
+                    }
+                }
             }
         }
 
