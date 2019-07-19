@@ -2,11 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Dash.Forms.Views.Pages.SettingsPage">
-    <ContentPage.Content>
+    <ScrollView Padding="20">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <BoxView HeightRequest="1" Color="Gray" />
+            <StackLayout Margin="0, 0, 0, 15">
+                <Label Text="Units of Measure" FontSize="18"/>
+                <Label Text="Imperial" />
+                <BoxView HeightRequest="1" Color="Gray" />
+            </StackLayout>
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>
