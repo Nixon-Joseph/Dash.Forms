@@ -1,15 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="Dash.Forms.Views.Pages.SettingsPage">
     <ScrollView Padding="20">
         <StackLayout>
-            <BoxView HeightRequest="1" Color="Gray" />
-            <StackLayout Margin="0, 0, 0, 15">
-                <Label Text="Units of Measure" FontSize="18"/>
-                <Label Text="Imperial" />
-                <BoxView HeightRequest="1" Color="Gray" />
-            </StackLayout>
+            <Label Text="Units of Measure" FontSize="12" />
+            <Picker ItemsSource="{Binding UnitsOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedUnits}" />
+            <mat:MaterialTextField Text="{Binding Weight}" Placeholder="{Binding WeightLabelText}"  />
         </StackLayout>
     </ScrollView>
 </ContentPage>

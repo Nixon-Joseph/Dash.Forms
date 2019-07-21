@@ -11,39 +11,7 @@ namespace Dash.Forms.Views.Pages
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SettingsPage : ContentPage
     {
-        private readonly Debouncer WeightDebouncer = new Debouncer();
-
         public static BindableProperty WeightLabelTextProperty = BindableProperty.Create(nameof(WeightLabelText), typeof(string), typeof(SettingsPage), string.Empty);
-
-        public static readonly int MaxYear = DateTime.Now.Year;
-        public static readonly int MinYear = MaxYear - 100;
-        //public static BindableProperty YearProperty = BindableProperty.Create(nameof(Year), typeof(int), typeof(SettingsPage), Preferences.Get("Pref.Birthday", new DateTime(MaxYear - 20, 1, 15)).Year,
-        //    propertyChanged: (b, o, n) => {
-        //        if (b is SettingsPage _this && n is int newVal)
-        //        {
-        //            _this.WeightDebouncer.Debouce(() => {
-        //                Preferences.Set("Pref.Weight", newWeight);
-        //            });
-        //        }
-        //    }
-        //);
-        //public static BindableProperty MonthProperty = BindableProperty.Create(nameof(Month), typeof(string), typeof(SettingsPage), Preferences.Get("Pref.Birthday", new DateTime(MaxYear - 20, 1, 15)).ToString("MMMM"),
-        //    propertyChanged: (b, o, n) => {
-        //        if (b is SettingsPage _this && n is int newVal)
-        //        {
-        //            _this.WeightDebouncer.Debouce(() => {
-        //                Preferences.Set("Pref.Weight", newWeight);
-        //            });
-        //        }
-        //    }
-        //);
-
-        public string WeightLabelText
-        {
-            get { return (string)GetValue(WeightLabelTextProperty); }
-            set { SetValue(WeightLabelTextProperty, value); }
-        }
-
         public static BindableProperty WeightProperty = BindableProperty.Create(nameof(Weight), typeof(string), typeof(SettingsPage), Preferences.Get("Pref.Weight", 120d).ToString(),
             propertyChanged: (b, o, n) => {
                 if (b is SettingsPage _this && n is string newVal)
@@ -55,29 +23,52 @@ namespace Dash.Forms.Views.Pages
                 }
             }
         );
+        public BindableProperty SelectedUnitsProperty = BindableProperty.Create(nameof(SelectedUnits), typeof(UnitsOptionsItem), typeof(SettingsPage),
+            propertyChanged: (b, o, n) =>
+            {
+                if (b is SettingsPage _this && n is UnitsOptionsItem newItem)
+                {
+                    switch (newItem.Type)
+                    {
+                        case UnitsType.Metric:
+                            _this.WeightLabelText = "Weight (kg)";
+                            break;
+                        case UnitsType.Imperial:
+                            _this.WeightLabelText = "Weight (lbs)";
+                            break;
+                    }
+                    Preferences.Set("Pref.Units", (int)newItem.Type);
+                }
+            }
+        );
 
+        public string WeightLabelText
+        {
+            get { return (string)GetValue(WeightLabelTextProperty); }
+            set { SetValue(WeightLabelTextProperty, value); }
+        }
         public string Weight
         {
             get { return (string)GetValue(WeightProperty); }
             set { SetValue(WeightProperty, value); }
+        }   
+        public UnitsOptionsItem SelectedUnits
+        {
+            get { return (UnitsOptionsItem) GetValue(SelectedUnitsProperty); }
+            set { SetValue(SelectedUnitsProperty, value); }
         }
+
+        public List<UnitsOptionsItem> UnitsOptions { get; set; } = new List<UnitsOptionsItem>();
+
+        private readonly Debouncer WeightDebouncer = new Debouncer();
 
         public SettingsPage()
         {
-            //UnitsOptions.Add(new UnitsRadioItem() { Display = "Metric (kg, km)", Type = UnitsType.Metric });
-            //UnitsOptions.Add(new UnitsRadioItem() { Display = "Imperial (lbs, mi)", Type = UnitsType.Imperial });
+            UnitsOptions.Add(new UnitsOptionsItem(UnitsType.Metric));
+            UnitsOptions.Add(new UnitsOptionsItem(UnitsType.Imperial));
 
-            //UnitsSelected.Subscribe((newVal) =>
-            //{
-            //    if (newVal != null)
-            //    {
-            //        Preferences.Set("Pref.Units", (int)newVal.Type);
-            //        WeightLabelText = newVal.Type == UnitsType.Imperial ? "Pounds" : "Kilos";
-            //    }
-            //});
-
-            //var unitsType = (UnitsType)Preferences.Get("Pref.Units", (int)UnitsType.Imperial);
-            //UnitsSelected.Value = UnitsOptions.FirstOrDefault(u => u.Type == unitsType) ?? UnitsOptions[1];
+            var unitsType = (UnitsType)Preferences.Get("Pref.Units", (int)UnitsType.Imperial);
+            SelectedUnits = UnitsOptions.FirstOrDefault(u => u.Type == unitsType) ?? UnitsOptions[1];
 
             InitializeComponent();
 
@@ -90,8 +81,23 @@ namespace Dash.Forms.Views.Pages
         Imperial
     }
 
-    public class UnitsRadioItem
+    public class UnitsOptionsItem
     {
+        public UnitsOptionsItem() { }
+        public UnitsOptionsItem(UnitsType type)
+        {
+            Type = type;
+            switch (type)
+            {
+                case UnitsType.Metric:
+                    Display = "Metric (kg, km)";
+                    break;
+                case UnitsType.Imperial:
+                    Display = "Imperial (lbs, mi)";
+                    break;
+            }
+        }
+
         public string Display { get; set; }
         public UnitsType Type { get; set; }
     }
