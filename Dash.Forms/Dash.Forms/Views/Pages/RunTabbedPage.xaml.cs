@@ -1,5 +1,6 @@
 ﻿using Dash.Forms.DependencyInterfaces;
 using Dash.Forms.Extensions;
+using Dash.Forms.Helpers;
 using Dash.Forms.Helpers.Storage;
 using Dash.Forms.Models.Run;
 using System;
@@ -353,7 +354,7 @@ namespace Dash.Forms.Views.Pages
                         {
                             StatsPaceLabel.Text = "∞";
                         }
-                        StatsCaloriesLabel.Text = ((int)TotalDistance.CalculateCalories(86.1826)).ToString();
+                        StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, 86.1826)).ToString();
                     });
                 }
                 if (JustUnpaused == true)

@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Dash.Forms.Helpers;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using Xamarin.Essentials;
-using Dash.Forms.Helpers;
 
 namespace Dash.Forms.Views.Pages
 {
@@ -12,13 +10,22 @@ namespace Dash.Forms.Views.Pages
     public partial class SettingsPage : ContentPage
     {
         public static BindableProperty WeightLabelTextProperty = BindableProperty.Create(nameof(WeightLabelText), typeof(string), typeof(SettingsPage), string.Empty);
-        public static BindableProperty WeightProperty = BindableProperty.Create(nameof(Weight), typeof(string), typeof(SettingsPage), Preferences.Get("Pref.Weight", 120d).ToString(),
-            propertyChanged: (b, o, n) => {
+        public static BindableProperty WeightProperty = BindableProperty.Create(nameof(Weight), typeof(string), typeof(SettingsPage), PreferenceHelper.GetWeight(PreferenceHelper.GetUnits()).ToString(),
+            propertyChanged: (b, o, n) =>
+            {
                 if (b is SettingsPage _this && n is string newVal)
                 {
                     double.TryParse(newVal, out double newWeight);
-                    _this.WeightDebouncer.Debouce(() => {
-                        Preferences.Set("Pref.Weight", newWeight);
+                    _this.WeightDebouncer.Debouce(() =>
+                    {
+                        if (_this.SelectedUnits.Type == UnitsType.Imperial)
+                        {
+                            PreferenceHelper.SetWeightPounds(newWeight);
+                        }
+                        else
+                        {
+                            PreferenceHelper.SetWeightKilos(newWeight);
+                        }
                     });
                 }
             }
@@ -37,7 +44,19 @@ namespace Dash.Forms.Views.Pages
                             _this.WeightLabelText = "Weight (lbs)";
                             break;
                     }
-                    Preferences.Set("Pref.Units", (int)newItem.Type);
+                    PreferenceHelper.SetUnits(newItem.Type);
+                }
+            }
+        );
+        public BindableProperty AgeProperty = BindableProperty.Create(nameof(Age), typeof(int), typeof(SettingsPage), PreferenceHelper.GetAge(),
+            propertyChanged: (b, o, n) =>
+            {
+                if (b is SettingsPage _this && n is int newAge)
+                {
+                    _this.AgeDebouncer.Debouce(() =>
+                    {
+                        PreferenceHelper.SetAge(newAge);
+                    });
                 }
             }
         );
@@ -51,34 +70,40 @@ namespace Dash.Forms.Views.Pages
         {
             get { return (string)GetValue(WeightProperty); }
             set { SetValue(WeightProperty, value); }
-        }   
+        }
         public UnitsOptionsItem SelectedUnits
         {
-            get { return (UnitsOptionsItem) GetValue(SelectedUnitsProperty); }
+            get { return (UnitsOptionsItem)GetValue(SelectedUnitsProperty); }
             set { SetValue(SelectedUnitsProperty, value); }
         }
+        public int Age
+        {
+            get { return (int)GetValue(AgeProperty); }
+            set { SetValue(AgeProperty, value); }
+        }
 
+        public List<int> AgeOptions { get; set; } = new List<int>();
         public List<UnitsOptionsItem> UnitsOptions { get; set; } = new List<UnitsOptionsItem>();
 
         private readonly Debouncer WeightDebouncer = new Debouncer();
+        private readonly Debouncer AgeDebouncer = new Debouncer();
 
         public SettingsPage()
-        {
+        { 
             UnitsOptions.Add(new UnitsOptionsItem(UnitsType.Metric));
             UnitsOptions.Add(new UnitsOptionsItem(UnitsType.Imperial));
+            for (int ageYear = 10; ageYear <= 120; ageYear++)
+            {
+                AgeOptions.Add(ageYear);
+            }
 
-            var unitsType = (UnitsType)Preferences.Get("Pref.Units", (int)UnitsType.Imperial);
+            var unitsType = PreferenceHelper.GetUnits();
             SelectedUnits = UnitsOptions.FirstOrDefault(u => u.Type == unitsType) ?? UnitsOptions[1];
 
             InitializeComponent();
 
             BindingContext = this;
         }
-    }
-    public enum UnitsType
-    {
-        Metric,
-        Imperial
     }
 
     public class UnitsOptionsItem
