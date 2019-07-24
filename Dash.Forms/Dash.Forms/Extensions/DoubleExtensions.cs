@@ -19,7 +19,7 @@
 
         public static double ToPounds(this double kilos)
         {
-            return kilos / 2.205;
+            return kilos * 2.205;
         }
     }
 }

@@ -44,9 +44,11 @@ namespace Dash.Forms.Views.Pages
         private readonly int DayNum;
         private readonly TrainingType TrainingType;
         private readonly double TrainingEndValue;
+        private readonly bool UseMiles = false;
+        private readonly bool CalcCalories = false;
+        private readonly double UserWeight = 0;
         public bool HitHalfway = false;
         public bool HitEnd = false;
-        public bool UseMiles = true;
 
         public RunTabbedPage()
         {
@@ -77,6 +79,13 @@ namespace Dash.Forms.Views.Pages
             Timer.Start();
 
             Locations = new List<LocationData>();
+
+            UseMiles = PreferenceHelper.GetUnits() == UnitsType.Imperial;
+            UserWeight = PreferenceHelper.GetWeight();
+            if (UserWeight > 0)
+            {
+                CalcCalories = true;
+            }
 
             if (LocationService.GetQuickLocation() is LocationData currentLoc)
             {
@@ -209,6 +218,10 @@ namespace Dash.Forms.Views.Pages
                     if (GetCurrentSegment() is RunSegment curSegment)
                     {
                         curSegment.Duration = GetSegmentDuration(curSegment);
+                        if (curSegment.Speed == SegmentSpeeds.Extra && await DisplayAlert("Keep Extra?", $"You completed your workout {curSegment.Duration.TotalMinutes} minutes ago.\n\nWould you like to keep the last {curSegment.Duration.TotalMinutes} minutes of your workout?", "No", "Yes") == false)
+                        {
+                            RunSegments.RemoveAt(CurrentSegmentIndex--);
+                        }
                     }
 
                     var duration = DateTime.UtcNow - (StartTime + PauseOffset);
@@ -354,7 +367,14 @@ namespace Dash.Forms.Views.Pages
                         {
                             StatsPaceLabel.Text = "∞";
                         }
-                        StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, 86.1826)).ToString();
+                        if (CalcCalories == true)
+                        {
+                            StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, UserWeight)).ToString();
+                        }
+                        else
+                        {
+                            StatsCaloriesLabel.Text = "---";
+                        }
                     });
                 }
                 if (JustUnpaused == true)
@@ -381,12 +401,14 @@ namespace Dash.Forms.Views.Pages
             {
                 HitEnd = true;
                 SpeakEnd();
+                RunSegments.Add(new RunSegment() { StartTime = DateTime.UtcNow, Speed = SegmentSpeeds.Extra });
+                CurrentSegmentIndex++;
             }
         }
 
-        private double ConvertMeters(double meteres)
+        private double ConvertMeters(double meters)
         {
-            return UseMiles == true ? (meteres / 1609.344) : (meteres / 1000);
+            return UseMiles ? meters.ToMiles() : meters.ToKilometers();
         }
 
         private TimeSpan GetRunDuration()

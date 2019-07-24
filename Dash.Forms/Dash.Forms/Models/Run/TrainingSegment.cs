@@ -27,6 +27,7 @@ namespace Dash.Forms.Models.Run
         Run,
         SteadyRun,
         TempoRun,
-        Sprint
+        Sprint,
+        Extra
     }
 }

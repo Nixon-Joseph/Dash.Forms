@@ -32,7 +32,7 @@ namespace Dash.Forms.Views.Pages
             var (minLat, minLng, maxLat, maxLng) = RunMap.RouteCoordinates.GetMinsAndMaxes();
             var mapDistance = DependencyService.Get<ILocationService>().GetDistance(minLat.Value, minLng.Value, maxLat.Value, maxLng.Value);
 
-            var useMiles = true;
+            var useMiles = PreferenceHelper.GetUnits() == UnitsType.Imperial;
             var convertedDistance = useMiles ? (totalDistance.ToMiles()) : (totalDistance.ToKilometers());
             RunDistanceLabel.Text = convertedDistance.ToString("N2");
             StatsDistanceLabel.Text = convertedDistance.ToString("N2");

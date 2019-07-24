@@ -1,9 +1,5 @@
 ﻿using Dash.Forms.Extensions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 
 namespace Dash.Forms.Helpers
@@ -12,7 +8,7 @@ namespace Dash.Forms.Helpers
     {
         public static double GetWeight()
         {
-            return Preferences.Get($"Pref.{PreferenceTypes.Weight.ToString()}", 88d);
+            return Preferences.Get(PrefString(PreferenceTypes.Weight), 0d);
         }
         public static double GetWeight(UnitsType type)
         {
@@ -25,27 +21,40 @@ namespace Dash.Forms.Helpers
         }
         public static void SetWeightKilos(double kilos)
         {
-            Preferences.Set($"Pref.{PreferenceTypes.Weight.ToString()}", kilos);
+            Preferences.Set(PrefString(PreferenceTypes.Weight), kilos);
         }
         public static void SetWeightPounds(double lbs)
         {
-            SetWeightKilos(lbs.ToKilos());
+            SetWeightKilos(Math.Round(lbs.ToKilos(), 1));
         }
         public static int GetAge()
         {
-            return Preferences.Get($"Pref.{PreferenceTypes.Age.ToString()}", 30);
+            return Preferences.Get(PrefString(PreferenceTypes.Age), 30);
         }
-        public static void SetAge(double age)
+        public static void SetAge(int age)
         {
-            Preferences.Set($"Pref.{PreferenceTypes.Age.ToString()}", age);
+            Preferences.Set(PrefString(PreferenceTypes.Age), age);
         }
         public static UnitsType GetUnits()
         {
-            return (UnitsType)Preferences.Get($"Pref.{PreferenceTypes.Units.ToString()}", (int)UnitsType.Imperial);
+            return (UnitsType)Preferences.Get(PrefString(PreferenceTypes.Units), (int)UnitsType.Imperial);
         }
         public static void SetUnits(UnitsType type)
         {
-            Preferences.Set($"Pref.{PreferenceTypes.Units.ToString()}", (int)type);
+            Preferences.Set(PrefString(PreferenceTypes.Units), (int)type);
+        }
+        public static PaceNotifierTypes GetEnablePaceNotifier()
+        {
+            return (PaceNotifierTypes)Preferences.Get(PrefString(PreferenceTypes.PaceNotifier), (int)PaceNotifierTypes.Segment);
+        }
+        public static void SetEnablePaceNotifier(PaceNotifierTypes type)
+        {
+            Preferences.Set(PrefString(PreferenceTypes.PaceNotifier), (int)type);
+        }
+
+        private static string PrefString(PreferenceTypes type)
+        {
+            return $"Pref.{type.ToString()}";
         }
     }
 
@@ -55,10 +64,21 @@ namespace Dash.Forms.Helpers
         Imperial
     }
 
+    public enum PaceNotifierTypes
+    {
+        Unit,
+        HalfUnit,
+        Segment,
+        HalfUnitAndSegment,
+        UnitAndSegment
+    }
+
     public enum PreferenceTypes
     {
         Weight,
         Units,
-        Age
+        Age,
+        SegmentNotifier,
+        PaceNotifier
     }
 }
