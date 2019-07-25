@@ -4,12 +4,12 @@
     {
         public static double ToKilometers(this double meters)
         {
-            return meters / 1000;
+            return meters / Constants.Distances.MetersInKilometer;
         }
 
         public static double ToMiles(this double meters)
         {
-            return meters / 1609.344;
+            return meters / Constants.Distances.MetersInMile;
         }
 
         public static double ToKilos(this double lbs)

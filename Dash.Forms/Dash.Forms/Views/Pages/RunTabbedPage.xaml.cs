@@ -28,7 +28,6 @@ namespace Dash.Forms.Views.Pages
         private bool JustUnpaused = false;
         private bool HasStoppedService = false;
         private double TotalDistance = 0d;
-        private double TotalSegmentDistance = 0d;
         private RunState CurrentState = RunState.Unstarted;
         private double? MaxElevation = null;
         private double? MinElevation = null;
@@ -47,8 +46,14 @@ namespace Dash.Forms.Views.Pages
         private readonly bool UseMiles = false;
         private readonly bool CalcCalories = false;
         private readonly double UserWeight = 0;
-        public bool HitHalfway = false;
-        public bool HitEnd = false;
+        private readonly bool SpeakSegmentEnd = false;
+        private readonly bool SpeakDistanceUnits = false;
+        private readonly bool SpeakHalfDistanceUnits = false;
+        private bool HitHalfway = false;
+        private bool HitEnd = false;
+        private double NextPaceUnit = 0d;
+        private double NextPaceUnitStep = 0d;
+        private DateTime LastDistancePaceSpeak;
 
         public RunTabbedPage()
         {
@@ -82,6 +87,21 @@ namespace Dash.Forms.Views.Pages
 
             UseMiles = PreferenceHelper.GetUnits() == UnitsType.Imperial;
             UserWeight = PreferenceHelper.GetWeight();
+            var paceSpeakOption = PreferenceHelper.GetEnablePaceNotifier();
+            SpeakSegmentEnd = paceSpeakOption == PaceNotifierTypes.Segment || paceSpeakOption == PaceNotifierTypes.HalfUnitAndSegment || paceSpeakOption == PaceNotifierTypes.UnitAndSegment;
+            SpeakDistanceUnits = paceSpeakOption == PaceNotifierTypes.UnitAndSegment || paceSpeakOption == PaceNotifierTypes.Unit;
+            SpeakHalfDistanceUnits = paceSpeakOption == PaceNotifierTypes.HalfUnitAndSegment || paceSpeakOption == PaceNotifierTypes.HalfUnit;
+
+            if (SpeakDistanceUnits == true)
+            {
+                NextPaceUnitStep = Constants.Distances.MetersInMile;
+            }
+            else if (SpeakHalfDistanceUnits == true)
+            {
+                NextPaceUnitStep = Constants.Distances.MetersInMile / 2;
+            }
+            NextPaceUnit = NextPaceUnitStep;
+
             if (UserWeight > 0)
             {
                 CalcCalories = true;
@@ -125,6 +145,7 @@ namespace Dash.Forms.Views.Pages
             LocationService.Start();
             LocationServiceStarted = true;
             StartTime = DateTime.UtcNow;
+            LastDistancePaceSpeak = DateTime.UtcNow;
             SetRunState(RunState.Running);
             Speak("Lets go!");
             if (GetCurrentSegment() is RunSegment curSegment)
@@ -218,9 +239,12 @@ namespace Dash.Forms.Views.Pages
                     if (GetCurrentSegment() is RunSegment curSegment)
                     {
                         curSegment.Duration = GetSegmentDuration(curSegment);
-                        if (curSegment.Speed == SegmentSpeeds.Extra && await DisplayAlert("Keep Extra?", $"You completed your workout {curSegment.Duration.TotalMinutes} minutes ago.\n\nWould you like to keep the last {curSegment.Duration.TotalMinutes} minutes of your workout?", "No", "Yes") == false)
+                        if (curSegment.Speed == SegmentSpeeds.Extra)
                         {
-                            RunSegments.RemoveAt(CurrentSegmentIndex--);
+                            if (curSegment.Duration.TotalMinutes < 0.5d || await DisplayAlert("Keep Extra?", $"You completed your workout {curSegment.Duration.TotalMinutes} minutes ago.\n\nWould you like to keep the last {curSegment.Duration.TotalMinutes} minutes of your workout?", "No", "Yes") == false)
+                            {
+                                RunSegments.RemoveAt(CurrentSegmentIndex--);
+                            }
                         }
                     }
 
@@ -284,9 +308,11 @@ namespace Dash.Forms.Views.Pages
                             SpeakHalfway();
                         }
                         // end of segment
-                        if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && GetSegmentDuration(curSegment).TotalMinutes >= trainingSegment.Value)
+                        var segmentDuration = GetSegmentDuration(curSegment);
+                        curSegment.Duration = segmentDuration;
+                        if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && segmentDuration.TotalMinutes >= trainingSegment.Value)
                         {
-                            HandleNextSegment();
+                            HandleNextSegment(curSegment);
                         }
                     }
                 }
@@ -338,20 +364,30 @@ namespace Dash.Forms.Views.Pages
                     var convertedDistance = ConvertMeters(TotalDistance);
                     if (GetCurrentSegment() is RunSegment curSegment && curSegment.Locations.Count() > 0)
                     {
-                        TotalSegmentDistance += meters;
+                        curSegment.Distance += meters;
+                        if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && curSegment.Distance >= NextPaceUnit)
+                        {
+                            SpeakDistancePace();
+                        }
                         if (TrainingType == TrainingType.Distance)
                         {
+                            // speak segment distance pace
                             if (HitHalfway == false && convertedDistance >= TrainingEndValue / 2)
                             {
                                 HitHalfway = true;
                                 SpeakHalfway();
                             }
                             // end of segment
-                            if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && ConvertMeters(TotalSegmentDistance) >= trainingSegment.Value)
+                            var convertedSegmentDistance = ConvertMeters(curSegment.Distance);
+                            if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && convertedSegmentDistance >= trainingSegment.Value)
                             {
-                                HandleNextSegment();
+                                HandleNextSegment(curSegment);
                             }
                         }
+                    }
+                    else if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && TotalDistance >= NextPaceUnit)
+                    {
+                        SpeakDistancePace();
                     }
                     var pace = convertedDistance > 0d ? TimeSpan.FromMinutes(GetRunDuration().TotalMinutes / convertedDistance) : TimeSpan.FromMinutes(0);
                     Device.BeginInvokeOnMainThread(() =>
@@ -388,8 +424,28 @@ namespace Dash.Forms.Views.Pages
             GetCurrentSegment()?.Locations.Add(loc);
         }
 
-        private void HandleNextSegment()
+        private void SpeakDistancePace()
         {
+            var lastPace = TimeSpan.FromMinutes((DateTime.UtcNow - LastDistancePaceSpeak).TotalMinutes / ConvertMeters(NextPaceUnitStep));
+            NextPaceUnit += NextPaceUnitStep;
+            LastDistancePaceSpeak = DateTime.UtcNow;
+            Speak($"Your pace for the last {GetPaceDistanceText()} has been {lastPace.Minutes} minutes, {lastPace.Seconds} seconds");
+        }
+
+        private string GetPaceDistanceText()
+        {
+            string text = UseMiles ? "mile" : "kilometer";
+            if (SpeakHalfDistanceUnits == true)
+            {
+                text = $"half {text}";
+            }
+            return text;
+        }
+
+        private void HandleNextSegment(RunSegment curSegment)
+        {
+            LastDistancePaceSpeak = DateTime.UtcNow;
+            NextPaceUnit = NextPaceUnitStep;
             SegmentPauseOffset = new TimeSpan();
             if (CurrentSegmentIndex < TrainingSegments.Count() - 1)
             {
@@ -403,6 +459,12 @@ namespace Dash.Forms.Views.Pages
                 SpeakEnd();
                 RunSegments.Add(new RunSegment() { StartTime = DateTime.UtcNow, Speed = SegmentSpeeds.Extra });
                 CurrentSegmentIndex++;
+            }
+            // speak segment pace
+            if (SpeakSegmentEnd == true && curSegment.Distance > 0d)
+            {
+                var segmentPace = TimeSpan.FromMinutes(curSegment.Duration.TotalMinutes / ConvertMeters(curSegment.Distance));
+                Speak($"Your pace for the previous segment was {segmentPace.Minutes} minutes, {segmentPace.Seconds} seconds.");
             }
         }
 
