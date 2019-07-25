@@ -3,6 +3,7 @@ using Dash.Forms.Views.Pages;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -21,12 +22,20 @@ namespace Dash.Forms
             ListView = MenuItemsListView;
         }
 
-        class AppNavMasterViewModel : INotifyPropertyChanged
+        class AppNavMasterViewModel : BindableObject, INotifyPropertyChanged
         {
             public ObservableCollection<IAppNavMenuItem> MenuItems { get; set; }
+            public BindableProperty VersionTextProperty = BindableProperty.Create(nameof(VersionText), typeof(string), typeof(AppNavMasterViewModel));
+            public string VersionText
+            {
+                get { return (string)GetValue(VersionTextProperty); }
+                set { SetValue(VersionTextProperty, value); }
+            }
 
             public AppNavMasterViewModel()
             {
+                VersionText = VersionTracking.CurrentVersion;
+
                 MenuItems = new ObservableCollection<IAppNavMenuItem>(new IAppNavMenuItem[]
                 {
                     new AppNavMenuItem<HomePage> { Title = "Home", Icon = "menu_home.png" },

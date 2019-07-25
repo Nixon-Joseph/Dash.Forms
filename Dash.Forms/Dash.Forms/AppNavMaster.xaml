@@ -37,7 +37,14 @@
             </ListView.ItemTemplate>
         </ListView>
         <StackLayout BackgroundColor="#f1f1f1" Padding="15,10" VerticalOptions="End" Spacing="0">
-            <material:MaterialLabel Text="Version 1.0a" TextColor="#999" TypeScale="Body2" HorizontalTextAlignment="Center" />
+            <material:MaterialLabel TextColor="#999" TypeScale="Body2" HorizontalTextAlignment="Center">
+                <material:MaterialLabel.FormattedText>
+                    <FormattedString>
+                        <Span Text="Version " />
+                        <Span Text="{Binding VersionText}" />
+                    </FormattedString>
+                </material:MaterialLabel.FormattedText>
+            </material:MaterialLabel>
             <material:MaterialLabel Text="Copyright © Dash Fitness. All Rights Reserved" TextColor="#999" TypeScale="Caption" HorizontalTextAlignment="Center" />
         </StackLayout>
     </StackLayout>

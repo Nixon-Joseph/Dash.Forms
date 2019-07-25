@@ -1,12 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="Dash.Forms.Views.Pages.SettingsPage">
-    <ContentPage.Content>
+    <ScrollView Padding="20">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Units of Measure" FontSize="12" />
+            <Picker ItemsSource="{Binding UnitsOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedUnits}" />
+            <mat:MaterialTextField Text="{Binding Weight}" Placeholder="{Binding WeightLabelText}"  />
+            <Label Text="{Binding DistancePaceNotifierLabelText, StringFormat='Speak pace every...'}" />
+            <Picker ItemsSource="{Binding PaceNotifierOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedPaceNotifier}" />
+
+            <!-- Advanced Calorie formula requires age, Gender and heartrate, no sense adding age and gender until we can track heart-rate -->
+            <!--<Label Text="Age" FontSize="12" />
+            <Picker ItemsSource="{Binding AgeOptions}" ItemDisplayBinding="{Binding ., StringFormat='{0}'}" SelectedItem="{Binding Age}" />-->
         </StackLayout>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

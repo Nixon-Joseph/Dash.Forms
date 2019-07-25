@@ -8,5 +8,11 @@
         {
             public const string QuickRun = "QuickRun";
         }
+
+        public class Distances
+        {
+            public const double MetersInKilometer = 1000d;
+            public const double MetersInMile = 1609.344d;
+        }
     }
 }
