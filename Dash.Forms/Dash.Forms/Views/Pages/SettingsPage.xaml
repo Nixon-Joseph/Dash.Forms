@@ -8,7 +8,7 @@
             <Label Text="Units of Measure" FontSize="12" />
             <Picker ItemsSource="{Binding UnitsOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedUnits}" />
             <mat:MaterialTextField Text="{Binding Weight}" Placeholder="{Binding WeightLabelText}"  />
-            <Label Text="{Binding DistancePaceNotifierLabelText, StringFormat='Speak pace every...'}" />
+            <Label Text="Speak pace every..." />
             <Picker ItemsSource="{Binding PaceNotifierOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedPaceNotifier}" />
 
             <!-- Advanced Calorie formula requires age, Gender and heartrate, no sense adding age and gender until we can track heart-rate -->
