@@ -2,6 +2,7 @@
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using System.Collections.Generic;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
@@ -12,15 +13,22 @@ namespace Dash.Forms
 
         public App(string androidIntentDataLastPathSegment = null)
         {
-            VersionTracking.Track();
-
-            InitializeComponent();
-            XF.Material.Forms.Material.Init(this, "Material.Configuration");
-            MainPage = new AppNav();
-
-            if (androidIntentDataLastPathSegment.IsNullOrEmpty() == false)
+            try
             {
-                MessagingCenter.Send(string.Empty, Constants.DroidAppShortcutInvoked, androidIntentDataLastPathSegment);
+                VersionTracking.Track();
+
+                InitializeComponent();
+                XF.Material.Forms.Material.Init(this, "Material.Configuration");
+                MainPage = new AppNav();
+
+                if (androidIntentDataLastPathSegment.IsNullOrEmpty() == false)
+                {
+                    MessagingCenter.Send(string.Empty, Constants.DroidAppShortcutInvoked, androidIntentDataLastPathSegment);
+                }   
+            }
+            catch (System.Exception ex)
+            {
+                Crashes.TrackError(ex, new Dictionary<string, string>() { { "Location", "App.cs.Constructor" } });
             }
         }
 

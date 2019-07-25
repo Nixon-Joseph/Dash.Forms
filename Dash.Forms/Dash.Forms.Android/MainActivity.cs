@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Dash.Forms.Droid.DependencyServices;
 using System;
+using System.Collections.Generic;
 using XF.Material.Droid;
 
 namespace Dash.Forms.Droid
@@ -52,7 +53,7 @@ namespace Dash.Forms.Droid
 
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
         {
-            var thing = e.ExceptionObject;
+            Microsoft.AppCenter.Crashes.Crashes.TrackError(e.ExceptionObject as Exception, new Dictionary<string, string>() { { "Type", "Unhandled" } });
         }
     }
 }
