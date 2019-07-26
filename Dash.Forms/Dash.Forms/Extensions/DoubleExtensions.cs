@@ -1,4 +1,6 @@
-﻿namespace Dash.Forms.Extensions
+﻿using Dash.Forms.Helpers;
+
+namespace Dash.Forms.Extensions
 {
     public static class DoubleExtensions
     {
@@ -20,6 +22,18 @@
         public static double ToPounds(this double kilos)
         {
             return kilos * 2.205;
+        }
+
+        public static double ConvertMeters(this double meters, UnitsType type)
+        {
+            if (type == UnitsType.Imperial)
+            {
+                return meters.ToMiles();
+            }
+            else
+            {
+                return meters.ToKilometers();
+            }
         }
     }
 }

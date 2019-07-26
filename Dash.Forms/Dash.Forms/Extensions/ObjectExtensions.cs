@@ -28,5 +28,28 @@ namespace Dash.Forms.Extensions
             }
             return (minLat, minLng, maxLat, maxLng);
         }
+
+        public static double GetTotalElevationChange(this IEnumerable<LocationData> locs)
+        {
+            double? elevationMin = null;
+            double? elevationMax = null;
+            if (locs != null && locs.Count() > 0)
+            {
+                foreach (var loc in locs)
+                {
+                    if (loc.HasAltitude == true)
+                    {
+                        elevationMax = Math.Max(elevationMax ?? loc.Altitude, loc.Altitude);
+                        elevationMin = Math.Min(elevationMin ?? loc.Altitude, loc.Altitude);
+                    }
+                }
+            }
+            return (elevationMax ?? 0d) - (elevationMin ?? 0d);
+        }
+
+        public static string ToOptionalHourString(this TimeSpan span)
+        {
+            return span.ToString(span.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
+        }
     }
 }

@@ -1,11 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="Dash.Forms.Views.Pages.MetricsPage">
     <ContentPage.Content>
-        <StackLayout>
-            <material:MaterialTextField Placeholder="test" />
-        </StackLayout>
+        <ScrollView>
+            <Grid Padding="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                
+                <mat:MaterialCard Grid.Column="0" Grid.Row="0">
+                    <StackLayout>
+                        <mat:MaterialLabel Text="{Binding DistanceType, StringFormat='Total {0}'}" FontAttributes="Bold" />
+                        <mat:MaterialLabel Text="{Binding TotalDistance}" />
+                    </StackLayout>
+                </mat:MaterialCard>
+                <mat:MaterialCard Grid.Column="1" Grid.Row="0">
+                    <StackLayout>
+                        <mat:MaterialLabel Text="Total Time" FontAttributes="Bold" />
+                        <mat:MaterialLabel Text="{Binding TotalTime}" />
+                    </StackLayout>
+                </mat:MaterialCard>
+
+                <mat:MaterialCard Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="180">
+                    <microcharts:ChartView x:Name="ChartView" HeightRequest="150" />
+                </mat:MaterialCard>
+            </Grid>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -14,10 +14,12 @@ namespace Dash.Forms.Helpers.Storage
         protected object Locker = new object();
         protected SQLiteConnection Connection { get { return new SQLiteConnection(DBPath); } }
         protected bool Initialized { get; set; }
+        private string TableName { get; set; }
 
         public StorageHelperBase()
         {
             Init();
+            TableName = (typeof(T)).Name;
         }
 
         protected void Init()
@@ -153,6 +155,46 @@ namespace Dash.Forms.Helpers.Storage
                 }
             }
             return false;
+        }
+
+        protected double SumColumn(string columnName)
+        {
+            using (SQLiteConnection connection = Connection)
+            {
+                lock (Locker)
+                {
+                    Init();
+                    try
+                    {
+                        return connection.ExecuteScalar<double>($"SELECT SUM({columnName}) FROM {TableName}");
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+            }
+            return 0d;
+        }
+
+        protected IEnumerable<T> GetAllFromColumns(params string[] columnNames)
+        {
+            using (SQLiteConnection connection = Connection)
+            {
+                lock (Locker)
+                {
+                    Init();
+                    try
+                    {
+                        return connection.Query<T>($"SELECT {string.Join(", ", columnNames)} FROM {TableName}");
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                }
+            }
+            return null;
         }
     }
 }

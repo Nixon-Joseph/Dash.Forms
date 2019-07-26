@@ -318,7 +318,7 @@ namespace Dash.Forms.Views.Pages
                 }
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
+                    MapTimeLabel.Text = spent.ToOptionalHourString();
                     StatsTimeLabel.Text = MapTimeLabel.Text;
                 });
             }

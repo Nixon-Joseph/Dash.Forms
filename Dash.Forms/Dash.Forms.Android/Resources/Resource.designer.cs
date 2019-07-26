@@ -26,6 +26,7 @@ namespace Dash.Forms.Droid
 		
 		public static void UpdateIdValues()
 		{
+			global::Microcharts.Droid.Resource.String.library_name = global::Dash.Forms.Droid.Resource.String.library_name;
 			global::Xamarin.Essentials.Resource.Attribute.alpha = global::Dash.Forms.Droid.Resource.Attribute.alpha;
 			global::Xamarin.Essentials.Resource.Attribute.coordinatorLayoutStyle = global::Dash.Forms.Droid.Resource.Attribute.coordinatorLayoutStyle;
 			global::Xamarin.Essentials.Resource.Attribute.font = global::Dash.Forms.Droid.Resource.Attribute.font;
@@ -11245,6 +11246,9 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0b0059
 			public const int hide_bottom_view_on_scroll_behavior = 2131427417;
 			
+			// aapt resource value: 0x7f0b0061
+			public const int library_name = 2131427425;
+			
 			// aapt resource value: 0x7f0b0013
 			public const int mr_button_content_description = 2131427347;
 			
@@ -11320,8 +11324,8 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0b005a
 			public const int mtrl_chip_close_icon_content_description = 2131427418;
 			
-			// aapt resource value: 0x7f0b0061
-			public const int notification_text = 2131427425;
+			// aapt resource value: 0x7f0b0062
+			public const int notification_text = 2131427426;
 			
 			// aapt resource value: 0x7f0b005b
 			public const int password_toggle_content_description = 2131427419;
@@ -11341,8 +11345,8 @@ namespace Dash.Forms.Droid
 			// aapt resource value: 0x7f0b0046
 			public const int search_menu_title = 2131427398;
 			
-			// aapt resource value: 0x7f0b0062
-			public const int shortcut_quick_run = 2131427426;
+			// aapt resource value: 0x7f0b0063
+			public const int shortcut_quick_run = 2131427427;
 			
 			// aapt resource value: 0x7f0b0060
 			public const int status_bar_notification_info_overflow = 2131427424;

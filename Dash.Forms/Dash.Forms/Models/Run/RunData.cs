@@ -25,9 +25,9 @@ namespace Dash.Forms.Models.Run
             {
                 if (IsFreeRun == true)
                 {
-                    return $"{Start.ToShortDateString()} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToMiles().ToString("N2")}";
+                    return $"{Start.ToShortDateString()} > {Elapsed.ToOptionalHourString()} > {Distance.ToMiles().ToString("N2")}";
                 }
-                return $"Week: {WeekNumber}, Day: {DayNumber} > {Elapsed.ToString(Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss")} > {Distance.ToMiles().ToString("N2")}";
+                return $"Week: {WeekNumber}, Day: {DayNumber} > {Elapsed.ToOptionalHourString()} > {Distance.ToMiles().ToString("N2")}";
             }
         }
 

@@ -58,6 +58,22 @@ namespace Dash.Forms.Helpers
         }
     }
 
+    public static class UnitsTypeExtensions
+    {
+        public static string GetDistanceUnitString(this UnitsType type)
+        {
+            switch (type)
+            {
+                case UnitsType.Metric:
+                    return "Kilometers";
+                case UnitsType.Imperial:
+                    return "Miles";
+                default:
+                    return string.Empty;
+            }
+        }
+    }
+
     public enum UnitsType
     {
         Metric,

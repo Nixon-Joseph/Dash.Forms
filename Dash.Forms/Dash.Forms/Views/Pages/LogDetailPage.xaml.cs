@@ -6,7 +6,6 @@ using Microsoft.AppCenter.Crashes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Maps;
 using Xamarin.Forms.Xaml;
@@ -38,10 +37,10 @@ namespace Dash.Forms.Views.Pages
                 var useMiles = PreferenceHelper.GetUnits() == UnitsType.Imperial;
                 var convertedDistance = useMiles ? (totalDistance.ToMiles()) : (totalDistance.ToKilometers());
                 RunDistanceLabel.Text = convertedDistance.ToString("N2");
-                StatsDistanceLabel.Text = convertedDistance.ToString("N2");
+                StatsDistanceLabel.Text = RunDistanceLabel.Text;
                 StatsPaceLabel.Text = TimeSpan.FromMinutes(runData.Elapsed.TotalMinutes / convertedDistance).ToString("mm':'ss");
                 StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(totalDistance, PreferenceHelper.GetWeight())).ToString();
-                MapTimeLabel.Text = runData.Elapsed.ToString(runData.Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
+                MapTimeLabel.Text = runData.Elapsed.ToOptionalHourString();
                 StatsTimeLabel.Text = MapTimeLabel.Text;
 
                 RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(new Position((minLat.Value + maxLat.Value) / 2, (minLng.Value + maxLng.Value) / 2), Distance.FromKilometers(mapDistance / 800d)));
