@@ -170,7 +170,7 @@ namespace Dash.Forms.Helpers.Storage
                     }
                     catch (Exception ex)
                     {
-
+                        Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
                     }
                 }
             }
@@ -190,7 +190,7 @@ namespace Dash.Forms.Helpers.Storage
                     }
                     catch (Exception ex)
                     {
-
+                        Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
                     }
                 }
             }

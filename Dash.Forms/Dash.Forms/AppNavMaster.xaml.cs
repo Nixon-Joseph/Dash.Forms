@@ -1,8 +1,6 @@
 ﻿using Dash.Forms.Models;
 using Dash.Forms.Views.Pages;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -22,7 +20,7 @@ namespace Dash.Forms
             ListView = MenuItemsListView;
         }
 
-        class AppNavMasterViewModel : BindableObject, INotifyPropertyChanged
+        class AppNavMasterViewModel : BindableObject
         {
             public ObservableCollection<IAppNavMenuItem> MenuItems { get; set; }
             public BindableProperty VersionTextProperty = BindableProperty.Create(nameof(VersionText), typeof(string), typeof(AppNavMasterViewModel));
@@ -47,19 +45,6 @@ namespace Dash.Forms
                     new AppNavMenuItem<SettingsPage> { Title = "Settings", Icon = "menu_settings.png" },
                 });
             }
-
-            #region INotifyPropertyChanged Implementation
-            public event PropertyChangedEventHandler PropertyChanged;
-            void OnPropertyChanged([CallerMemberName] string propertyName = "")
-            {
-                if (PropertyChanged == null)
-                {
-                    return;
-                }
-
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-            #endregion
         }
     }
 }

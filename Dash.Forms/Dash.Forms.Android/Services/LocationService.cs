@@ -84,7 +84,7 @@ namespace Dash.Forms.Droid.Services
             // Enlist this instance of the service as a foreground service
             StartForeground(Constants.LOCATION_SERVICE_RUNNING_NOTIFICATION_ID, notification);
         }
-         
+
         private string BuildNotificationChannelId()
         {
             string channelId = string.Empty;
@@ -148,7 +148,10 @@ namespace Dash.Forms.Droid.Services
                     return binder;
                 }
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
             return null;
         }
 
@@ -166,7 +169,10 @@ namespace Dash.Forms.Droid.Services
 
                 LocMgr.RequestLocationUpdates(locationProvider, Constants.LOCATION_MIN_UPDATE_FREQUENCY, 0, this);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
         }
 
         public void StopLocationUpdates()
@@ -175,7 +181,10 @@ namespace Dash.Forms.Droid.Services
             {
                 LocMgr.RemoveUpdates(this);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
         }
 
         //private NotificationCompat.Action BuildEndRunAction()
@@ -229,7 +238,10 @@ namespace Dash.Forms.Droid.Services
                 intent.PutExtra(Constants.Extra.LOCATION_DATA, location);
                 SendBroadcast(intent);
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
         }
 
         public void OnProviderDisabled(string provider)
@@ -260,7 +272,10 @@ namespace Dash.Forms.Droid.Services
             {
                 this.service = service;
             }
-            catch (Exception ex) { }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
         }
 
         public LocationService GetLocationServiceBinder()
@@ -269,7 +284,11 @@ namespace Dash.Forms.Droid.Services
             {
                 return service;
             }
-            catch (Exception ex) { return null; }
+            catch (Exception ex)
+            {
+                Microsoft.AppCenter.Crashes.Crashes.TrackError(ex);
+            }
+            return null;
         }
     }
 }
