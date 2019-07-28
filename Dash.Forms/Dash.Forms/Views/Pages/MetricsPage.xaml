@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
-             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:charts="clr-namespace:Xamarin.Cross.Charts.Forms;assembly=Xamarin.Cross.Charts.Forms"
              x:Class="Dash.Forms.Views.Pages.MetricsPage">
     <ContentPage.Content>
         <ScrollView>
@@ -30,7 +30,7 @@
                 </mat:MaterialCard>
 
                 <mat:MaterialCard Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HeightRequest="180">
-                    <microcharts:ChartView x:Name="ChartView" HeightRequest="150" />
+                    <charts:ChartView x:Name="ChartView" HeightRequest="150" />
                 </mat:MaterialCard>
             </Grid>
         </ScrollView>
