@@ -49,7 +49,7 @@ namespace Dash.Forms.AndroidWear
                 {
                     foreach (INode node in nodes)
                     {
-                        var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, "/my_path", Encoding.UTF8.GetBytes(message));
+                        var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message));
                         try
                         {
                             //Block on a task and get the result synchronously//

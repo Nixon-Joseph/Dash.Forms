@@ -44,7 +44,7 @@
                                 <material:MaterialLabel Text="Not Started" HorizontalOptions="EndAndExpand" HorizontalTextAlignment="End" TypeScale="Caption" />
                             </StackLayout>
                             <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal">
-                                <material:MaterialButton BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
+                                <material:MaterialButton x:Name="ButtonTest" BackgroundColor="#4484ff" HorizontalOptions="FillAndExpand" Text="Start Run" TextColor="White" VerticalOptions="Center" CornerRadius="30" />
                             </StackLayout>
                         </StackLayout>
                     </material:MaterialCard>

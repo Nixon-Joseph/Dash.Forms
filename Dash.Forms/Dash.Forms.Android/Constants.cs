@@ -14,6 +14,7 @@ namespace Dash.Forms.Droid
         public const int LOCATION_MIN_UPDATE_FREQUENCY = 4000;
         public const string SERVICE_STARTED_KEY = "has_service_been_started";
         public const string BROADCAST_MESSAGE_KEY = "broadcast_message";
+        public const string WEARABLE_MESSAGE_PATH = "/dash_forms";
 
         public class Action
         {

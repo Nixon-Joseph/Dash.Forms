@@ -51,7 +51,7 @@ namespace Dash.Forms.Droid
             MessageReceiver messageReceiver = new MessageReceiver(this);
             LocalBroadcastManager.GetInstance(this).RegisterReceiver(messageReceiver, newFilter);
 
-            Xamarin.Forms.MessagingCenter.Subscribe<string, string>(string.Empty, Dash.Forms.Constants.DroidAppWearMessageSent, async (sender, message) =>
+            Xamarin.Forms.MessagingCenter.Subscribe<string, string>(string.Empty, Dash.Forms.Constants.DroidAppWearMessageSentToWear, async (sender, message) =>
             {
                 try
                 {
@@ -59,7 +59,7 @@ namespace Dash.Forms.Droid
                     {
                         foreach (INode node in nodes)
                         {
-                            var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, "/my_path", Encoding.UTF8.GetBytes(message));
+                            var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message));
                             try
                             {
                                 //Block on a task and get the result synchronously//
@@ -106,7 +106,7 @@ namespace Dash.Forms.Droid
 
             public override void OnReceive(Context context, Intent intent)
             {
-                Xamarin.Forms.MessagingCenter.Send(context, intent.GetStringExtra("message"));
+                Xamarin.Forms.MessagingCenter.Send(string.Empty, Dash.Forms.Constants.DroidAppWearMessageSentToHandheld, intent.GetStringExtra("message"));
             }
         }
     }
