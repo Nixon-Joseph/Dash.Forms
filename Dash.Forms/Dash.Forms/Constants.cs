@@ -3,6 +3,7 @@
     public class Constants
     {
         public const string DroidAppShortcutInvoked = "DroidAppShortcutInvoked";
+        public const string DroidAppWearMessageSent = "DroidAppWearMessageSent";
 
         public class ShortcutActivities
         {

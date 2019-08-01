@@ -1,9 +1,13 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.Content.PM;
+using Android.Gms.Wearable;
 using Android.OS;
+using Android.Support.V4.Content;
 using Android.Views;
 using Dash.Forms.Droid.DependencyServices;
 using System;
+using System.Text;
 using XF.Material.Droid;
 
 namespace Dash.Forms.Droid
@@ -43,6 +47,37 @@ namespace Dash.Forms.Droid
             var lService = new LocationService_Droid();
             lService.CheckGPSPermission();
 
+            IntentFilter newFilter = new IntentFilter(Intent.ActionSend);
+            MessageReceiver messageReceiver = new MessageReceiver(this);
+            LocalBroadcastManager.GetInstance(this).RegisterReceiver(messageReceiver, newFilter);
+
+            Xamarin.Forms.MessagingCenter.Subscribe<string, string>(string.Empty, Dash.Forms.Constants.DroidAppWearMessageSent, async (sender, message) =>
+            {
+                try
+                {
+                    using (var nodes = await WearableClass.GetNodeClient(this).GetConnectedNodesAsync())
+                    {
+                        foreach (INode node in nodes)
+                        {
+                            var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, "/my_path", Encoding.UTF8.GetBytes(message));
+                            try
+                            {
+                                //Block on a task and get the result synchronously//
+                                sendMessageTask.Wait();
+                                //if the Task fails, then…..//
+                            }
+                            catch (Exception exception)
+                            {
+                                //TO DO: Handle the exception//
+                            }
+                        }
+                    }
+                }
+                catch (Exception exception)
+                {
+
+                }
+            });
         }
 
         public override void OnBackPressed()
@@ -53,6 +88,26 @@ namespace Dash.Forms.Droid
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
         {
             var thing = e.ExceptionObject;
+        }
+
+        public void OnRecieve(Context context, string message)
+        {
+            Xamarin.Forms.MessagingCenter.Send(context, message);
+        }
+
+        private class MessageReceiver : BroadcastReceiver
+        {
+            private readonly MainActivity Activity;
+
+            public MessageReceiver(MainActivity activity)
+            {
+                Activity = activity;
+            }
+
+            public override void OnReceive(Context context, Intent intent)
+            {
+                Xamarin.Forms.MessagingCenter.Send(context, intent.GetStringExtra("message"));
+            }
         }
     }
 }
