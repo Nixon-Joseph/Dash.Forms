@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Support.V4.Content;
 using Android.Views;
 using Dash.Forms.Droid.DependencyServices;
+using Google.Android.Wearable.Intent;
 using System;
 using System.Text;
 using XF.Material.Droid;
@@ -51,6 +52,15 @@ namespace Dash.Forms.Droid
             MessageReceiver messageReceiver = new MessageReceiver(this);
             LocalBroadcastManager.GetInstance(this).RegisterReceiver(messageReceiver, newFilter);
 
+            //Xamarin.Forms.MessagingCenter.Subscribe<string>(string.Empty, Dash.Forms.Constants.OpenWearApp, (sender) => {
+            //    var intent = new Intent(Intent.ActionView);
+            //    intent.SetData(Android.Net.Uri.Parse("com.DashFitness.AppBeta.MainActivity"));
+            //    intent.AddCategory(Intent.CategoryBrowsable);
+            //    RemoteIntent.StartRemoteActivity(this, intent, new ResultReceiver(new Handler(msg => {
+            //        var thing = msg;
+            //    })));
+            //});
+
             Xamarin.Forms.MessagingCenter.Subscribe<string, string>(string.Empty, Dash.Forms.Constants.DroidAppWearMessageSentToWear, async (sender, message) =>
             {
                 try
@@ -59,12 +69,9 @@ namespace Dash.Forms.Droid
                     {
                         foreach (INode node in nodes)
                         {
-                            var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message));
                             try
                             {
-                                //Block on a task and get the result synchronously//
-                                sendMessageTask.Wait();
-                                //if the Task fails, then…..//
+                                var sendMessageTask = await System.Threading.Tasks.Task.Run(() => Android.Gms.Tasks.TasksClass.Await(WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message))));
                             }
                             catch (Exception exception)
                             {
@@ -88,11 +95,6 @@ namespace Dash.Forms.Droid
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
         {
             var thing = e.ExceptionObject;
-        }
-
-        public void OnRecieve(Context context, string message)
-        {
-            Xamarin.Forms.MessagingCenter.Send(context, message);
         }
 
         private class MessageReceiver : BroadcastReceiver

@@ -1,4 +1,5 @@
-﻿using Dash.Forms.DependencyInterfaces;
+﻿using System;
+using Dash.Forms.DependencyInterfaces;
 using Dash.Forms.Helpers;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -15,6 +16,18 @@ namespace Dash.Forms.Views.Pages
             InitializeComponent();
 
             ButtonTest.Clicked += ButtonTest_Clicked;
+
+            ButtonTest2.Clicked += ButtenTest2_Clicked;
+
+            MessagingCenter.Subscribe<string, string>(string.Empty, Constants.DroidAppWearMessageSentToHandheld, (sender, message) => {
+                DependencyService.Get<IMessageService>().ShortToast("Wear sent a message to handheld.");
+            });
+        }
+
+        private void ButtenTest2_Clicked(object sender, EventArgs e)
+        {
+            DependencyService.Get<IMessageService>().ShortToast("Attempt to open wear.");
+            MessagingCenter.Send(string.Empty, Constants.OpenWearApp);
         }
 
         private void ButtonTest_Clicked(object sender, System.EventArgs e)

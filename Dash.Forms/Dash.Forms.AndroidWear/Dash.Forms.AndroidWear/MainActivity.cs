@@ -5,6 +5,7 @@ using Android.OS;
 using Android.Support.V4.Content;
 using Android.Support.Wearable.Activity;
 using Android.Widget;
+using Google.Android.Wearable.Intent;
 using System;
 using System.Text;
 
@@ -34,11 +35,21 @@ namespace Dash.Forms.AndroidWear
                 textView.SetText("this is different text!", TextView.BufferType.Normal);
             }
 
+            var button = FindViewById<Button>(Resource.Id.test_button);
+            button.Click += Button_Click;
+
             SetAmbientEnabled();
 
             IntentFilter newFilter = new IntentFilter(Intent.ActionSend);
             MessageReceiver messageReceiver = new MessageReceiver(this);
             LocalBroadcastManager.GetInstance(this).RegisterReceiver(messageReceiver, newFilter);
+
+            //RemoteIntent.StartRemoteActivity(this, );
+        }
+
+        private void Button_Click(object sender, EventArgs e)
+        {
+            SendMessageToNodes("test message");
         }
 
         public async void SendMessageToNodes(string message)
@@ -49,12 +60,9 @@ namespace Dash.Forms.AndroidWear
                 {
                     foreach (INode node in nodes)
                     {
-                        var sendMessageTask = WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message));
                         try
                         {
-                            //Block on a task and get the result synchronously//
-                            sendMessageTask.Wait();
-                            //if the Task fails, then…..//
+                            var sendMessageTask = await System.Threading.Tasks.Task.Run(() => Android.Gms.Tasks.TasksClass.Await(WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message))));
                         }
                         catch (Exception exception)
                         {
