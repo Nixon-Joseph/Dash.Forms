@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- The android:opacity=”opaque” line — this is critical in preventing a flash of black as your theme transitions. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" android:opacity="opaque">
+  
+	<!-- The background color, preferably the same as your normal theme -->
+    <item>
+        <!-- <color android:color="@color/splash_background" /> -->
+        <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" horizontalOptions="FillAndExpand" verticalOptions="FillAndExpand">
+            <gradient
+                android:angle="45"
+                android:centerColor="#73b12f"
+                android:endColor="#A5BE00"
+                android:startColor="#679436"
+                android:type="linear" />
+            <corners android:radius="0dp"/>
+        </shape>
+    </item>
+  
+	<!-- Your product logo - 144dp color version of your app icon -->
+	<item>
+        <bitmap android:src="@drawable/logo_d" android:gravity="center" /> 
+	</item>
+</layer-list>

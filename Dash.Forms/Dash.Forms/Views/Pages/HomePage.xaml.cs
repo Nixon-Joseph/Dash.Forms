@@ -1,6 +1,6 @@
-﻿using System;
-using Dash.Forms.DependencyInterfaces;
+﻿using Dash.Forms.DependencyInterfaces;
 using Dash.Forms.Helpers;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

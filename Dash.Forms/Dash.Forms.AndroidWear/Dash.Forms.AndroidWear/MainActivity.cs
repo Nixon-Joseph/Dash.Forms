@@ -1,23 +1,29 @@
 ﻿using Android.App;
 using Android.Content;
-using Android.Gms.Wearable;
 using Android.OS;
 using Android.Support.V4.Content;
 using Android.Support.Wearable.Activity;
 using Android.Widget;
-using Google.Android.Wearable.Intent;
+using Dash.Forms.AndroidShared;
+using Dash.Forms.AndroidShared.Interfaces;
+using Dash.Forms.AndroidShared.Receivers;
 using System;
-using System.Text;
 
 namespace Dash.Forms.AndroidWear
 {
-    [Activity(Label = "@string/app_name", MainLauncher = true)]
-    public class MainActivity : WearableActivity
+    [Activity(
+        Label = "@string/app_name",
+        Theme = "@style/MainTheme.Launcher",
+        Name = "com.DashFitness.AppBeta.MainActivity",
+        MainLauncher = true)]
+    public class MainActivity : WearableActivity, IActivityMessageReceiver
     {
         TextView textView;
 
         protected override void OnCreate(Bundle bundle)
         {
+            SetTheme(Resource.Style.MainTheme);
+
             base.OnCreate(bundle);
 
             if (Build.Model == "Ticwatch2-i18n")
@@ -41,56 +47,17 @@ namespace Dash.Forms.AndroidWear
             SetAmbientEnabled();
 
             IntentFilter newFilter = new IntentFilter(Intent.ActionSend);
-            MessageReceiver messageReceiver = new MessageReceiver(this);
-            LocalBroadcastManager.GetInstance(this).RegisterReceiver(messageReceiver, newFilter);
-
-            //RemoteIntent.StartRemoteActivity(this, );
+            LocalBroadcastManager.GetInstance(this).RegisterReceiver(new WearableMessageReceiver(this), newFilter);
         }
 
-        private void Button_Click(object sender, EventArgs e)
+        private async void Button_Click(object sender, EventArgs e)
         {
-            SendMessageToNodes("test message");
+            _ = await NodeManager.SendMessageToNodes(this, "test message");
         }
 
-        public async void SendMessageToNodes(string message)
+        public void OnMessageReceive(string message)
         {
-            try
-            {
-                using (var nodes = await WearableClass.GetNodeClient(this).GetConnectedNodesAsync())
-                {
-                    foreach (INode node in nodes)
-                    {
-                        try
-                        {
-                            var sendMessageTask = await System.Threading.Tasks.Task.Run(() => Android.Gms.Tasks.TasksClass.Await(WearableClass.GetMessageClient(this).SendMessage(node.Id, Constants.WEARABLE_MESSAGE_PATH, Encoding.UTF8.GetBytes(message))));
-                        }
-                        catch (Exception exception)
-                        {
-                            //TO DO: Handle the exception//
-                        }
-                    }
-                }
-            }
-            catch (Exception exception)
-            {
-
-            }
-        }
-
-        private class MessageReceiver : BroadcastReceiver
-        {
-            private readonly MainActivity Activity;
-
-            public MessageReceiver(MainActivity activity)
-            {
-                Activity = activity;
-            }
-
-            public override void OnReceive(Context context, Intent intent)
-            {
-                var message = intent.GetStringExtra("message");
-                Activity.textView.SetText(message, TextView.BufferType.Normal);
-            }
+            textView.SetText(message, TextView.BufferType.Normal);
         }
     }
 }

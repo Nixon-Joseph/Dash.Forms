@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dash.Forms.watchOS.WatchOSA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dash.Forms.watchOS.WatchOSExtension", "Dash.Forms\Dash.Forms.watchOS\Dash.Forms.watchOS.WatchOSExtension\Dash.Forms.watchOS.WatchOSExtension.csproj", "{461B2C9B-418D-4A19-9933-C8FBD7384D05}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dash.Forms.AndroidShared", "Dash.Forms\Dash.Forms.AndroidShared\Dash.Forms.AndroidShared.csproj", "{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,18 @@ Global
 		{461B2C9B-418D-4A19-9933-C8FBD7384D05}.Release|iPhone.Build.0 = Release|iPhone
 		{461B2C9B-418D-4A19-9933-C8FBD7384D05}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
 		{461B2C9B-418D-4A19-9933-C8FBD7384D05}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|iPhone.Build.0 = Release|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{33AC10B0-4774-4AF5-B27B-BC11BF9E3C62}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

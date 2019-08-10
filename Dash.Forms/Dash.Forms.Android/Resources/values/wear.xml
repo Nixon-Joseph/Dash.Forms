@@ -1,0 +1,5 @@
+﻿<resources>
+    <string-array name="android_wear_capabilities">
+        <item>verify_remote_dash_phone_app</item>
+    </string-array>
+</resources>

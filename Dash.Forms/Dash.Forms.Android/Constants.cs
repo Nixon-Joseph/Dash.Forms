@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dash.Forms.Droid
+﻿namespace Dash.Forms.Droid
 {
-    public class Constants
+    public class Constants : AndroidShared.Constants
     {
         public const float METERS_TO_MILES_DIVISOR = 1609.344f;
         public const float METERS_TO_KILOMETERS_DIVISOR = 1000f;
@@ -14,7 +8,6 @@ namespace Dash.Forms.Droid
         public const int LOCATION_MIN_UPDATE_FREQUENCY = 4000;
         public const string SERVICE_STARTED_KEY = "has_service_been_started";
         public const string BROADCAST_MESSAGE_KEY = "broadcast_message";
-        public const string WEARABLE_MESSAGE_PATH = "/dash_forms";
 
         public class Action
         {

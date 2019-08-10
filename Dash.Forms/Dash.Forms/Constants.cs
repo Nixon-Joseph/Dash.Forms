@@ -5,6 +5,7 @@
         public const string DroidAppShortcutInvoked = "DroidAppShortcutInvoked";
         public const string DroidAppWearMessageSentToWear = "DroidAppWearMessageSentToWear";
         public const string DroidAppWearMessageSentToHandheld = "DroidAppWearMessageSentToHandheld";
+        public const string OpenWearApp = "OpenWearApp";
 
         public class ShortcutActivities
         {
