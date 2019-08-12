@@ -10,6 +10,7 @@ namespace Dash.Forms
 {
     public partial class App : Application
     {
+        public static bool IsAsleep { get; set; }
 
         public App(string androidIntentDataLastPathSegment = null)
         {
@@ -34,17 +35,20 @@ namespace Dash.Forms
 
         protected override void OnStart()
         {
+            IsAsleep = false;
             // Handle when your app starts
             AppCenter.Start("android=c4130136-3e17-463f-a147-626b41dff809;" + "ios=a5315d74-ee68-430c-a60f-da68a7c4f13e", typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()
         {
+            IsAsleep = true;
             // Handle when your app sleeps
         }
 
         protected override void OnResume()
         {
+            IsAsleep = false;
             // Handle when your app resumes
         }
     }
