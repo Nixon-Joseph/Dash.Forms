@@ -18,7 +18,7 @@ namespace Dash.Forms.AndroidWear
         Theme = "@style/MainTheme.Launcher",
         Name = "com.DashFitness.AppBeta.RunActivity",
         MainLauncher = true)]
-    public class RunActivity : WearableActivity, ISensorEventListener
+    public class RunActivity : WearableActivity, ISensorEventListener 
     {
         private const string TAG = nameof(RunActivity);
         protected override void OnCreate(Bundle savedInstanceState)
