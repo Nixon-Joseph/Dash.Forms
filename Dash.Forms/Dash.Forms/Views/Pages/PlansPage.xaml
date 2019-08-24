@@ -1,54 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
+             xmlns:controls="clr-namespace:Dash.Forms.Controls"
              x:Class="Dash.Forms.Views.Pages.PlansPage"
              BackgroundColor="White">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <StackLayout HorizontalOptions="FillAndExpand" BackgroundColor="#f2f2f2" Padding="15,10">
-                <material:MaterialLabel Text="Training for a race?" />
-                <material:MaterialLabel Text="Stay prepared with one of our training programs!" />
-            </StackLayout>
-            <!--Needs converted to a listview-->
-            <ListView x:Name="PlansListView" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                                <Image Source="{Binding Image}" Margin="0,0,15,0" />
-                                <StackLayout>
-                                    <material:MaterialLabel Text="{Binding Title}" TypeScale="H6" />
-                                    <material:MaterialLabel Text="{Binding Caption}" TypeScale="Caption" />
+        <controls:CarouselLayout Scrolled="CarouselLayout_Scrolled" Orientation="Horizontal" ItemsSource="{Binding Items}" SelectedIndex="{Binding CurrentIndex}"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <controls:CarouselLayout.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalOptions="Fill">
+                        <controls:RoundedContentView Margin="32,64,32,64" CornerRadius="32" BackgroundColor="#FFFFFF">
+                            <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill">
+                                <controls:RoundedContentView VerticalOptions="FillAndExpand" HeightRequest="400" CornerRadius="32" HasBackgroundGradient="true" GradientStartColor="{Binding StartColor}" GradientEndColor="{Binding EndColor}">
+                                    <Grid>
+                                        <Label Text="{Binding Title}" HorizontalOptions="Center" TextColor="#55000000" VerticalOptions="End" Margin="0,0,0,24" FontSize="120" FontAttributes="Bold" LineBreakMode="NoWrap" />
+                                        <StackLayout>
+                                            <StackLayout Orientation="Horizontal">
+                                                <Image TranslationX="{Binding Position}" Source="logo.png" HeightRequest="32" Margin="24,24,24,0" />
+                                                <!--<Label TranslationX="{Binding Position}" HorizontalOptions="EndAndExpand" Text="{Binding Price, StringFormat='$ {0}'}" TextColor="#FFFFFF" Margin="24,24,24,0" FontSize="18" LineBreakMode="NoWrap" />-->
+                                            </StackLayout>
+                                            <Label TranslationX="{Binding Position}" Text="{Binding Name}" TextColor="#FFFFFF" Margin="24,24,24,0" FontSize="16" FontAttributes="Bold" LineBreakMode="NoWrap" />
+                                            <Label TranslationX="{Binding Position}" Text="{Binding Description}" TextColor="#FFFFFF" Margin="24,8,24,24" FontSize="12" LineBreakMode="WordWrap" />
+                                        </StackLayout>
+                                    </Grid>
+                                </controls:RoundedContentView>
+                                <StackLayout BackgroundColor="#FFFFFF" VerticalOptions="FillAndExpand" Margin="0,-32,0,32">
+                                    <StackLayout VerticalOptions="CenterAndExpand" Margin="0,32,0,0">
+                                        <Button BackgroundColor="#FFFFFF" TranslationX="{Binding Position}" Padding="20,0" CornerRadius="20" Clicked="Button_Clicked" TextColor="{Binding BackgroundColor}" BorderColor="{Binding BackgroundColor}" BorderWidth="2" Text="SELECT PLAN" HorizontalOptions="Center" />
+                                        <Label TranslationX="{Binding Position}" Margin="0,8,0,0" TextColor="Gray" Text="{Binding Type}" FontSize="10" HorizontalOptions="Center" />
+                                    </StackLayout>
                                 </StackLayout>
                             </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            <!--<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                <Image Source="plan_5k.jpg" Margin="0,0,15,0" />
-                <StackLayout>
-                    <material:MaterialLabel Text="5k Training" TypeScale="H6" />
-                    <material:MaterialLabel Text="3.1 miles. Wherever you want, as fast as you can!" TypeScale="Caption" />
-                </StackLayout>
-            </StackLayout>
-            <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
-            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                <Image Source="plan_10k.jpg" Margin="0,0,15,0" />
-                <StackLayout>
-                    <material:MaterialLabel Text="10k Training" TypeScale="H6" />
-                    <material:MaterialLabel Text="Think you can handle 6.2 miles? No time like the present!" TypeScale="Caption" />
-                </StackLayout>
-            </StackLayout>
-            <BoxView BackgroundColor="#f2f2f2" HorizontalOptions="FillAndExpand" HeightRequest="1" />
-            <StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15">
-                <Image Source="plan_half.jpg" Margin="0,0,15,0" />
-                <StackLayout>
-                    <material:MaterialLabel Text="Half Marathon Training" TypeScale="H6" />
-                    <material:MaterialLabel Text="Step up to a full half marathon. You can do this!" TypeScale="Caption" />
-                </StackLayout>
-            </StackLayout>-->
-        </StackLayout>
+                        </controls:RoundedContentView>
+                        <!--<Image TranslationX="{Binding Position}" Source="{Binding ImageSrc}" WidthRequest="300" Rotation="{Binding Rotation}" VerticalOptions="EndAndExpand" HorizontalOptions="EndAndExpand" Margin="0,0,-56,152" />-->
+                    </Grid>
+                </DataTemplate>
+            </controls:CarouselLayout.ItemTemplate>
+        </controls:CarouselLayout>
     </ContentPage.Content>
 </ContentPage>
