@@ -3,93 +3,108 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:Dash.Forms.Controls"
              x:Class="Dash.Forms.Views.Pages.QuickRunStartupPage">
-
-    <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-        <CollectionView x:Name="SegmentCollectionView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <CollectionView.EmptyView>
-                <StackLayout Padding="20">
-                    <Label Text="No segments selected. You can add segments with the + button below. Or click 'GO!' to proceed without segments." FontSize="Large" />
+    <StackLayout>
+        <StackLayout Padding="20,20,20,10">
+            <mat:MaterialCard Padding="5" Margin="0,0,0,10">
+                <!-- These will be a tab view similar to the main run page that switches between custom and Training (5k - 10k plans) -->
+                <StackLayout Orientation="Horizontal">
+                    <mat:MaterialButton Text="Training" HorizontalOptions="FillAndExpand" ButtonType="Flat" BackgroundColor="White" TextColor="Black" />
+                    <mat:MaterialButton Text="Custom" HorizontalOptions="FillAndExpand" ButtonType="Flat" />
                 </StackLayout>
-            </CollectionView.EmptyView>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <!--<StackLayout Orientation="Horizontal">-->
-                    <StackLayout Padding="10">
-                        <Label>
-                            <Label.FormattedText>
-                                <FormattedString>
-                                    <Span Text="{Binding Label, StringFormat='{0}:'}" FontAttributes="Bold" />
-                                    <Span Text="{Binding Value, StringFormat=' {0} Minutes'}" />
-                                </FormattedString>
-                            </Label.FormattedText>
-                        </Label>
-                        <Slider Maximum="60" Minimum="1" Value="{Binding Value}"  />
-                        <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
-                            <Label Text="Time" />
-                            <Switch IsEnabled="False" />
-                            <Label Text="Distance" />
+            </mat:MaterialCard>
+            <mat:MaterialButton Text="Start Run" HorizontalOptions="FillAndExpand" BackgroundColor="#4484ff" />
+        </StackLayout>
+        <StackLayout BackgroundColor="LightGray" HorizontalOptions="FillAndExpand" Padding="10,5" Margin="0">
+            <Label Text="Segments" />
+        </StackLayout>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <CollectionView x:Name="SegmentCollectionView" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="White">
+                <CollectionView.EmptyView>
+                    <Label Text="No segments selected. You can add segments with the + button below. Or click 'GO!' to proceed without segments." Margin="10" />
+
+                </CollectionView.EmptyView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <!--<StackLayout Orientation="Horizontal">-->
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <StackLayout WidthRequest="100">
+                                    <Label Text="{Binding Label, StringFormat='{0}'}" FontAttributes="Bold" />
+                                    <Label Text="{Binding Value, StringFormat=' {0} Minutes'}" />
+                                </StackLayout>
+
+                                <mat:MaterialSlider MaxValue="60" MinValue="1" Value="{Binding Value}"  HorizontalOptions="FillAndExpand" />
+                                <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                                <Label Text="Time" />
+                                <Switch IsEnabled="False" />
+                                <Label Text="Distance" />
+                            </StackLayout>-->
+                            </StackLayout>
+                            <BoxView HeightRequest="1" HorizontalOptions="FillAndExpand" BackgroundColor="LightGray" />
+                        </StackLayout>
+                        
+                        <!--<StackLayout>
                         </StackLayout>-->
-                    </StackLayout>
-                    <!--<StackLayout>
-                        </StackLayout>-->
-                    <!--</StackLayout>-->
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-        <BoxView x:Name="Backdrop"
+                        <!--</StackLayout>-->
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <BoxView x:Name="Backdrop"
                  BackgroundColor="#000000"
                  Opacity="0"
                  IsVisible="False"
                  AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
                  AbsoluteLayout.LayoutFlags="SizeProportional" />
-        <AbsoluteLayout x:Name="RunFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
-            <controls:FAButton x:Name="RunFAB"
+            <AbsoluteLayout x:Name="RunFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+                <controls:FAButton x:Name="RunFAB"
                                Opacity="0"
                                ImageSource="ic_directions_run_white_24dp" 
                                Size="Large"
                                AbsoluteLayout.LayoutFlags="PositionProportional" 
                                AbsoluteLayout.LayoutBounds="0,0,-1,-1"
                                BackgroundColor="#6CA42D" />
-            <Label Text="Run" TextColor="White" x:Name="RunFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
-        </AbsoluteLayout>
-        <AbsoluteLayout x:Name="WalkFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
-            <controls:FAButton x:Name="WalkFAB"
+                <Label Text="Run" TextColor="White" x:Name="RunFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+            </AbsoluteLayout>
+            <AbsoluteLayout x:Name="WalkFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+                <controls:FAButton x:Name="WalkFAB"
                                Opacity="0"
                                ImageSource="ic_directions_walk_white_24dp" 
                                Size="Large"
                                AbsoluteLayout.LayoutFlags="PositionProportional" 
                                AbsoluteLayout.LayoutBounds="0,0,-1,-1"
                                BackgroundColor="#D79253" />
-            <Label Text="Walk" TextColor="White" x:Name="WalkFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
-        </AbsoluteLayout>
-        <AbsoluteLayout x:Name="WarmupFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
-            <controls:FAButton x:Name="WarmupFAB"
+                <Label Text="Walk" TextColor="White" x:Name="WalkFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+            </AbsoluteLayout>
+            <AbsoluteLayout x:Name="WarmupFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+                <controls:FAButton x:Name="WarmupFAB"
                                Opacity="0"
                                ImageSource="ic_whatshot_white_24dp" 
                                Size="Large"
                                AbsoluteLayout.LayoutFlags="PositionProportional" 
                                AbsoluteLayout.LayoutBounds="0,0,-1,-1"
                                BackgroundColor="#BA4774" />
-            <Label Text="Warm" TextColor="White" x:Name="WarmupFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
-        </AbsoluteLayout>
-        <AbsoluteLayout x:Name="CoolFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
-            <controls:FAButton x:Name="CoolFAB"
+                <Label Text="Warm Up" TextColor="White" x:Name="WarmupFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+            </AbsoluteLayout>
+            <AbsoluteLayout x:Name="CoolFABContainer" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1">
+                <controls:FAButton x:Name="CoolFAB"
                                Opacity="0"
                                ImageSource="ic_ac_unit_white_24dp" 
                                Size="Large"
                                AbsoluteLayout.LayoutFlags="PositionProportional" 
                                AbsoluteLayout.LayoutBounds="0,0,-1,-1"
                                BackgroundColor="#347A84" />
-            <Label Text="Cool" TextColor="White" x:Name="CoolFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
-        </AbsoluteLayout>
-        <controls:FAButton x:Name="FAB"
+                <Label Text="Cool Down" TextColor="White" x:Name="CoolFABLabel" Opacity="0" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="-1,-1,-1,-1" />
+            </AbsoluteLayout>
+            <controls:FAButton x:Name="FAB"
                            Size="Large"
                            ImageSource="ic_add_white_24dp"
                            AbsoluteLayout.LayoutFlags="PositionProportional"
                            AbsoluteLayout.LayoutBounds="1.0,1.0,-1,-1"
                            BackgroundColor="#8cc34b" />
-    </AbsoluteLayout>
+        </AbsoluteLayout>
+    </StackLayout>
 </ContentPage>

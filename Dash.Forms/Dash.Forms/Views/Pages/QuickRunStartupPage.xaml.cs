@@ -116,9 +116,14 @@ namespace Dash.Forms.Views.Pages
                 fabContainer.TranslateTo(DistanceWhenOpen * Math.Sin(angleDegrees * RadMult), DistanceWhenOpen * -Math.Cos(angleDegrees * RadMult), ExpandDuration, OpeningEasing);
                 foreach (var fabContainerChild in fabContainer.Children)
                 {
-                    if (fabContainerChild is View view)
+                    if (fabContainerChild is FAButton btn)
                     {
-                        view.FadeTo(1, ExpandDuration, OpeningEasing);
+                        btn.FadeTo(1, ExpandDuration, OpeningEasing);
+                    }
+                    else if (fabContainerChild is Label label)
+                    {
+                        label.FadeTo(1, ExpandDuration, OpeningEasing);
+                        label.TranslateTo(-((label.Text.Length - 4) * 5), 0, ExpandDuration, OpeningEasing);
                     }
                 }
             }
@@ -134,6 +139,7 @@ namespace Dash.Forms.Views.Pages
                     if (fabContainerChild is View view)
                     {
                         view.FadeTo(0, ExpandDuration, OpeningEasing);
+                        view.TranslateTo(0, 0, ExpandDuration, OpeningEasing);
                     }
                 }
             }

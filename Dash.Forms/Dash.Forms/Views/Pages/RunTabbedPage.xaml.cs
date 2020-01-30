@@ -316,11 +316,14 @@ namespace Dash.Forms.Views.Pages
                         }
                     }
                 }
-                Device.BeginInvokeOnMainThread(() =>
+                if (App.IsAsleep == false)
                 {
-                    MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
-                    StatsTimeLabel.Text = MapTimeLabel.Text;
-                });
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        MapTimeLabel.Text = spent.ToString(spent.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
+                        StatsTimeLabel.Text = MapTimeLabel.Text;
+                    });
+                }
             }
             else if (CurrentState == RunState.Paused)
             {
@@ -390,28 +393,31 @@ namespace Dash.Forms.Views.Pages
                         SpeakDistancePace();
                     }
                     var pace = convertedDistance > 0d ? TimeSpan.FromMinutes(GetRunDuration().TotalMinutes / convertedDistance) : TimeSpan.FromMinutes(0);
-                    Device.BeginInvokeOnMainThread(() =>
+                    if (App.IsAsleep == false)
                     {
-                        ElevationLabel.Text = (MaxElevation.Value - MinElevation.Value).ToString("N1");
-                        RunDistanceLabel.Text = convertedDistance.ToString("N2");
-                        StatsDistanceLabel.Text = convertedDistance.ToString("N2");
-                        if (convertedDistance > 0.1d)
+                        Device.BeginInvokeOnMainThread(() =>
                         {
-                            StatsPaceLabel.Text = pace.ToString("mm':'ss");
-                        }
-                        else
-                        {
-                            StatsPaceLabel.Text = "∞";
-                        }
-                        if (CalcCalories == true)
-                        {
-                            StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, UserWeight)).ToString();
-                        }
-                        else
-                        {
-                            StatsCaloriesLabel.Text = "---";
-                        }
-                    });
+                            ElevationLabel.Text = (MaxElevation.Value - MinElevation.Value).ToString("N1");
+                            RunDistanceLabel.Text = convertedDistance.ToString("N2");
+                            StatsDistanceLabel.Text = convertedDistance.ToString("N2");
+                            if (convertedDistance > 0.1d)
+                            {
+                                StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                            }
+                            else
+                            {
+                                StatsPaceLabel.Text = "∞";
+                            }
+                            if (CalcCalories == true)
+                            {
+                                StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, UserWeight)).ToString();
+                            }
+                            else
+                            {
+                                StatsCaloriesLabel.Text = "---";
+                            }
+                        }); 
+                    }
                 }
                 if (JustUnpaused == true)
                 {

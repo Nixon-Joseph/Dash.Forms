@@ -4,13 +4,21 @@
              xmlns:mat="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material.Forms"
              x:Class="Dash.Forms.Views.Pages.SettingsPage">
     <ScrollView Padding="20">
-        <StackLayout>
-            <Label Text="Units of Measure" FontSize="12" />
-            <Picker ItemsSource="{Binding UnitsOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedUnits}" />
-            <mat:MaterialTextField Text="{Binding Weight}" Placeholder="{Binding WeightLabelText}"  />
-            <Label Text="{Binding DistancePaceNotifierLabelText, StringFormat='Speak pace every...'}" />
-            <Picker ItemsSource="{Binding PaceNotifierOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedPaceNotifier}" />
+        <StackLayout Margin="0,15,0,0">
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,8">
+                <Label Text="Units of Measure" FontSize="14" FontAttributes="Bold" HorizontalOptions="StartAndExpand" />
+                <Picker ItemsSource="{Binding UnitsOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedUnits}" HorizontalOptions="End" Margin="0,-14,0,0" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,8">
+                <Label Text="{Binding WeightLabelText}" FontSize="14" FontAttributes="Bold" HorizontalOptions="StartAndExpand" />
+                <Entry Text="{Binding Weight}" HorizontalOptions="End" Margin="0,-14,0,0" />
+                <!--<mat:MaterialTextField Text="{Binding Weight}" Placeholder="{Binding WeightLabelText}" AlwaysShowUnderline="False"  BackgroundColor="Transparent" />-->
+            </StackLayout>
+            <StackLayout Orientation="Horizontal" Margin="0,0,0,8">
+                <Label Text="Audio Cues" FontSize="14" FontAttributes="Bold" HorizontalOptions="StartAndExpand" />
+                <Picker ItemsSource="{Binding PaceNotifierOptions}" ItemDisplayBinding="{Binding Display}" SelectedItem="{Binding SelectedPaceNotifier}" HorizontalOptions="End" Margin="0,-14,0,0" />
 
+            </StackLayout>
             <!-- Advanced Calorie formula requires age, Gender and heartrate, no sense adding age and gender until we can track heart-rate -->
             <!--<Label Text="Age" FontSize="12" />
             <Picker ItemsSource="{Binding AgeOptions}" ItemDisplayBinding="{Binding ., StringFormat='{0}'}" SelectedItem="{Binding Age}" />-->

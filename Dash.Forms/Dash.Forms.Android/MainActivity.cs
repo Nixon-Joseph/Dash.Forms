@@ -42,6 +42,8 @@ namespace Dash.Forms.Droid
 
             Instance = Instance ?? this;
 
+            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
+
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
@@ -54,6 +56,7 @@ namespace Dash.Forms.Droid
             Xamarin.Forms.Forms.SetFlags(/*"Shell_Experimental", *//*"Visual_Experimental", */"CollectionView_Experimental", "FastRenderers_Experimental");
             Xamarin.FormsMaps.Init(this, savedInstanceState);
             Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            CarouselViewRenderer.Init();
             Material.Init(this, savedInstanceState);
             LoadApplication(new App(Intent?.Data?.LastPathSegment));
 
@@ -90,6 +93,14 @@ namespace Dash.Forms.Droid
         public override void OnBackPressed()
         {
             Material.HandleBackButton(base.OnBackPressed);
+            if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))
+            {
+                // Do something if there are some pages in the `PopupStack`
+            }
+            else
+            {
+                // Do something if there are not any pages in the `PopupStack`
+            }
         }
 
         private void HandleExceptions(object sender, UnhandledExceptionEventArgs e)
