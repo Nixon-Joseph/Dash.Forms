@@ -1,32 +1,12 @@
-﻿using Dash.Forms.Helpers.Storage;
-using Dash.Forms.Models.Storage;
-using SQLite;
+﻿using Dash.Forms.Models.Storage;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Dash.Forms.Models.Run
 {
-    public class TrainingWeek : DBSubItemBase
+    public class TrainingWeek : DBBase
     {
-        private IEnumerable<TrainingDay> _Days { get; set; }
-        [Ignore()]
-        public IEnumerable<TrainingDay> Days
-        {
-            get
-            {
-                if (_Days == null)
-                {
-                    var storage = new TrainingDayStorageHelper();
-                    var response = storage.GetByParentId(Id);
-                    if (response != null)
-                    {
-                        _Days = response.OrderBy(d => d.DayNumber);
-                    }
-                }
-                return _Days;
-            }
-            set { _Days = value; }
-        }
+        public IEnumerable<TrainingDay> Days { get; set; }
         public int WeekNumber { get; set; }
 
         public TrainingDay GetDay(int dayNum)

@@ -1,10 +1,7 @@
 ﻿using Dash.Forms.Extensions;
-using Dash.Forms.Helpers.Storage;
 using Dash.Forms.Models.Storage;
-using SQLite;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Dash.Forms.Models.Run
 {
@@ -18,7 +15,6 @@ namespace Dash.Forms.Models.Run
         public DateTime End { get; set; }
         public double Distance { get; set; }
 
-        [Ignore()]
         public string DataDisplay
         {
             get
@@ -31,25 +27,7 @@ namespace Dash.Forms.Models.Run
             }
         }
 
-        private IEnumerable<RunSegment> _Segments { get; set; }
-        [Ignore()]
-        public IEnumerable<RunSegment> Segments
-        {
-            get
-            {
-                if (_Segments == null)
-                {
-                    var storage = new RunSegmentStorageHelper();
-                    var response = storage.GetByParentId(Id);
-                    if (response != null)
-                    {
-                        _Segments = response.OrderBy(l => l.StartTime);
-                    }
-                }
-                return _Segments;
-            }
-            set { _Segments = value; }
-        }
+        public IEnumerable<RunSegment> Segments { get; set; }
         public TimeSpan Elapsed { get; set; }
     }
 }

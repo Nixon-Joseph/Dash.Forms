@@ -17,10 +17,10 @@ namespace Dash.Forms.Views.Pages
         public LogsPage()
         {
             InitializeComponent();
-            var runData = new RunDataStorageHelper().GetAll();
+            var runData = new RunDataStorageHelper().GetItems();
             try
             {
-                var logs = runData.GroupBy(r => r.TrainingProgramId).Select(g => new LogGroup(GetPlanTitle(g.Key), g.OrderByDescending(r => r.Start)));
+                var logs = runData?.GroupBy(r => r.TrainingProgramId).Select(g => new LogGroup(GetPlanTitle(g.Key), g.OrderByDescending(r => r.Start)));
                 Logs = logs;
             }
             catch (Exception ex)
@@ -35,6 +35,10 @@ namespace Dash.Forms.Views.Pages
         {
             switch (key)
             {
+                case TrainingPlan5K.ID:
+                    return "5K Training";
+                case TrainingPlan10K.ID:
+                    return "10K Training";
                 default:
                     return "Free Run";
             }

@@ -2,6 +2,7 @@
 {
     public class Constants
     {
+        public const string OFFLINE_DATABASE_NAME = "DASH_DB.db";
         public const string DroidAppShortcutInvoked = "DroidAppShortcutInvoked";
         public const string DroidAppWearMessageSentToWear = "DroidAppWearMessageSentToWear";
         public const string DroidAppWearMessageSentToHandheld = "DroidAppWearMessageSentToHandheld";

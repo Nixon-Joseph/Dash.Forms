@@ -39,7 +39,14 @@ namespace Dash.Forms.Views.Pages
                 var convertedDistance = useMiles ? (totalDistance.ToMiles()) : (totalDistance.ToKilometers());
                 RunDistanceLabel.Text = convertedDistance.ToString("N2");
                 StatsDistanceLabel.Text = convertedDistance.ToString("N2");
-                StatsPaceLabel.Text = TimeSpan.FromMinutes(runData.Elapsed.TotalMinutes / convertedDistance).ToString("mm':'ss");
+                if (convertedDistance > 0.1d)
+                {
+                    StatsPaceLabel.Text = TimeSpan.FromMinutes(runData.Elapsed.TotalMinutes / convertedDistance).ToString("mm':'ss");
+                }
+                else
+                {
+                    StatsPaceLabel.Text = "∞";
+                }
                 StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(totalDistance, PreferenceHelper.GetWeight())).ToString();
                 MapTimeLabel.Text = runData.Elapsed.ToString(runData.Elapsed.Hours > 0 ? "hh':'mm':'ss" : "mm':'ss");
                 StatsTimeLabel.Text = MapTimeLabel.Text;

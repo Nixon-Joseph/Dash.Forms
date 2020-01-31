@@ -1,5 +1,4 @@
 ﻿using Dash.Forms.Extensions;
-using SQLite;
 using System;
 
 namespace Dash.Forms.Models.Storage
@@ -7,8 +6,6 @@ namespace Dash.Forms.Models.Storage
     public class DBBase
     {
         private string _Id { get; set; }
-
-        [PrimaryKey(), Indexed()]
         public string Id
         {
             get

@@ -1,24 +1,27 @@
-﻿using Dash.Forms.Extensions;
-using Dash.Forms.Models.Run;
+﻿using Dash.Forms.Models.Run;
+using LiteDB;
 
 namespace Dash.Forms.Helpers.Storage
 {
     public class RunDataStorageHelper : StorageHelperBase<RunData>
     {
-        private readonly RunSegmentStorageHelper segmentStorage;
+        private static bool _MappingInitialized = false;
+
         public RunDataStorageHelper()
         {
-            segmentStorage = new RunSegmentStorageHelper();
+            if (_MappingInitialized == false)
+            {
+                _MappingInitialized = true;
+                var mapper = BsonMapper.Global;
+                mapper.Entity<RunData>()
+                    .Id(x => x.Id)
+                    .Ignore(x => x.DataDisplay);
+            }
         }
 
-        public override string Insert(RunData run)
+        public override RunData DeleteItem(RunData item)
         {
-            var runResponse = base.Insert(run);
-            if (runResponse.IsNullOrEmpty() == false)
-            {
-                segmentStorage.InsertAll(run.Segments, run.Id);
-            }
-            return runResponse;
+            return Collection.Delete(i => i.Id == item.Id) == 0 ? null : item;
         }
     }
 }

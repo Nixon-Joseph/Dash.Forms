@@ -271,7 +271,7 @@ namespace Dash.Forms.Views.Pages
                         }
                     };
                     var runStorage = new RunDataStorageHelper();
-                    runStorage.Insert(runData);
+                    runStorage.CreateItem(runData);
                     await Navigation.PopAsync();
                 }
             }

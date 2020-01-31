@@ -4,9 +4,10 @@ namespace Dash.Forms.Models.Run
 {
     public class TrainingPlan10K : TrainingPlan
     {
+        public const string ID = "plan_10k";
         public TrainingPlan10K()
         {
-            Id = "plan_10k";
+            Id = ID;
             Type = PlanType.TenK;
             Title = "10k Training";
             Image = "plan_10k";

@@ -1,158 +1,47 @@
-﻿using Dash.Forms.Models.Storage;
-using SQLite;
-using System;
+﻿using Dash.Forms.DependencyInterfaces;
+using Dash.Forms.Models.Storage;
+using LiteDB;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Linq.Expressions;
+using Xamarin.Forms;
 
 namespace Dash.Forms.Helpers.Storage
 {
-    public class StorageHelperBase<T> where T : DBBase, new()
+    public abstract class StorageHelperBase<T> where T : DBBase
     {
-        protected string DBPath { get { return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "dash_data.db3"); } }
-        protected object Locker = new object();
-        protected SQLiteConnection Connection { get { return new SQLiteConnection(DBPath); } }
-        protected bool Initialized { get; set; }
+        protected LiteCollection<T> Collection;
 
         public StorageHelperBase()
         {
-            Init();
+            var db = new LiteDatabase(DependencyService.Get<IDatabaseAccess>().DatabasePath());
+            Collection = db.GetCollection<T>();
         }
 
-        protected void Init()
+        public virtual T CreateItem(T item)
         {
-            if (Initialized == false)
-            {
-                using (SQLiteConnection connection = Connection)
-                {
-                    lock (Locker)
-                    {
-                        connection.CreateTable<T>();
-                    }
-                }
-                Initialized = true;
-            }
+            _ = Collection.Insert(item);
+            return item;
         }
 
-        public virtual string Insert(T obj)
+        public virtual T UpdateItem(T item)
         {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var objId = obj.Id;
-                    var rows = connection.Insert(obj);
-                    if (rows > 0)
-                    {
-                        return objId;
-                    }
-                }
-            }
-            return null;
+            _ = Collection.Update(item);
+            return item;
         }
 
-        public virtual bool InsertAll(IEnumerable<T> objs)
+        public virtual T DeleteItem(T item)
         {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var rows = connection.InsertAll(objs, true);
-                    if (rows == objs.Count())
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            _ = Collection.Delete(i => i.Id.Equals(item.Id));
+            return item;
         }
 
-        public virtual bool Update(T obj)
+        public virtual IEnumerable<T> GetItems()
         {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var rows = connection.Update(obj);
-                    if (rows > 0)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return Collection.FindAll();
         }
 
-        public virtual T Get(string id)
+        public virtual T GetItem(string id)
         {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var obj = connection.Get<T>(id);
-                    if (obj != null)
-                    {
-                        return obj;
-                    }
-                }
-            }
-            return null;
-        }
-
-        public virtual IEnumerable<T> GetAll()
-        {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var objs = connection.Table<T>();
-                    if (objs != null)
-                    {
-                        return objs.ToList();
-                    }
-                }
-            }
-            return null;
-        }
-
-        public virtual IEnumerable<T> GetAll(Expression<Func<T, bool>> predicate)
-        {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var objs = connection.Table<T>().Where(predicate);
-                    if (objs != null)
-                    {
-                        return objs.ToList();
-                    }
-                }
-            }
-            return null;
-        }
-
-        public virtual bool Delete(string id)
-        {
-            using (SQLiteConnection connection = Connection)
-            {
-                lock (Locker)
-                {
-                    Init();
-                    var rows = connection.Delete<T>(id);
-                    if (rows > 0)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
+            return Collection.FindById(id);
         }
     }
 }
