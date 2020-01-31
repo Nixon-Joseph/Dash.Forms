@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Dash.Forms.Droid
+﻿namespace Dash.Forms.Droid
 {
-    public class Constants
+    public class Constants : AndroidShared.Constants
     {
         public const float METERS_TO_MILES_DIVISOR = 1609.344f;
         public const float METERS_TO_KILOMETERS_DIVISOR = 1000f;
