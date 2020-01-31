@@ -140,27 +140,20 @@ namespace Dash.Forms.Droid
 
         private async void FindWearDevicesWithApp()
         {
-            WearNodesWithApp = (await WearableClass.GetCapabilityClient(this).GetCapabilityAsync(CAPABILITY_WEAR_APP, CapabilityClient.FilterAll))?.Nodes;
-
-            VerifyNode();
+            try
+            {
+                WearNodesWithApp = (await WearableClass.GetCapabilityClient(this).GetCapabilityAsync(CAPABILITY_WEAR_APP, CapabilityClient.FilterAll))?.Nodes;
+            }
+            catch { }
         }
 
         private async void FindAllWearDevices()
         {
-            AllConnectedNodes = await NodeManager.GetConnectedNodes(this);
-            VerifyNode();
-        }
-
-        private void VerifyNode()
-        {
-            if (WearNodesWithApp != null && AllConnectedNodes != null)
+            try
             {
-
+                AllConnectedNodes = await NodeManager.GetConnectedNodes(this);
             }
-            else if (WearNodesWithApp.Count() > 0)
-            {
-
-            }
+            catch { }
         }
 
         private void OpenPlayStoreOnWearDevice()
