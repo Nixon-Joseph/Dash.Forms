@@ -1734,6 +1734,88 @@ namespace Dash.Forms.AndroidWear
 			global::Dash.Forms.AndroidShared.Resource.Styleable.View_theme = global::Dash.Forms.AndroidWear.Resource.Styleable.View_theme;
 		}
 		
+		public partial class Fraction
+		{
+			
+			// aapt resource value: 0x7F090000
+			public const int action_drawer_item_first_item_top_padding = 2131296256;
+			
+			// aapt resource value: 0x7F090001
+			public const int action_drawer_item_last_item_bottom_padding = 2131296257;
+			
+			// aapt resource value: 0x7F090002
+			public const int action_drawer_item_left_padding = 2131296258;
+			
+			// aapt resource value: 0x7F090003
+			public const int action_drawer_item_right_padding = 2131296259;
+			
+			// aapt resource value: 0x7F090004
+			public const int confirmation_overlay_margin_above_text = 2131296260;
+			
+			// aapt resource value: 0x7F090005
+			public const int confirmation_overlay_margin_side = 2131296261;
+			
+			// aapt resource value: 0x7F090006
+			public const int nav_drawer_margin_2_items = 2131296262;
+			
+			// aapt resource value: 0x7F090007
+			public const int nav_drawer_margin_3_items = 2131296263;
+			
+			// aapt resource value: 0x7F090008
+			public const int nav_drawer_margin_4_items_horizontal = 2131296264;
+			
+			// aapt resource value: 0x7F090009
+			public const int nav_drawer_margin_4_items_vertical = 2131296265;
+			
+			// aapt resource value: 0x7F09000A
+			public const int nav_drawer_margin_5_items_horizontal_middle_row = 2131296266;
+			
+			// aapt resource value: 0x7F09000B
+			public const int nav_drawer_margin_5_items_horizontal_outer_rows = 2131296267;
+			
+			// aapt resource value: 0x7F09000C
+			public const int nav_drawer_margin_5_items_vertical = 2131296268;
+			
+			// aapt resource value: 0x7F09000D
+			public const int nav_drawer_margin_6_items_horizontal = 2131296269;
+			
+			// aapt resource value: 0x7F09000E
+			public const int nav_drawer_margin_6_items_vertical = 2131296270;
+			
+			// aapt resource value: 0x7F09000F
+			public const int nav_drawer_margin_7_items_horizontal_middle_row = 2131296271;
+			
+			// aapt resource value: 0x7F090010
+			public const int nav_drawer_margin_7_items_horizontal_outer_rows = 2131296272;
+			
+			// aapt resource value: 0x7F090011
+			public const int nav_drawer_margin_7_items_vertical = 2131296273;
+			
+			// aapt resource value: 0x7F090012
+			public const int nav_drawer_text_margin = 2131296274;
+			
+			// aapt resource value: 0x7F090013
+			public const int ws_action_drawer_item_first_item_top_padding = 2131296275;
+			
+			// aapt resource value: 0x7F090014
+			public const int ws_action_drawer_item_last_item_bottom_padding = 2131296276;
+			
+			// aapt resource value: 0x7F090015
+			public const int ws_action_drawer_item_left_padding = 2131296277;
+			
+			// aapt resource value: 0x7F090016
+			public const int ws_action_drawer_item_right_padding = 2131296278;
+			
+			static Fraction()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Fraction()
+			{
+			}
+		}
+		
 		public partial class Animation
 		{
 			
@@ -7743,19 +7825,19 @@ namespace Dash.Forms.AndroidWear
 					2130968970,
 					2130968972};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AcceptDenyDialogPreference_dialogIcon = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AcceptDenyDialogPreference_dialogMessage = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AcceptDenyDialogPreference_dialogTitle = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AcceptDenyDialogPreference_showNegativeDialogButton = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AcceptDenyDialogPreference_showPositiveDialogButton = 4;
 			
 			// aapt resource value: { 0x7F040091,0x7F040092,0x7F040095,0x7F040187,0x7F040188,0x7F04018A,0x7F04018C }
@@ -7768,25 +7850,25 @@ namespace Dash.Forms.AndroidWear
 					2130968970,
 					2130968972};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AcceptDenySwitchPreference_dialogIcon = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AcceptDenySwitchPreference_dialogMessage = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AcceptDenySwitchPreference_dialogTitle = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AcceptDenySwitchPreference_showDialogWhenTurningOff = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AcceptDenySwitchPreference_showDialogWhenTurningOn = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AcceptDenySwitchPreference_showNegativeDialogButton = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int AcceptDenySwitchPreference_showPositiveDialogButton = 6;
 			
 			// aapt resource value: { 0x7F040033,0x7F040036,0x7F040037,0x7F040086,0x7F040087,0x7F040088,0x7F040089,0x7F04008A,0x7F04008B,0x7F04008E,0x7F040096,0x7F040097,0x7F0400B3,0x7F0400CA,0x7F0400CB,0x7F0400CD,0x7F0400CE,0x7F0400CF,0x7F0400E0,0x7F0400E3,0x7F04013F,0x7F040148,0x7F040167,0x7F04016C,0x7F04016D,0x7F04019E,0x7F0401A1,0x7F0401BF,0x7F0401CA }
@@ -7825,95 +7907,95 @@ namespace Dash.Forms.AndroidWear
 			public static int[] ActionBarLayout = new int[] {
 					16842931};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionBarLayout_android_layout_gravity = 0;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionBar_background = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ActionBar_backgroundSplit = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ActionBar_backgroundStacked = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ActionBar_contentInsetEnd = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ActionBar_contentInsetEndWithActions = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ActionBar_contentInsetLeft = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ActionBar_contentInsetRight = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ActionBar_contentInsetStart = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ActionBar_contentInsetStartWithNavigation = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ActionBar_customNavigationLayout = 9;
 			
-			// aapt resource value: 0x10
-			public const int ActionBar_displayOptions = 16;
+			// aapt resource value: 10
+			public const int ActionBar_displayOptions = 10;
 			
-			// aapt resource value: 0x11
-			public const int ActionBar_divider = 17;
+			// aapt resource value: 11
+			public const int ActionBar_divider = 11;
 			
-			// aapt resource value: 0x12
-			public const int ActionBar_elevation = 18;
+			// aapt resource value: 12
+			public const int ActionBar_elevation = 12;
 			
-			// aapt resource value: 0x13
-			public const int ActionBar_height = 19;
+			// aapt resource value: 13
+			public const int ActionBar_height = 13;
 			
-			// aapt resource value: 0x14
-			public const int ActionBar_hideOnContentScroll = 20;
+			// aapt resource value: 14
+			public const int ActionBar_hideOnContentScroll = 14;
 			
-			// aapt resource value: 0x15
-			public const int ActionBar_homeAsUpIndicator = 21;
+			// aapt resource value: 15
+			public const int ActionBar_homeAsUpIndicator = 15;
 			
-			// aapt resource value: 0x16
-			public const int ActionBar_homeLayout = 22;
+			// aapt resource value: 16
+			public const int ActionBar_homeLayout = 16;
 			
-			// aapt resource value: 0x17
-			public const int ActionBar_icon = 23;
+			// aapt resource value: 17
+			public const int ActionBar_icon = 17;
 			
-			// aapt resource value: 0x18
-			public const int ActionBar_indeterminateProgressStyle = 24;
+			// aapt resource value: 18
+			public const int ActionBar_indeterminateProgressStyle = 18;
 			
-			// aapt resource value: 0x19
-			public const int ActionBar_itemPadding = 25;
+			// aapt resource value: 19
+			public const int ActionBar_itemPadding = 19;
 			
-			// aapt resource value: 0x20
-			public const int ActionBar_logo = 32;
+			// aapt resource value: 20
+			public const int ActionBar_logo = 20;
 			
-			// aapt resource value: 0x21
-			public const int ActionBar_navigationMode = 33;
+			// aapt resource value: 21
+			public const int ActionBar_navigationMode = 21;
 			
-			// aapt resource value: 0x22
-			public const int ActionBar_popupTheme = 34;
+			// aapt resource value: 22
+			public const int ActionBar_popupTheme = 22;
 			
-			// aapt resource value: 0x23
-			public const int ActionBar_progressBarPadding = 35;
+			// aapt resource value: 23
+			public const int ActionBar_progressBarPadding = 23;
 			
-			// aapt resource value: 0x24
-			public const int ActionBar_progressBarStyle = 36;
+			// aapt resource value: 24
+			public const int ActionBar_progressBarStyle = 24;
 			
-			// aapt resource value: 0x25
-			public const int ActionBar_subtitle = 37;
+			// aapt resource value: 25
+			public const int ActionBar_subtitle = 25;
 			
-			// aapt resource value: 0x26
-			public const int ActionBar_subtitleTextStyle = 38;
+			// aapt resource value: 26
+			public const int ActionBar_subtitleTextStyle = 26;
 			
-			// aapt resource value: 0x27
-			public const int ActionBar_title = 39;
+			// aapt resource value: 27
+			public const int ActionBar_title = 27;
 			
-			// aapt resource value: 0x28
-			public const int ActionBar_titleTextStyle = 40;
+			// aapt resource value: 28
+			public const int ActionBar_titleTextStyle = 28;
 			
 			// aapt resource value: { 0x1010096,0x1010097,0x1010098,0x10100AF,0x101014F,0x1010153,0x1010217,0x1010218,0x10103AC,0x7F040142,0x7F040144 }
 			public static int[] ActionLabel = new int[] {
@@ -7929,44 +8011,44 @@ namespace Dash.Forms.AndroidWear
 					2130968898,
 					2130968900};
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ActionLabel_android_fontFamily = 8;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ActionLabel_android_gravity = 3;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ActionLabel_android_lineSpacingExtra = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ActionLabel_android_lineSpacingMultiplier = 7;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ActionLabel_android_maxLines = 5;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ActionLabel_android_text = 4;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ActionLabel_android_textColor = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ActionLabel_android_textStyle = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionLabel_android_typeface = 0;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ActionLabel_maxTextSize = 9;
 			
-			// aapt resource value: 0x10
-			public const int ActionLabel_minTextSize = 16;
+			// aapt resource value: 10
+			public const int ActionLabel_minTextSize = 10;
 			
 			// aapt resource value: { 0x101013F }
 			public static int[] ActionMenuItemView = new int[] {
 					16843071};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionMenuItemView_android_minWidth = 0;
 			
 			// aapt resource value: { 0xFFFFFFFF }
@@ -7982,22 +8064,22 @@ namespace Dash.Forms.AndroidWear
 					2130968993,
 					2130969034};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionMode_background = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ActionMode_backgroundSplit = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ActionMode_closeItemLayout = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ActionMode_height = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ActionMode_subtitleTextStyle = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ActionMode_titleTextStyle = 5;
 			
 			// aapt resource value: { 0x1010096,0x1010097,0x1010098,0x10100AF,0x1010119,0x101014F,0x1010153,0x10101A5,0x1010217,0x1010218,0x10103AC,0x1010440,0x1010448,0x7F040058,0x7F0400D7,0x7F040142,0x7F040144,0x7F04016B }
@@ -8021,69 +8103,69 @@ namespace Dash.Forms.AndroidWear
 					2130968900,
 					2130968939};
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ActionPage_android_color = 7;
 			
-			// aapt resource value: 0x11
-			public const int ActionPage_android_elevation = 17;
+			// aapt resource value: 11
+			public const int ActionPage_android_elevation = 11;
 			
-			// aapt resource value: 0x10
-			public const int ActionPage_android_fontFamily = 16;
+			// aapt resource value: 10
+			public const int ActionPage_android_fontFamily = 10;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ActionPage_android_gravity = 3;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ActionPage_android_lineSpacingExtra = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ActionPage_android_lineSpacingMultiplier = 9;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ActionPage_android_maxLines = 6;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ActionPage_android_src = 4;
 			
-			// aapt resource value: 0x12
-			public const int ActionPage_android_stateListAnimator = 18;
+			// aapt resource value: 12
+			public const int ActionPage_android_stateListAnimator = 12;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ActionPage_android_text = 5;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ActionPage_android_textColor = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ActionPage_android_textStyle = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActionPage_android_typeface = 0;
 			
-			// aapt resource value: 0x13
-			public const int ActionPage_buttonRippleColor = 19;
+			// aapt resource value: 13
+			public const int ActionPage_buttonRippleColor = 13;
 			
-			// aapt resource value: 0x14
-			public const int ActionPage_imageScaleMode = 20;
+			// aapt resource value: 14
+			public const int ActionPage_imageScaleMode = 14;
 			
-			// aapt resource value: 0x15
-			public const int ActionPage_maxTextSize = 21;
+			// aapt resource value: 15
+			public const int ActionPage_maxTextSize = 15;
 			
-			// aapt resource value: 0x16
-			public const int ActionPage_minTextSize = 22;
+			// aapt resource value: 16
+			public const int ActionPage_minTextSize = 16;
 			
-			// aapt resource value: 0x17
-			public const int ActionPage_pressedButtonTranslationZ = 23;
+			// aapt resource value: 17
+			public const int ActionPage_pressedButtonTranslationZ = 17;
 			
 			// aapt resource value: { 0x7F0400B6,0x7F0400E1 }
 			public static int[] ActivityChooserView = new int[] {
 					2130968758,
 					2130968801};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ActivityChooserView_initialActivityCount = 1;
 			
 			// aapt resource value: { 0x10100F2,0x7F040056,0x7F040057,0x7F040136,0x7F040137,0x7F040145,0x7F04018E,0x7F040190 }
@@ -8097,28 +8179,28 @@ namespace Dash.Forms.AndroidWear
 					2130968974,
 					2130968976};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AlertDialog_android_layout = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AlertDialog_buttonIconDimen = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AlertDialog_buttonPanelSideLayout = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AlertDialog_listItemLayout = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AlertDialog_listLayout = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AlertDialog_multiChoiceItemLayout = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int AlertDialog_showTitle = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int AlertDialog_singleChoiceItemLayout = 7;
 			
 			// aapt resource value: { 0x101011C,0x1010194,0x1010195,0x1010196,0x101030C,0x101030D }
@@ -8130,22 +8212,22 @@ namespace Dash.Forms.AndroidWear
 					16843532,
 					16843533};
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AnimatedStateListDrawableCompat_android_constantSize = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AnimatedStateListDrawableCompat_android_dither = 0;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AnimatedStateListDrawableCompat_android_enterFadeDuration = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AnimatedStateListDrawableCompat_android_exitFadeDuration = 5;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AnimatedStateListDrawableCompat_android_variablePadding = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AnimatedStateListDrawableCompat_android_visible = 1;
 			
 			// aapt resource value: { 0x10100D0,0x1010199 }
@@ -8153,10 +8235,10 @@ namespace Dash.Forms.AndroidWear
 					16842960,
 					16843161};
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AnimatedStateListDrawableItem_android_drawable = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AnimatedStateListDrawableItem_android_id = 0;
 			
 			// aapt resource value: { 0x1010199,0x1010449,0x101044A,0x101044B }
@@ -8166,16 +8248,16 @@ namespace Dash.Forms.AndroidWear
 					16843850,
 					16843851};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AnimatedStateListDrawableTransition_android_drawable = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AnimatedStateListDrawableTransition_android_fromId = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AnimatedStateListDrawableTransition_android_reversible = 3;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AnimatedStateListDrawableTransition_android_toId = 1;
 			
 			// aapt resource value: { 0x1010119,0x7F040197,0x7F0401BD,0x7F0401BE }
@@ -8185,16 +8267,16 @@ namespace Dash.Forms.AndroidWear
 					2130969021,
 					2130969022};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AppCompatImageView_android_src = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AppCompatImageView_srcCompat = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AppCompatImageView_tint = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AppCompatImageView_tintMode = 3;
 			
 			// aapt resource value: { 0x1010142,0x7F0401BA,0x7F0401BB,0x7F0401BC }
@@ -8204,16 +8286,16 @@ namespace Dash.Forms.AndroidWear
 					2130969019,
 					2130969020};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AppCompatSeekBar_android_thumb = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AppCompatSeekBar_tickMark = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AppCompatSeekBar_tickMarkTint = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AppCompatSeekBar_tickMarkTintMode = 3;
 			
 			// aapt resource value: { 0x1010034,0x101016D,0x101016E,0x101016F,0x1010170,0x1010392,0x1010393 }
@@ -8226,25 +8308,25 @@ namespace Dash.Forms.AndroidWear
 					16843666,
 					16843667};
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AppCompatTextHelper_android_drawableBottom = 2;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int AppCompatTextHelper_android_drawableEnd = 6;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AppCompatTextHelper_android_drawableLeft = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AppCompatTextHelper_android_drawableRight = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AppCompatTextHelper_android_drawableStart = 5;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AppCompatTextHelper_android_drawableTop = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AppCompatTextHelper_android_textAppearance = 0;
 			
 			// aapt resource value: { 0x1010034,0x7F04002E,0x7F04002F,0x7F040030,0x7F040031,0x7F040032,0x7F0400BC,0x7F0400BE,0x7F0400E5,0x7F040133,0x7F0401A7 }
@@ -8261,38 +8343,38 @@ namespace Dash.Forms.AndroidWear
 					2130968883,
 					2130968999};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AppCompatTextView_android_textAppearance = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AppCompatTextView_autoSizeMaxTextSize = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AppCompatTextView_autoSizeMinTextSize = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AppCompatTextView_autoSizePresetSizes = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AppCompatTextView_autoSizeStepGranularity = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AppCompatTextView_autoSizeTextType = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int AppCompatTextView_firstBaselineToTopHeight = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int AppCompatTextView_fontFamily = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int AppCompatTextView_lastBaselineToBottomHeight = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int AppCompatTextView_lineHeight = 9;
 			
-			// aapt resource value: 0x10
-			public const int AppCompatTextView_textAllCaps = 16;
+			// aapt resource value: 10
+			public const int AppCompatTextView_textAllCaps = 10;
 			
 			// aapt resource value: { 0x1010057,0x10100AE,0x7F040000,0x7F040001,0x7F040002,0x7F040003,0x7F040004,0x7F040005,0x7F040006,0x7F040007,0x7F040008,0x7F040009,0x7F04000A,0x7F04000B,0x7F04000C,0x7F04000F,0x7F040010,0x7F040011,0x7F040012,0x7F040013,0x7F040014,0x7F040015,0x7F040016,0x7F040017,0x7F040018,0x7F040019,0x7F04001A,0x7F04001B,0x7F04001C,0x7F04001D,0x7F04001E,0x7F04001F,0x7F040023,0x7F040024,0x7F040025,0x7F040026,0x7F040027,0x7F04002D,0x7F04004E,0x7F040050,0x7F040051,0x7F040052,0x7F040053,0x7F040054,0x7F04005A,0x7F04005B,0x7F04005F,0x7F040060,0x7F040074,0x7F040075,0x7F040076,0x7F040077,0x7F040078,0x7F040079,0x7F04007A,0x7F04007B,0x7F04007C,0x7F04007F,0x7F04008C,0x7F040090,0x7F040093,0x7F040094,0x7F040098,0x7F04009A,0x7F0400AE,0x7F0400AF,0x7F0400B0,0x7F0400B1,0x7F0400B2,0x7F0400CD,0x7F0400D6,0x7F040134,0x7F040135,0x7F040138,0x7F040139,0x7F04013A,0x7F04013B,0x7F04013C,0x7F04013D,0x7F04013E,0x7F040161,0x7F040162,0x7F040163,0x7F040166,0x7F040168,0x7F040170,0x7F040176,0x7F040177,0x7F040178,0x7F040181,0x7F040182,0x7F040183,0x7F040184,0x7F040193,0x7F040194,0x7F0401A5,0x7F0401A8,0x7F0401A9,0x7F0401AA,0x7F0401AB,0x7F0401AC,0x7F0401AD,0x7F0401AE,0x7F0401AF,0x7F0401B1,0x7F0401B2,0x7F0401CC,0x7F0401CD,0x7F0401CE,0x7F0401CF,0x7F0401D6,0x7F0401D8,0x7F0401D9,0x7F0401DA,0x7F0401DB,0x7F0401DC,0x7F0401DD,0x7F0401DE,0x7F0401DF,0x7F0401E0,0x7F0401E1 }
 			public static int[] AppCompatTheme = new int[] {
@@ -8418,385 +8500,385 @@ namespace Dash.Forms.AndroidWear
 					2130969056,
 					2130969057};
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int AppCompatTheme_actionBarDivider = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int AppCompatTheme_actionBarItemBackground = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int AppCompatTheme_actionBarPopupTheme = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int AppCompatTheme_actionBarSize = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int AppCompatTheme_actionBarSplitStyle = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int AppCompatTheme_actionBarStyle = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int AppCompatTheme_actionBarTabBarStyle = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int AppCompatTheme_actionBarTabStyle = 9;
 			
-			// aapt resource value: 0x10
-			public const int AppCompatTheme_actionBarTabTextStyle = 16;
+			// aapt resource value: 10
+			public const int AppCompatTheme_actionBarTabTextStyle = 10;
 			
-			// aapt resource value: 0x11
-			public const int AppCompatTheme_actionBarTheme = 17;
+			// aapt resource value: 11
+			public const int AppCompatTheme_actionBarTheme = 11;
 			
-			// aapt resource value: 0x12
-			public const int AppCompatTheme_actionBarWidgetTheme = 18;
+			// aapt resource value: 12
+			public const int AppCompatTheme_actionBarWidgetTheme = 12;
 			
-			// aapt resource value: 0x13
-			public const int AppCompatTheme_actionButtonStyle = 19;
+			// aapt resource value: 13
+			public const int AppCompatTheme_actionButtonStyle = 13;
 			
-			// aapt resource value: 0x14
-			public const int AppCompatTheme_actionDropDownStyle = 20;
+			// aapt resource value: 14
+			public const int AppCompatTheme_actionDropDownStyle = 14;
 			
-			// aapt resource value: 0x15
-			public const int AppCompatTheme_actionMenuTextAppearance = 21;
+			// aapt resource value: 15
+			public const int AppCompatTheme_actionMenuTextAppearance = 15;
 			
-			// aapt resource value: 0x16
-			public const int AppCompatTheme_actionMenuTextColor = 22;
+			// aapt resource value: 16
+			public const int AppCompatTheme_actionMenuTextColor = 16;
 			
-			// aapt resource value: 0x17
-			public const int AppCompatTheme_actionModeBackground = 23;
+			// aapt resource value: 17
+			public const int AppCompatTheme_actionModeBackground = 17;
 			
-			// aapt resource value: 0x18
-			public const int AppCompatTheme_actionModeCloseButtonStyle = 24;
+			// aapt resource value: 18
+			public const int AppCompatTheme_actionModeCloseButtonStyle = 18;
 			
-			// aapt resource value: 0x19
-			public const int AppCompatTheme_actionModeCloseDrawable = 25;
+			// aapt resource value: 19
+			public const int AppCompatTheme_actionModeCloseDrawable = 19;
 			
-			// aapt resource value: 0x20
-			public const int AppCompatTheme_actionModeCopyDrawable = 32;
+			// aapt resource value: 20
+			public const int AppCompatTheme_actionModeCopyDrawable = 20;
 			
-			// aapt resource value: 0x21
-			public const int AppCompatTheme_actionModeCutDrawable = 33;
+			// aapt resource value: 21
+			public const int AppCompatTheme_actionModeCutDrawable = 21;
 			
-			// aapt resource value: 0x22
-			public const int AppCompatTheme_actionModeFindDrawable = 34;
+			// aapt resource value: 22
+			public const int AppCompatTheme_actionModeFindDrawable = 22;
 			
-			// aapt resource value: 0x23
-			public const int AppCompatTheme_actionModePasteDrawable = 35;
+			// aapt resource value: 23
+			public const int AppCompatTheme_actionModePasteDrawable = 23;
 			
-			// aapt resource value: 0x24
-			public const int AppCompatTheme_actionModePopupWindowStyle = 36;
+			// aapt resource value: 24
+			public const int AppCompatTheme_actionModePopupWindowStyle = 24;
 			
-			// aapt resource value: 0x25
-			public const int AppCompatTheme_actionModeSelectAllDrawable = 37;
+			// aapt resource value: 25
+			public const int AppCompatTheme_actionModeSelectAllDrawable = 25;
 			
-			// aapt resource value: 0x26
-			public const int AppCompatTheme_actionModeShareDrawable = 38;
+			// aapt resource value: 26
+			public const int AppCompatTheme_actionModeShareDrawable = 26;
 			
-			// aapt resource value: 0x27
-			public const int AppCompatTheme_actionModeSplitBackground = 39;
+			// aapt resource value: 27
+			public const int AppCompatTheme_actionModeSplitBackground = 27;
 			
-			// aapt resource value: 0x28
-			public const int AppCompatTheme_actionModeStyle = 40;
+			// aapt resource value: 28
+			public const int AppCompatTheme_actionModeStyle = 28;
 			
-			// aapt resource value: 0x29
-			public const int AppCompatTheme_actionModeWebSearchDrawable = 41;
+			// aapt resource value: 29
+			public const int AppCompatTheme_actionModeWebSearchDrawable = 29;
 			
-			// aapt resource value: 0x30
-			public const int AppCompatTheme_actionOverflowButtonStyle = 48;
+			// aapt resource value: 30
+			public const int AppCompatTheme_actionOverflowButtonStyle = 30;
 			
-			// aapt resource value: 0x31
-			public const int AppCompatTheme_actionOverflowMenuStyle = 49;
+			// aapt resource value: 31
+			public const int AppCompatTheme_actionOverflowMenuStyle = 31;
 			
-			// aapt resource value: 0x32
-			public const int AppCompatTheme_activityChooserViewStyle = 50;
+			// aapt resource value: 32
+			public const int AppCompatTheme_activityChooserViewStyle = 32;
 			
-			// aapt resource value: 0x33
-			public const int AppCompatTheme_alertDialogButtonGroupStyle = 51;
+			// aapt resource value: 33
+			public const int AppCompatTheme_alertDialogButtonGroupStyle = 33;
 			
-			// aapt resource value: 0x34
-			public const int AppCompatTheme_alertDialogCenterButtons = 52;
+			// aapt resource value: 34
+			public const int AppCompatTheme_alertDialogCenterButtons = 34;
 			
-			// aapt resource value: 0x35
-			public const int AppCompatTheme_alertDialogStyle = 53;
+			// aapt resource value: 35
+			public const int AppCompatTheme_alertDialogStyle = 35;
 			
-			// aapt resource value: 0x36
-			public const int AppCompatTheme_alertDialogTheme = 54;
+			// aapt resource value: 36
+			public const int AppCompatTheme_alertDialogTheme = 36;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int AppCompatTheme_android_windowAnimationStyle = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int AppCompatTheme_android_windowIsFloating = 0;
 			
-			// aapt resource value: 0x37
-			public const int AppCompatTheme_autoCompleteTextViewStyle = 55;
+			// aapt resource value: 37
+			public const int AppCompatTheme_autoCompleteTextViewStyle = 37;
 			
-			// aapt resource value: 0x38
-			public const int AppCompatTheme_borderlessButtonStyle = 56;
+			// aapt resource value: 38
+			public const int AppCompatTheme_borderlessButtonStyle = 38;
 			
-			// aapt resource value: 0x39
-			public const int AppCompatTheme_buttonBarButtonStyle = 57;
+			// aapt resource value: 39
+			public const int AppCompatTheme_buttonBarButtonStyle = 39;
 			
-			// aapt resource value: 0x40
-			public const int AppCompatTheme_buttonBarNegativeButtonStyle = 64;
+			// aapt resource value: 40
+			public const int AppCompatTheme_buttonBarNegativeButtonStyle = 40;
 			
-			// aapt resource value: 0x41
-			public const int AppCompatTheme_buttonBarNeutralButtonStyle = 65;
+			// aapt resource value: 41
+			public const int AppCompatTheme_buttonBarNeutralButtonStyle = 41;
 			
-			// aapt resource value: 0x42
-			public const int AppCompatTheme_buttonBarPositiveButtonStyle = 66;
+			// aapt resource value: 42
+			public const int AppCompatTheme_buttonBarPositiveButtonStyle = 42;
 			
-			// aapt resource value: 0x43
-			public const int AppCompatTheme_buttonBarStyle = 67;
+			// aapt resource value: 43
+			public const int AppCompatTheme_buttonBarStyle = 43;
 			
-			// aapt resource value: 0x44
-			public const int AppCompatTheme_buttonStyle = 68;
+			// aapt resource value: 44
+			public const int AppCompatTheme_buttonStyle = 44;
 			
-			// aapt resource value: 0x45
-			public const int AppCompatTheme_buttonStyleSmall = 69;
+			// aapt resource value: 45
+			public const int AppCompatTheme_buttonStyleSmall = 45;
 			
-			// aapt resource value: 0x46
-			public const int AppCompatTheme_checkboxStyle = 70;
+			// aapt resource value: 46
+			public const int AppCompatTheme_checkboxStyle = 46;
 			
-			// aapt resource value: 0x47
-			public const int AppCompatTheme_checkedTextViewStyle = 71;
+			// aapt resource value: 47
+			public const int AppCompatTheme_checkedTextViewStyle = 47;
 			
-			// aapt resource value: 0x48
-			public const int AppCompatTheme_colorAccent = 72;
+			// aapt resource value: 48
+			public const int AppCompatTheme_colorAccent = 48;
 			
-			// aapt resource value: 0x49
-			public const int AppCompatTheme_colorBackgroundFloating = 73;
+			// aapt resource value: 49
+			public const int AppCompatTheme_colorBackgroundFloating = 49;
 			
-			// aapt resource value: 0x50
-			public const int AppCompatTheme_colorButtonNormal = 80;
+			// aapt resource value: 50
+			public const int AppCompatTheme_colorButtonNormal = 50;
 			
-			// aapt resource value: 0x51
-			public const int AppCompatTheme_colorControlActivated = 81;
+			// aapt resource value: 51
+			public const int AppCompatTheme_colorControlActivated = 51;
 			
-			// aapt resource value: 0x52
-			public const int AppCompatTheme_colorControlHighlight = 82;
+			// aapt resource value: 52
+			public const int AppCompatTheme_colorControlHighlight = 52;
 			
-			// aapt resource value: 0x53
-			public const int AppCompatTheme_colorControlNormal = 83;
+			// aapt resource value: 53
+			public const int AppCompatTheme_colorControlNormal = 53;
 			
-			// aapt resource value: 0x54
-			public const int AppCompatTheme_colorError = 84;
+			// aapt resource value: 54
+			public const int AppCompatTheme_colorError = 54;
 			
-			// aapt resource value: 0x55
-			public const int AppCompatTheme_colorPrimary = 85;
+			// aapt resource value: 55
+			public const int AppCompatTheme_colorPrimary = 55;
 			
-			// aapt resource value: 0x56
-			public const int AppCompatTheme_colorPrimaryDark = 86;
+			// aapt resource value: 56
+			public const int AppCompatTheme_colorPrimaryDark = 56;
 			
-			// aapt resource value: 0x57
-			public const int AppCompatTheme_colorSwitchThumbNormal = 87;
+			// aapt resource value: 57
+			public const int AppCompatTheme_colorSwitchThumbNormal = 57;
 			
-			// aapt resource value: 0x58
-			public const int AppCompatTheme_controlBackground = 88;
+			// aapt resource value: 58
+			public const int AppCompatTheme_controlBackground = 58;
 			
-			// aapt resource value: 0x59
-			public const int AppCompatTheme_dialogCornerRadius = 89;
+			// aapt resource value: 59
+			public const int AppCompatTheme_dialogCornerRadius = 59;
 			
-			// aapt resource value: 0x60
-			public const int AppCompatTheme_dialogPreferredPadding = 96;
+			// aapt resource value: 60
+			public const int AppCompatTheme_dialogPreferredPadding = 60;
 			
-			// aapt resource value: 0x61
-			public const int AppCompatTheme_dialogTheme = 97;
+			// aapt resource value: 61
+			public const int AppCompatTheme_dialogTheme = 61;
 			
-			// aapt resource value: 0x62
-			public const int AppCompatTheme_dividerHorizontal = 98;
+			// aapt resource value: 62
+			public const int AppCompatTheme_dividerHorizontal = 62;
 			
-			// aapt resource value: 0x63
-			public const int AppCompatTheme_dividerVertical = 99;
+			// aapt resource value: 63
+			public const int AppCompatTheme_dividerVertical = 63;
 			
-			// aapt resource value: 0x65
-			public const int AppCompatTheme_dropdownListPreferredItemHeight = 101;
+			// aapt resource value: 65
+			public const int AppCompatTheme_dropdownListPreferredItemHeight = 65;
 			
-			// aapt resource value: 0x64
-			public const int AppCompatTheme_dropDownListViewStyle = 100;
+			// aapt resource value: 64
+			public const int AppCompatTheme_dropDownListViewStyle = 64;
 			
-			// aapt resource value: 0x66
-			public const int AppCompatTheme_editTextBackground = 102;
+			// aapt resource value: 66
+			public const int AppCompatTheme_editTextBackground = 66;
 			
-			// aapt resource value: 0x67
-			public const int AppCompatTheme_editTextColor = 103;
+			// aapt resource value: 67
+			public const int AppCompatTheme_editTextColor = 67;
 			
-			// aapt resource value: 0x68
-			public const int AppCompatTheme_editTextStyle = 104;
+			// aapt resource value: 68
+			public const int AppCompatTheme_editTextStyle = 68;
 			
-			// aapt resource value: 0x69
-			public const int AppCompatTheme_homeAsUpIndicator = 105;
+			// aapt resource value: 69
+			public const int AppCompatTheme_homeAsUpIndicator = 69;
 			
-			// aapt resource value: 0x70
-			public const int AppCompatTheme_imageButtonStyle = 112;
+			// aapt resource value: 70
+			public const int AppCompatTheme_imageButtonStyle = 70;
 			
-			// aapt resource value: 0x71
-			public const int AppCompatTheme_listChoiceBackgroundIndicator = 113;
+			// aapt resource value: 71
+			public const int AppCompatTheme_listChoiceBackgroundIndicator = 71;
 			
-			// aapt resource value: 0x72
-			public const int AppCompatTheme_listDividerAlertDialog = 114;
+			// aapt resource value: 72
+			public const int AppCompatTheme_listDividerAlertDialog = 72;
 			
-			// aapt resource value: 0x73
-			public const int AppCompatTheme_listMenuViewStyle = 115;
+			// aapt resource value: 73
+			public const int AppCompatTheme_listMenuViewStyle = 73;
 			
-			// aapt resource value: 0x74
-			public const int AppCompatTheme_listPopupWindowStyle = 116;
+			// aapt resource value: 74
+			public const int AppCompatTheme_listPopupWindowStyle = 74;
 			
-			// aapt resource value: 0x75
-			public const int AppCompatTheme_listPreferredItemHeight = 117;
+			// aapt resource value: 75
+			public const int AppCompatTheme_listPreferredItemHeight = 75;
 			
-			// aapt resource value: 0x76
-			public const int AppCompatTheme_listPreferredItemHeightLarge = 118;
+			// aapt resource value: 76
+			public const int AppCompatTheme_listPreferredItemHeightLarge = 76;
 			
-			// aapt resource value: 0x77
-			public const int AppCompatTheme_listPreferredItemHeightSmall = 119;
+			// aapt resource value: 77
+			public const int AppCompatTheme_listPreferredItemHeightSmall = 77;
 			
-			// aapt resource value: 0x78
-			public const int AppCompatTheme_listPreferredItemPaddingLeft = 120;
+			// aapt resource value: 78
+			public const int AppCompatTheme_listPreferredItemPaddingLeft = 78;
 			
-			// aapt resource value: 0x79
-			public const int AppCompatTheme_listPreferredItemPaddingRight = 121;
+			// aapt resource value: 79
+			public const int AppCompatTheme_listPreferredItemPaddingRight = 79;
 			
-			// aapt resource value: 0x80
-			public const int AppCompatTheme_panelBackground = 128;
+			// aapt resource value: 80
+			public const int AppCompatTheme_panelBackground = 80;
 			
-			// aapt resource value: 0x81
-			public const int AppCompatTheme_panelMenuListTheme = 129;
+			// aapt resource value: 81
+			public const int AppCompatTheme_panelMenuListTheme = 81;
 			
-			// aapt resource value: 0x82
-			public const int AppCompatTheme_panelMenuListWidth = 130;
+			// aapt resource value: 82
+			public const int AppCompatTheme_panelMenuListWidth = 82;
 			
-			// aapt resource value: 0x83
-			public const int AppCompatTheme_popupMenuStyle = 131;
+			// aapt resource value: 83
+			public const int AppCompatTheme_popupMenuStyle = 83;
 			
-			// aapt resource value: 0x84
-			public const int AppCompatTheme_popupWindowStyle = 132;
+			// aapt resource value: 84
+			public const int AppCompatTheme_popupWindowStyle = 84;
 			
-			// aapt resource value: 0x85
-			public const int AppCompatTheme_radioButtonStyle = 133;
+			// aapt resource value: 85
+			public const int AppCompatTheme_radioButtonStyle = 85;
 			
-			// aapt resource value: 0x86
-			public const int AppCompatTheme_ratingBarStyle = 134;
+			// aapt resource value: 86
+			public const int AppCompatTheme_ratingBarStyle = 86;
 			
-			// aapt resource value: 0x87
-			public const int AppCompatTheme_ratingBarStyleIndicator = 135;
+			// aapt resource value: 87
+			public const int AppCompatTheme_ratingBarStyleIndicator = 87;
 			
-			// aapt resource value: 0x88
-			public const int AppCompatTheme_ratingBarStyleSmall = 136;
+			// aapt resource value: 88
+			public const int AppCompatTheme_ratingBarStyleSmall = 88;
 			
-			// aapt resource value: 0x89
-			public const int AppCompatTheme_searchViewStyle = 137;
+			// aapt resource value: 89
+			public const int AppCompatTheme_searchViewStyle = 89;
 			
-			// aapt resource value: 0x90
-			public const int AppCompatTheme_seekBarStyle = 144;
+			// aapt resource value: 90
+			public const int AppCompatTheme_seekBarStyle = 90;
 			
-			// aapt resource value: 0x91
-			public const int AppCompatTheme_selectableItemBackground = 145;
+			// aapt resource value: 91
+			public const int AppCompatTheme_selectableItemBackground = 91;
 			
-			// aapt resource value: 0x92
-			public const int AppCompatTheme_selectableItemBackgroundBorderless = 146;
+			// aapt resource value: 92
+			public const int AppCompatTheme_selectableItemBackgroundBorderless = 92;
 			
-			// aapt resource value: 0x93
-			public const int AppCompatTheme_spinnerDropDownItemStyle = 147;
+			// aapt resource value: 93
+			public const int AppCompatTheme_spinnerDropDownItemStyle = 93;
 			
-			// aapt resource value: 0x94
-			public const int AppCompatTheme_spinnerStyle = 148;
+			// aapt resource value: 94
+			public const int AppCompatTheme_spinnerStyle = 94;
 			
-			// aapt resource value: 0x95
-			public const int AppCompatTheme_switchStyle = 149;
+			// aapt resource value: 95
+			public const int AppCompatTheme_switchStyle = 95;
 			
-			// aapt resource value: 0x96
-			public const int AppCompatTheme_textAppearanceLargePopupMenu = 150;
+			// aapt resource value: 96
+			public const int AppCompatTheme_textAppearanceLargePopupMenu = 96;
 			
-			// aapt resource value: 0x97
-			public const int AppCompatTheme_textAppearanceListItem = 151;
+			// aapt resource value: 97
+			public const int AppCompatTheme_textAppearanceListItem = 97;
 			
-			// aapt resource value: 0x98
-			public const int AppCompatTheme_textAppearanceListItemSecondary = 152;
+			// aapt resource value: 98
+			public const int AppCompatTheme_textAppearanceListItemSecondary = 98;
 			
-			// aapt resource value: 0x99
-			public const int AppCompatTheme_textAppearanceListItemSmall = 153;
+			// aapt resource value: 99
+			public const int AppCompatTheme_textAppearanceListItemSmall = 99;
 			
-			// aapt resource value: 0x100
-			public const int AppCompatTheme_textAppearancePopupMenuHeader = 256;
+			// aapt resource value: 100
+			public const int AppCompatTheme_textAppearancePopupMenuHeader = 100;
 			
-			// aapt resource value: 0x101
-			public const int AppCompatTheme_textAppearanceSearchResultSubtitle = 257;
+			// aapt resource value: 101
+			public const int AppCompatTheme_textAppearanceSearchResultSubtitle = 101;
 			
-			// aapt resource value: 0x102
-			public const int AppCompatTheme_textAppearanceSearchResultTitle = 258;
+			// aapt resource value: 102
+			public const int AppCompatTheme_textAppearanceSearchResultTitle = 102;
 			
-			// aapt resource value: 0x103
-			public const int AppCompatTheme_textAppearanceSmallPopupMenu = 259;
+			// aapt resource value: 103
+			public const int AppCompatTheme_textAppearanceSmallPopupMenu = 103;
 			
-			// aapt resource value: 0x104
-			public const int AppCompatTheme_textColorAlertDialogListItem = 260;
+			// aapt resource value: 104
+			public const int AppCompatTheme_textColorAlertDialogListItem = 104;
 			
-			// aapt resource value: 0x105
-			public const int AppCompatTheme_textColorSearchUrl = 261;
+			// aapt resource value: 105
+			public const int AppCompatTheme_textColorSearchUrl = 105;
 			
-			// aapt resource value: 0x106
-			public const int AppCompatTheme_toolbarNavigationButtonStyle = 262;
+			// aapt resource value: 106
+			public const int AppCompatTheme_toolbarNavigationButtonStyle = 106;
 			
-			// aapt resource value: 0x107
-			public const int AppCompatTheme_toolbarStyle = 263;
+			// aapt resource value: 107
+			public const int AppCompatTheme_toolbarStyle = 107;
 			
-			// aapt resource value: 0x108
-			public const int AppCompatTheme_tooltipForegroundColor = 264;
+			// aapt resource value: 108
+			public const int AppCompatTheme_tooltipForegroundColor = 108;
 			
-			// aapt resource value: 0x109
-			public const int AppCompatTheme_tooltipFrameBackground = 265;
+			// aapt resource value: 109
+			public const int AppCompatTheme_tooltipFrameBackground = 109;
 			
-			// aapt resource value: 0x110
-			public const int AppCompatTheme_viewInflaterClass = 272;
+			// aapt resource value: 110
+			public const int AppCompatTheme_viewInflaterClass = 110;
 			
-			// aapt resource value: 0x111
-			public const int AppCompatTheme_windowActionBar = 273;
+			// aapt resource value: 111
+			public const int AppCompatTheme_windowActionBar = 111;
 			
-			// aapt resource value: 0x112
-			public const int AppCompatTheme_windowActionBarOverlay = 274;
+			// aapt resource value: 112
+			public const int AppCompatTheme_windowActionBarOverlay = 112;
 			
-			// aapt resource value: 0x113
-			public const int AppCompatTheme_windowActionModeOverlay = 275;
+			// aapt resource value: 113
+			public const int AppCompatTheme_windowActionModeOverlay = 113;
 			
-			// aapt resource value: 0x114
-			public const int AppCompatTheme_windowFixedHeightMajor = 276;
+			// aapt resource value: 114
+			public const int AppCompatTheme_windowFixedHeightMajor = 114;
 			
-			// aapt resource value: 0x115
-			public const int AppCompatTheme_windowFixedHeightMinor = 277;
+			// aapt resource value: 115
+			public const int AppCompatTheme_windowFixedHeightMinor = 115;
 			
-			// aapt resource value: 0x116
-			public const int AppCompatTheme_windowFixedWidthMajor = 278;
+			// aapt resource value: 116
+			public const int AppCompatTheme_windowFixedWidthMajor = 116;
 			
-			// aapt resource value: 0x117
-			public const int AppCompatTheme_windowFixedWidthMinor = 279;
+			// aapt resource value: 117
+			public const int AppCompatTheme_windowFixedWidthMinor = 117;
 			
-			// aapt resource value: 0x118
-			public const int AppCompatTheme_windowMinWidthMajor = 280;
+			// aapt resource value: 118
+			public const int AppCompatTheme_windowMinWidthMajor = 118;
 			
-			// aapt resource value: 0x119
-			public const int AppCompatTheme_windowMinWidthMinor = 281;
+			// aapt resource value: 119
+			public const int AppCompatTheme_windowMinWidthMinor = 119;
 			
-			// aapt resource value: 0x120
-			public const int AppCompatTheme_windowNoTitle = 288;
+			// aapt resource value: 120
+			public const int AppCompatTheme_windowNoTitle = 120;
 			
 			// aapt resource value: { 0x7F04004F,0x7F0400EC }
 			public static int[] BoxInsetLayout_Layout = new int[] {
 					2130968655,
 					2130968812};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int BoxInsetLayout_Layout_boxedEdges = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int BoxInsetLayout_Layout_layout_box = 1;
 			
 			// aapt resource value: { 0x7F040028 }
 			public static int[] ButtonBarLayout = new int[] {
 					2130968616};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ButtonBarLayout_allowStacking = 0;
 			
 			// aapt resource value: { 0x1010119,0x7F04003A,0x7F04003B,0x7F04003C,0x7F04003D,0x7F04003E,0x7F04003F,0x7F040040,0x7F040041,0x7F040042,0x7F040062,0x7F040063,0x7F040064,0x7F040065,0x7F040066,0x7F040067,0x7F040068,0x7F040069,0x7F04006A,0x7F04006E,0x7F0400D8,0x7F0400D9,0x7F0400DA,0x7F0400DB,0x7F0400DC,0x7F0400DD,0x7F0400DE,0x7F040185,0x7F040196 }
@@ -8831,92 +8913,92 @@ namespace Dash.Forms.AndroidWear
 					2130968965,
 					2130968982};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CircledImageView_android_src = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CircledImageView_background_border_cap = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int CircledImageView_background_border_color = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int CircledImageView_background_border_width = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int CircledImageView_background_color = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int CircledImageView_background_radius = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int CircledImageView_background_radius_percent = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int CircledImageView_background_radius_pressed = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int CircledImageView_background_radius_pressed_percent = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int CircledImageView_background_shadow_width = 9;
 			
-			// aapt resource value: 0x10
-			public const int CircledImageView_circle_border_cap = 16;
+			// aapt resource value: 10
+			public const int CircledImageView_circle_border_cap = 10;
 			
-			// aapt resource value: 0x11
-			public const int CircledImageView_circle_border_color = 17;
+			// aapt resource value: 11
+			public const int CircledImageView_circle_border_color = 11;
 			
-			// aapt resource value: 0x12
-			public const int CircledImageView_circle_border_width = 18;
+			// aapt resource value: 12
+			public const int CircledImageView_circle_border_width = 12;
 			
-			// aapt resource value: 0x13
-			public const int CircledImageView_circle_color = 19;
+			// aapt resource value: 13
+			public const int CircledImageView_circle_color = 13;
 			
-			// aapt resource value: 0x14
-			public const int CircledImageView_circle_padding = 20;
+			// aapt resource value: 14
+			public const int CircledImageView_circle_padding = 14;
 			
-			// aapt resource value: 0x15
-			public const int CircledImageView_circle_radius = 21;
+			// aapt resource value: 15
+			public const int CircledImageView_circle_radius = 15;
 			
-			// aapt resource value: 0x16
-			public const int CircledImageView_circle_radius_percent = 22;
+			// aapt resource value: 16
+			public const int CircledImageView_circle_radius_percent = 16;
 			
-			// aapt resource value: 0x17
-			public const int CircledImageView_circle_radius_pressed = 23;
+			// aapt resource value: 17
+			public const int CircledImageView_circle_radius_pressed = 17;
 			
-			// aapt resource value: 0x18
-			public const int CircledImageView_circle_radius_pressed_percent = 24;
+			// aapt resource value: 18
+			public const int CircledImageView_circle_radius_pressed_percent = 18;
 			
-			// aapt resource value: 0x19
-			public const int CircledImageView_clip_dimen = 25;
+			// aapt resource value: 19
+			public const int CircledImageView_clip_dimen = 19;
 			
-			// aapt resource value: 0x20
-			public const int CircledImageView_image_circle_percentage = 32;
+			// aapt resource value: 20
+			public const int CircledImageView_image_circle_percentage = 20;
 			
-			// aapt resource value: 0x21
-			public const int CircledImageView_image_horizontal_offcenter_percentage = 33;
+			// aapt resource value: 21
+			public const int CircledImageView_image_horizontal_offcenter_percentage = 21;
 			
-			// aapt resource value: 0x22
-			public const int CircledImageView_image_tint = 34;
+			// aapt resource value: 22
+			public const int CircledImageView_image_tint = 22;
 			
-			// aapt resource value: 0x23
-			public const int CircledImageView_img_circle_percentage = 35;
+			// aapt resource value: 23
+			public const int CircledImageView_img_circle_percentage = 23;
 			
-			// aapt resource value: 0x24
-			public const int CircledImageView_img_horizontal_offset_percentage = 36;
+			// aapt resource value: 24
+			public const int CircledImageView_img_horizontal_offset_percentage = 24;
 			
-			// aapt resource value: 0x25
-			public const int CircledImageView_img_padding = 37;
+			// aapt resource value: 25
+			public const int CircledImageView_img_padding = 25;
 			
-			// aapt resource value: 0x26
-			public const int CircledImageView_img_tint = 38;
+			// aapt resource value: 26
+			public const int CircledImageView_img_tint = 26;
 			
-			// aapt resource value: 0x27
-			public const int CircledImageView_shadow_width = 39;
+			// aapt resource value: 27
+			public const int CircledImageView_shadow_width = 27;
 			
-			// aapt resource value: 0x28
-			public const int CircledImageView_square_dimen = 40;
+			// aapt resource value: 28
+			public const int CircledImageView_square_dimen = 28;
 			
 			// aapt resource value: { 0x10100E5,0x1010119,0x10101A5,0x1010440,0x1010448,0x7F040058,0x7F0400D7,0x7F04016B }
 			public static int[] CircularButton = new int[] {
@@ -8929,28 +9011,28 @@ namespace Dash.Forms.AndroidWear
 					2130968791,
 					2130968939};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CircularButton_android_clickable = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int CircularButton_android_color = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int CircularButton_android_elevation = 3;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CircularButton_android_src = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int CircularButton_android_stateListAnimator = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int CircularButton_buttonRippleColor = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int CircularButton_imageScaleMode = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int CircularButton_pressedButtonTranslationZ = 7;
 			
 			// aapt resource value: { 0x7F040034,0x7F04007E,0x7F0400DF,0x7F04019B }
@@ -8960,16 +9042,16 @@ namespace Dash.Forms.AndroidWear
 					2130968799,
 					2130968987};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CircularProgressLayout_backgroundColor = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CircularProgressLayout_colorSchemeColors = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int CircularProgressLayout_indeterminate = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int CircularProgressLayout_strokeWidth = 3;
 			
 			// aapt resource value: { 0x10101A5,0x101031F,0x7F040029 }
@@ -8978,13 +9060,13 @@ namespace Dash.Forms.AndroidWear
 					16843551,
 					2130968617};
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ColorStateListItem_alpha = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ColorStateListItem_android_alpha = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ColorStateListItem_android_color = 0;
 			
 			// aapt resource value: { 0x7F040034,0x7F040035,0x7F040048,0x7F040049,0x7F04004A,0x7F04004B,0x7F04004C,0x7F04004D,0x7F0400CC,0x7F0400D0,0x7F040172,0x7F040173,0x7F040174,0x7F040175,0x7F0401B0,0x7F0401B3,0x7F0401B4,0x7F0401C0,0x7F0401C7,0x7F0401CB }
@@ -9010,65 +9092,65 @@ namespace Dash.Forms.AndroidWear
 					2130969031,
 					2130969035};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ComplicationDrawable_backgroundColor = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ComplicationDrawable_backgroundDrawable = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ComplicationDrawable_borderColor = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ComplicationDrawable_borderDashGap = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ComplicationDrawable_borderDashWidth = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ComplicationDrawable_borderRadius = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ComplicationDrawable_borderStyle = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ComplicationDrawable_borderWidth = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ComplicationDrawable_highlightColor = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ComplicationDrawable_iconColor = 9;
 			
-			// aapt resource value: 0x10
-			public const int ComplicationDrawable_rangedValuePrimaryColor = 16;
+			// aapt resource value: 10
+			public const int ComplicationDrawable_rangedValuePrimaryColor = 10;
 			
-			// aapt resource value: 0x11
-			public const int ComplicationDrawable_rangedValueProgressHidden = 17;
+			// aapt resource value: 11
+			public const int ComplicationDrawable_rangedValueProgressHidden = 11;
 			
-			// aapt resource value: 0x12
-			public const int ComplicationDrawable_rangedValueRingWidth = 18;
+			// aapt resource value: 12
+			public const int ComplicationDrawable_rangedValueRingWidth = 12;
 			
-			// aapt resource value: 0x13
-			public const int ComplicationDrawable_rangedValueSecondaryColor = 19;
+			// aapt resource value: 13
+			public const int ComplicationDrawable_rangedValueSecondaryColor = 13;
 			
-			// aapt resource value: 0x14
-			public const int ComplicationDrawable_textColor = 20;
+			// aapt resource value: 14
+			public const int ComplicationDrawable_textColor = 14;
 			
-			// aapt resource value: 0x15
-			public const int ComplicationDrawable_textSize = 21;
+			// aapt resource value: 15
+			public const int ComplicationDrawable_textSize = 15;
 			
-			// aapt resource value: 0x16
-			public const int ComplicationDrawable_textTypeface = 22;
+			// aapt resource value: 16
+			public const int ComplicationDrawable_textTypeface = 16;
 			
-			// aapt resource value: 0x17
-			public const int ComplicationDrawable_titleColor = 23;
+			// aapt resource value: 17
+			public const int ComplicationDrawable_titleColor = 17;
 			
-			// aapt resource value: 0x18
-			public const int ComplicationDrawable_titleSize = 24;
+			// aapt resource value: 18
+			public const int ComplicationDrawable_titleSize = 18;
 			
-			// aapt resource value: 0x19
-			public const int ComplicationDrawable_titleTypeface = 25;
+			// aapt resource value: 19
+			public const int ComplicationDrawable_titleTypeface = 19;
 			
 			// aapt resource value: { 0x1010107,0x7F04005C,0x7F04005D }
 			public static int[] CompoundButton = new int[] {
@@ -9076,13 +9158,13 @@ namespace Dash.Forms.AndroidWear
 					2130968668,
 					2130968669};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CompoundButton_android_button = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CompoundButton_buttonTint = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int CompoundButton_buttonTintMode = 2;
 			
 			// aapt resource value: { 0x10100C4,0x101011F,0x1010120,0x101013F,0x1010140,0x7F040044,0x7F040045,0x7F04005E,0x7F040082,0x7F040083,0x7F0400ED,0x7F0400EE,0x7F0400EF,0x7F0400F0,0x7F0400F1,0x7F0400F2,0x7F0400F3,0x7F0400F4,0x7F0400F5,0x7F0400F6,0x7F0400F7,0x7F0400F8,0x7F0400F9,0x7F0400FA,0x7F0400FB,0x7F0400FC,0x7F0400FD,0x7F0400FE,0x7F0400FF,0x7F040100,0x7F040101,0x7F040102,0x7F040103,0x7F040104,0x7F040105,0x7F040106,0x7F040107,0x7F040108,0x7F040109,0x7F04010A,0x7F04010B,0x7F04010C,0x7F04010D,0x7F04010E,0x7F04010F,0x7F040110,0x7F040111,0x7F040112,0x7F040113,0x7F040114,0x7F040115,0x7F040117,0x7F040118,0x7F040119,0x7F04011A,0x7F04011B,0x7F04011C,0x7F04011D,0x7F04011E,0x7F040130 }
@@ -9148,195 +9230,195 @@ namespace Dash.Forms.AndroidWear
 					2130968862,
 					2130968880};
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ConstraintLayout_Layout_android_maxHeight = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ConstraintLayout_Layout_android_maxWidth = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ConstraintLayout_Layout_android_minHeight = 4;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ConstraintLayout_Layout_android_minWidth = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ConstraintLayout_Layout_android_orientation = 0;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ConstraintLayout_Layout_barrierAllowsGoneWidgets = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ConstraintLayout_Layout_barrierDirection = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ConstraintLayout_Layout_chainUseRtl = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ConstraintLayout_Layout_constraintSet = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ConstraintLayout_Layout_constraint_referenced_ids = 9;
 			
-			// aapt resource value: 0x10
-			public const int ConstraintLayout_Layout_layout_constrainedHeight = 16;
+			// aapt resource value: 10
+			public const int ConstraintLayout_Layout_layout_constrainedHeight = 10;
 			
-			// aapt resource value: 0x11
-			public const int ConstraintLayout_Layout_layout_constrainedWidth = 17;
+			// aapt resource value: 11
+			public const int ConstraintLayout_Layout_layout_constrainedWidth = 11;
 			
-			// aapt resource value: 0x12
-			public const int ConstraintLayout_Layout_layout_constraintBaseline_creator = 18;
+			// aapt resource value: 12
+			public const int ConstraintLayout_Layout_layout_constraintBaseline_creator = 12;
 			
-			// aapt resource value: 0x13
-			public const int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf = 19;
+			// aapt resource value: 13
+			public const int ConstraintLayout_Layout_layout_constraintBaseline_toBaselineOf = 13;
 			
-			// aapt resource value: 0x14
-			public const int ConstraintLayout_Layout_layout_constraintBottom_creator = 20;
+			// aapt resource value: 14
+			public const int ConstraintLayout_Layout_layout_constraintBottom_creator = 14;
 			
-			// aapt resource value: 0x15
-			public const int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf = 21;
+			// aapt resource value: 15
+			public const int ConstraintLayout_Layout_layout_constraintBottom_toBottomOf = 15;
 			
-			// aapt resource value: 0x16
-			public const int ConstraintLayout_Layout_layout_constraintBottom_toTopOf = 22;
+			// aapt resource value: 16
+			public const int ConstraintLayout_Layout_layout_constraintBottom_toTopOf = 16;
 			
-			// aapt resource value: 0x17
-			public const int ConstraintLayout_Layout_layout_constraintCircle = 23;
+			// aapt resource value: 17
+			public const int ConstraintLayout_Layout_layout_constraintCircle = 17;
 			
-			// aapt resource value: 0x18
-			public const int ConstraintLayout_Layout_layout_constraintCircleAngle = 24;
+			// aapt resource value: 18
+			public const int ConstraintLayout_Layout_layout_constraintCircleAngle = 18;
 			
-			// aapt resource value: 0x19
-			public const int ConstraintLayout_Layout_layout_constraintCircleRadius = 25;
+			// aapt resource value: 19
+			public const int ConstraintLayout_Layout_layout_constraintCircleRadius = 19;
 			
-			// aapt resource value: 0x20
-			public const int ConstraintLayout_Layout_layout_constraintDimensionRatio = 32;
+			// aapt resource value: 20
+			public const int ConstraintLayout_Layout_layout_constraintDimensionRatio = 20;
 			
-			// aapt resource value: 0x21
-			public const int ConstraintLayout_Layout_layout_constraintEnd_toEndOf = 33;
+			// aapt resource value: 21
+			public const int ConstraintLayout_Layout_layout_constraintEnd_toEndOf = 21;
 			
-			// aapt resource value: 0x22
-			public const int ConstraintLayout_Layout_layout_constraintEnd_toStartOf = 34;
+			// aapt resource value: 22
+			public const int ConstraintLayout_Layout_layout_constraintEnd_toStartOf = 22;
 			
-			// aapt resource value: 0x23
-			public const int ConstraintLayout_Layout_layout_constraintGuide_begin = 35;
+			// aapt resource value: 23
+			public const int ConstraintLayout_Layout_layout_constraintGuide_begin = 23;
 			
-			// aapt resource value: 0x24
-			public const int ConstraintLayout_Layout_layout_constraintGuide_end = 36;
+			// aapt resource value: 24
+			public const int ConstraintLayout_Layout_layout_constraintGuide_end = 24;
 			
-			// aapt resource value: 0x25
-			public const int ConstraintLayout_Layout_layout_constraintGuide_percent = 37;
+			// aapt resource value: 25
+			public const int ConstraintLayout_Layout_layout_constraintGuide_percent = 25;
 			
-			// aapt resource value: 0x26
-			public const int ConstraintLayout_Layout_layout_constraintHeight_default = 38;
+			// aapt resource value: 26
+			public const int ConstraintLayout_Layout_layout_constraintHeight_default = 26;
 			
-			// aapt resource value: 0x27
-			public const int ConstraintLayout_Layout_layout_constraintHeight_max = 39;
+			// aapt resource value: 27
+			public const int ConstraintLayout_Layout_layout_constraintHeight_max = 27;
 			
-			// aapt resource value: 0x28
-			public const int ConstraintLayout_Layout_layout_constraintHeight_min = 40;
+			// aapt resource value: 28
+			public const int ConstraintLayout_Layout_layout_constraintHeight_min = 28;
 			
-			// aapt resource value: 0x29
-			public const int ConstraintLayout_Layout_layout_constraintHeight_percent = 41;
+			// aapt resource value: 29
+			public const int ConstraintLayout_Layout_layout_constraintHeight_percent = 29;
 			
-			// aapt resource value: 0x30
-			public const int ConstraintLayout_Layout_layout_constraintHorizontal_bias = 48;
+			// aapt resource value: 30
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_bias = 30;
 			
-			// aapt resource value: 0x31
-			public const int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle = 49;
+			// aapt resource value: 31
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_chainStyle = 31;
 			
-			// aapt resource value: 0x32
-			public const int ConstraintLayout_Layout_layout_constraintHorizontal_weight = 50;
+			// aapt resource value: 32
+			public const int ConstraintLayout_Layout_layout_constraintHorizontal_weight = 32;
 			
-			// aapt resource value: 0x33
-			public const int ConstraintLayout_Layout_layout_constraintLeft_creator = 51;
+			// aapt resource value: 33
+			public const int ConstraintLayout_Layout_layout_constraintLeft_creator = 33;
 			
-			// aapt resource value: 0x34
-			public const int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf = 52;
+			// aapt resource value: 34
+			public const int ConstraintLayout_Layout_layout_constraintLeft_toLeftOf = 34;
 			
-			// aapt resource value: 0x35
-			public const int ConstraintLayout_Layout_layout_constraintLeft_toRightOf = 53;
+			// aapt resource value: 35
+			public const int ConstraintLayout_Layout_layout_constraintLeft_toRightOf = 35;
 			
-			// aapt resource value: 0x36
-			public const int ConstraintLayout_Layout_layout_constraintRight_creator = 54;
+			// aapt resource value: 36
+			public const int ConstraintLayout_Layout_layout_constraintRight_creator = 36;
 			
-			// aapt resource value: 0x37
-			public const int ConstraintLayout_Layout_layout_constraintRight_toLeftOf = 55;
+			// aapt resource value: 37
+			public const int ConstraintLayout_Layout_layout_constraintRight_toLeftOf = 37;
 			
-			// aapt resource value: 0x38
-			public const int ConstraintLayout_Layout_layout_constraintRight_toRightOf = 56;
+			// aapt resource value: 38
+			public const int ConstraintLayout_Layout_layout_constraintRight_toRightOf = 38;
 			
-			// aapt resource value: 0x39
-			public const int ConstraintLayout_Layout_layout_constraintStart_toEndOf = 57;
+			// aapt resource value: 39
+			public const int ConstraintLayout_Layout_layout_constraintStart_toEndOf = 39;
 			
-			// aapt resource value: 0x40
-			public const int ConstraintLayout_Layout_layout_constraintStart_toStartOf = 64;
+			// aapt resource value: 40
+			public const int ConstraintLayout_Layout_layout_constraintStart_toStartOf = 40;
 			
-			// aapt resource value: 0x41
-			public const int ConstraintLayout_Layout_layout_constraintTop_creator = 65;
+			// aapt resource value: 41
+			public const int ConstraintLayout_Layout_layout_constraintTop_creator = 41;
 			
-			// aapt resource value: 0x42
-			public const int ConstraintLayout_Layout_layout_constraintTop_toBottomOf = 66;
+			// aapt resource value: 42
+			public const int ConstraintLayout_Layout_layout_constraintTop_toBottomOf = 42;
 			
-			// aapt resource value: 0x43
-			public const int ConstraintLayout_Layout_layout_constraintTop_toTopOf = 67;
+			// aapt resource value: 43
+			public const int ConstraintLayout_Layout_layout_constraintTop_toTopOf = 43;
 			
-			// aapt resource value: 0x44
-			public const int ConstraintLayout_Layout_layout_constraintVertical_bias = 68;
+			// aapt resource value: 44
+			public const int ConstraintLayout_Layout_layout_constraintVertical_bias = 44;
 			
-			// aapt resource value: 0x45
-			public const int ConstraintLayout_Layout_layout_constraintVertical_chainStyle = 69;
+			// aapt resource value: 45
+			public const int ConstraintLayout_Layout_layout_constraintVertical_chainStyle = 45;
 			
-			// aapt resource value: 0x46
-			public const int ConstraintLayout_Layout_layout_constraintVertical_weight = 70;
+			// aapt resource value: 46
+			public const int ConstraintLayout_Layout_layout_constraintVertical_weight = 46;
 			
-			// aapt resource value: 0x47
-			public const int ConstraintLayout_Layout_layout_constraintWidth_default = 71;
+			// aapt resource value: 47
+			public const int ConstraintLayout_Layout_layout_constraintWidth_default = 47;
 			
-			// aapt resource value: 0x48
-			public const int ConstraintLayout_Layout_layout_constraintWidth_max = 72;
+			// aapt resource value: 48
+			public const int ConstraintLayout_Layout_layout_constraintWidth_max = 48;
 			
-			// aapt resource value: 0x49
-			public const int ConstraintLayout_Layout_layout_constraintWidth_min = 73;
+			// aapt resource value: 49
+			public const int ConstraintLayout_Layout_layout_constraintWidth_min = 49;
 			
-			// aapt resource value: 0x50
-			public const int ConstraintLayout_Layout_layout_constraintWidth_percent = 80;
+			// aapt resource value: 50
+			public const int ConstraintLayout_Layout_layout_constraintWidth_percent = 50;
 			
-			// aapt resource value: 0x51
-			public const int ConstraintLayout_Layout_layout_editor_absoluteX = 81;
+			// aapt resource value: 51
+			public const int ConstraintLayout_Layout_layout_editor_absoluteX = 51;
 			
-			// aapt resource value: 0x52
-			public const int ConstraintLayout_Layout_layout_editor_absoluteY = 82;
+			// aapt resource value: 52
+			public const int ConstraintLayout_Layout_layout_editor_absoluteY = 52;
 			
-			// aapt resource value: 0x53
-			public const int ConstraintLayout_Layout_layout_goneMarginBottom = 83;
+			// aapt resource value: 53
+			public const int ConstraintLayout_Layout_layout_goneMarginBottom = 53;
 			
-			// aapt resource value: 0x54
-			public const int ConstraintLayout_Layout_layout_goneMarginEnd = 84;
+			// aapt resource value: 54
+			public const int ConstraintLayout_Layout_layout_goneMarginEnd = 54;
 			
-			// aapt resource value: 0x55
-			public const int ConstraintLayout_Layout_layout_goneMarginLeft = 85;
+			// aapt resource value: 55
+			public const int ConstraintLayout_Layout_layout_goneMarginLeft = 55;
 			
-			// aapt resource value: 0x56
-			public const int ConstraintLayout_Layout_layout_goneMarginRight = 86;
+			// aapt resource value: 56
+			public const int ConstraintLayout_Layout_layout_goneMarginRight = 56;
 			
-			// aapt resource value: 0x57
-			public const int ConstraintLayout_Layout_layout_goneMarginStart = 87;
+			// aapt resource value: 57
+			public const int ConstraintLayout_Layout_layout_goneMarginStart = 57;
 			
-			// aapt resource value: 0x58
-			public const int ConstraintLayout_Layout_layout_goneMarginTop = 88;
+			// aapt resource value: 58
+			public const int ConstraintLayout_Layout_layout_goneMarginTop = 58;
 			
-			// aapt resource value: 0x59
-			public const int ConstraintLayout_Layout_layout_optimizationLevel = 89;
+			// aapt resource value: 59
+			public const int ConstraintLayout_Layout_layout_optimizationLevel = 59;
 			
 			// aapt resource value: { 0x7F040084,0x7F0400B4 }
 			public static int[] ConstraintLayout_placeholder = new int[] {
 					2130968708,
 					2130968756};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ConstraintLayout_placeholder_content = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ConstraintLayout_placeholder_emptyVisibility = 1;
 			
 			// aapt resource value: { 0x10100C4,0x10100D0,0x10100DC,0x10100F4,0x10100F5,0x10100F7,0x10100F8,0x10100F9,0x10100FA,0x101031F,0x1010320,0x1010321,0x1010322,0x1010323,0x1010324,0x1010325,0x1010326,0x1010327,0x1010328,0x10103B5,0x10103B6,0x10103FA,0x1010440,0x7F0400ED,0x7F0400EE,0x7F0400EF,0x7F0400F0,0x7F0400F1,0x7F0400F2,0x7F0400F3,0x7F0400F4,0x7F0400F5,0x7F0400F6,0x7F0400F7,0x7F0400F8,0x7F0400F9,0x7F0400FA,0x7F0400FB,0x7F0400FC,0x7F0400FD,0x7F0400FE,0x7F0400FF,0x7F040100,0x7F040101,0x7F040102,0x7F040103,0x7F040104,0x7F040105,0x7F040106,0x7F040107,0x7F040108,0x7F040109,0x7F04010A,0x7F04010B,0x7F04010C,0x7F04010D,0x7F04010E,0x7F04010F,0x7F040110,0x7F040111,0x7F040112,0x7F040113,0x7F040114,0x7F040115,0x7F040117,0x7F040118,0x7F040119,0x7F04011A,0x7F04011B,0x7F04011C,0x7F04011D,0x7F04011E }
@@ -9414,228 +9496,228 @@ namespace Dash.Forms.AndroidWear
 					2130968861,
 					2130968862};
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int ConstraintSet_android_alpha = 9;
 			
-			// aapt resource value: 0x22
-			public const int ConstraintSet_android_elevation = 34;
+			// aapt resource value: 22
+			public const int ConstraintSet_android_elevation = 22;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ConstraintSet_android_id = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int ConstraintSet_android_layout_height = 4;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int ConstraintSet_android_layout_marginBottom = 8;
 			
-			// aapt resource value: 0x20
-			public const int ConstraintSet_android_layout_marginEnd = 32;
+			// aapt resource value: 20
+			public const int ConstraintSet_android_layout_marginEnd = 20;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int ConstraintSet_android_layout_marginLeft = 5;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int ConstraintSet_android_layout_marginRight = 7;
 			
-			// aapt resource value: 0x19
-			public const int ConstraintSet_android_layout_marginStart = 25;
+			// aapt resource value: 19
+			public const int ConstraintSet_android_layout_marginStart = 19;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int ConstraintSet_android_layout_marginTop = 6;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int ConstraintSet_android_layout_width = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ConstraintSet_android_orientation = 0;
 			
-			// aapt resource value: 0x16
-			public const int ConstraintSet_android_rotation = 22;
+			// aapt resource value: 16
+			public const int ConstraintSet_android_rotation = 16;
 			
-			// aapt resource value: 0x17
-			public const int ConstraintSet_android_rotationX = 23;
+			// aapt resource value: 17
+			public const int ConstraintSet_android_rotationX = 17;
 			
-			// aapt resource value: 0x18
-			public const int ConstraintSet_android_rotationY = 24;
+			// aapt resource value: 18
+			public const int ConstraintSet_android_rotationY = 18;
 			
-			// aapt resource value: 0x14
-			public const int ConstraintSet_android_scaleX = 20;
+			// aapt resource value: 14
+			public const int ConstraintSet_android_scaleX = 14;
 			
-			// aapt resource value: 0x15
-			public const int ConstraintSet_android_scaleY = 21;
+			// aapt resource value: 15
+			public const int ConstraintSet_android_scaleY = 15;
 			
-			// aapt resource value: 0x10
-			public const int ConstraintSet_android_transformPivotX = 16;
+			// aapt resource value: 10
+			public const int ConstraintSet_android_transformPivotX = 10;
 			
-			// aapt resource value: 0x11
-			public const int ConstraintSet_android_transformPivotY = 17;
+			// aapt resource value: 11
+			public const int ConstraintSet_android_transformPivotY = 11;
 			
-			// aapt resource value: 0x12
-			public const int ConstraintSet_android_translationX = 18;
+			// aapt resource value: 12
+			public const int ConstraintSet_android_translationX = 12;
 			
-			// aapt resource value: 0x13
-			public const int ConstraintSet_android_translationY = 19;
+			// aapt resource value: 13
+			public const int ConstraintSet_android_translationY = 13;
 			
-			// aapt resource value: 0x21
-			public const int ConstraintSet_android_translationZ = 33;
+			// aapt resource value: 21
+			public const int ConstraintSet_android_translationZ = 21;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ConstraintSet_android_visibility = 2;
 			
-			// aapt resource value: 0x23
-			public const int ConstraintSet_layout_constrainedHeight = 35;
+			// aapt resource value: 23
+			public const int ConstraintSet_layout_constrainedHeight = 23;
 			
-			// aapt resource value: 0x24
-			public const int ConstraintSet_layout_constrainedWidth = 36;
+			// aapt resource value: 24
+			public const int ConstraintSet_layout_constrainedWidth = 24;
 			
-			// aapt resource value: 0x25
-			public const int ConstraintSet_layout_constraintBaseline_creator = 37;
+			// aapt resource value: 25
+			public const int ConstraintSet_layout_constraintBaseline_creator = 25;
 			
-			// aapt resource value: 0x26
-			public const int ConstraintSet_layout_constraintBaseline_toBaselineOf = 38;
+			// aapt resource value: 26
+			public const int ConstraintSet_layout_constraintBaseline_toBaselineOf = 26;
 			
-			// aapt resource value: 0x27
-			public const int ConstraintSet_layout_constraintBottom_creator = 39;
+			// aapt resource value: 27
+			public const int ConstraintSet_layout_constraintBottom_creator = 27;
 			
-			// aapt resource value: 0x28
-			public const int ConstraintSet_layout_constraintBottom_toBottomOf = 40;
+			// aapt resource value: 28
+			public const int ConstraintSet_layout_constraintBottom_toBottomOf = 28;
 			
-			// aapt resource value: 0x29
-			public const int ConstraintSet_layout_constraintBottom_toTopOf = 41;
+			// aapt resource value: 29
+			public const int ConstraintSet_layout_constraintBottom_toTopOf = 29;
 			
-			// aapt resource value: 0x30
-			public const int ConstraintSet_layout_constraintCircle = 48;
+			// aapt resource value: 30
+			public const int ConstraintSet_layout_constraintCircle = 30;
 			
-			// aapt resource value: 0x31
-			public const int ConstraintSet_layout_constraintCircleAngle = 49;
+			// aapt resource value: 31
+			public const int ConstraintSet_layout_constraintCircleAngle = 31;
 			
-			// aapt resource value: 0x32
-			public const int ConstraintSet_layout_constraintCircleRadius = 50;
+			// aapt resource value: 32
+			public const int ConstraintSet_layout_constraintCircleRadius = 32;
 			
-			// aapt resource value: 0x33
-			public const int ConstraintSet_layout_constraintDimensionRatio = 51;
+			// aapt resource value: 33
+			public const int ConstraintSet_layout_constraintDimensionRatio = 33;
 			
-			// aapt resource value: 0x34
-			public const int ConstraintSet_layout_constraintEnd_toEndOf = 52;
+			// aapt resource value: 34
+			public const int ConstraintSet_layout_constraintEnd_toEndOf = 34;
 			
-			// aapt resource value: 0x35
-			public const int ConstraintSet_layout_constraintEnd_toStartOf = 53;
+			// aapt resource value: 35
+			public const int ConstraintSet_layout_constraintEnd_toStartOf = 35;
 			
-			// aapt resource value: 0x36
-			public const int ConstraintSet_layout_constraintGuide_begin = 54;
+			// aapt resource value: 36
+			public const int ConstraintSet_layout_constraintGuide_begin = 36;
 			
-			// aapt resource value: 0x37
-			public const int ConstraintSet_layout_constraintGuide_end = 55;
+			// aapt resource value: 37
+			public const int ConstraintSet_layout_constraintGuide_end = 37;
 			
-			// aapt resource value: 0x38
-			public const int ConstraintSet_layout_constraintGuide_percent = 56;
+			// aapt resource value: 38
+			public const int ConstraintSet_layout_constraintGuide_percent = 38;
 			
-			// aapt resource value: 0x39
-			public const int ConstraintSet_layout_constraintHeight_default = 57;
+			// aapt resource value: 39
+			public const int ConstraintSet_layout_constraintHeight_default = 39;
 			
-			// aapt resource value: 0x40
-			public const int ConstraintSet_layout_constraintHeight_max = 64;
+			// aapt resource value: 40
+			public const int ConstraintSet_layout_constraintHeight_max = 40;
 			
-			// aapt resource value: 0x41
-			public const int ConstraintSet_layout_constraintHeight_min = 65;
+			// aapt resource value: 41
+			public const int ConstraintSet_layout_constraintHeight_min = 41;
 			
-			// aapt resource value: 0x42
-			public const int ConstraintSet_layout_constraintHeight_percent = 66;
+			// aapt resource value: 42
+			public const int ConstraintSet_layout_constraintHeight_percent = 42;
 			
-			// aapt resource value: 0x43
-			public const int ConstraintSet_layout_constraintHorizontal_bias = 67;
+			// aapt resource value: 43
+			public const int ConstraintSet_layout_constraintHorizontal_bias = 43;
 			
-			// aapt resource value: 0x44
-			public const int ConstraintSet_layout_constraintHorizontal_chainStyle = 68;
+			// aapt resource value: 44
+			public const int ConstraintSet_layout_constraintHorizontal_chainStyle = 44;
 			
-			// aapt resource value: 0x45
-			public const int ConstraintSet_layout_constraintHorizontal_weight = 69;
+			// aapt resource value: 45
+			public const int ConstraintSet_layout_constraintHorizontal_weight = 45;
 			
-			// aapt resource value: 0x46
-			public const int ConstraintSet_layout_constraintLeft_creator = 70;
+			// aapt resource value: 46
+			public const int ConstraintSet_layout_constraintLeft_creator = 46;
 			
-			// aapt resource value: 0x47
-			public const int ConstraintSet_layout_constraintLeft_toLeftOf = 71;
+			// aapt resource value: 47
+			public const int ConstraintSet_layout_constraintLeft_toLeftOf = 47;
 			
-			// aapt resource value: 0x48
-			public const int ConstraintSet_layout_constraintLeft_toRightOf = 72;
+			// aapt resource value: 48
+			public const int ConstraintSet_layout_constraintLeft_toRightOf = 48;
 			
-			// aapt resource value: 0x49
-			public const int ConstraintSet_layout_constraintRight_creator = 73;
+			// aapt resource value: 49
+			public const int ConstraintSet_layout_constraintRight_creator = 49;
 			
-			// aapt resource value: 0x50
-			public const int ConstraintSet_layout_constraintRight_toLeftOf = 80;
+			// aapt resource value: 50
+			public const int ConstraintSet_layout_constraintRight_toLeftOf = 50;
 			
-			// aapt resource value: 0x51
-			public const int ConstraintSet_layout_constraintRight_toRightOf = 81;
+			// aapt resource value: 51
+			public const int ConstraintSet_layout_constraintRight_toRightOf = 51;
 			
-			// aapt resource value: 0x52
-			public const int ConstraintSet_layout_constraintStart_toEndOf = 82;
+			// aapt resource value: 52
+			public const int ConstraintSet_layout_constraintStart_toEndOf = 52;
 			
-			// aapt resource value: 0x53
-			public const int ConstraintSet_layout_constraintStart_toStartOf = 83;
+			// aapt resource value: 53
+			public const int ConstraintSet_layout_constraintStart_toStartOf = 53;
 			
-			// aapt resource value: 0x54
-			public const int ConstraintSet_layout_constraintTop_creator = 84;
+			// aapt resource value: 54
+			public const int ConstraintSet_layout_constraintTop_creator = 54;
 			
-			// aapt resource value: 0x55
-			public const int ConstraintSet_layout_constraintTop_toBottomOf = 85;
+			// aapt resource value: 55
+			public const int ConstraintSet_layout_constraintTop_toBottomOf = 55;
 			
-			// aapt resource value: 0x56
-			public const int ConstraintSet_layout_constraintTop_toTopOf = 86;
+			// aapt resource value: 56
+			public const int ConstraintSet_layout_constraintTop_toTopOf = 56;
 			
-			// aapt resource value: 0x57
-			public const int ConstraintSet_layout_constraintVertical_bias = 87;
+			// aapt resource value: 57
+			public const int ConstraintSet_layout_constraintVertical_bias = 57;
 			
-			// aapt resource value: 0x58
-			public const int ConstraintSet_layout_constraintVertical_chainStyle = 88;
+			// aapt resource value: 58
+			public const int ConstraintSet_layout_constraintVertical_chainStyle = 58;
 			
-			// aapt resource value: 0x59
-			public const int ConstraintSet_layout_constraintVertical_weight = 89;
+			// aapt resource value: 59
+			public const int ConstraintSet_layout_constraintVertical_weight = 59;
 			
-			// aapt resource value: 0x60
-			public const int ConstraintSet_layout_constraintWidth_default = 96;
+			// aapt resource value: 60
+			public const int ConstraintSet_layout_constraintWidth_default = 60;
 			
-			// aapt resource value: 0x61
-			public const int ConstraintSet_layout_constraintWidth_max = 97;
+			// aapt resource value: 61
+			public const int ConstraintSet_layout_constraintWidth_max = 61;
 			
-			// aapt resource value: 0x62
-			public const int ConstraintSet_layout_constraintWidth_min = 98;
+			// aapt resource value: 62
+			public const int ConstraintSet_layout_constraintWidth_min = 62;
 			
-			// aapt resource value: 0x63
-			public const int ConstraintSet_layout_constraintWidth_percent = 99;
+			// aapt resource value: 63
+			public const int ConstraintSet_layout_constraintWidth_percent = 63;
 			
-			// aapt resource value: 0x64
-			public const int ConstraintSet_layout_editor_absoluteX = 100;
+			// aapt resource value: 64
+			public const int ConstraintSet_layout_editor_absoluteX = 64;
 			
-			// aapt resource value: 0x65
-			public const int ConstraintSet_layout_editor_absoluteY = 101;
+			// aapt resource value: 65
+			public const int ConstraintSet_layout_editor_absoluteY = 65;
 			
-			// aapt resource value: 0x66
-			public const int ConstraintSet_layout_goneMarginBottom = 102;
+			// aapt resource value: 66
+			public const int ConstraintSet_layout_goneMarginBottom = 66;
 			
-			// aapt resource value: 0x67
-			public const int ConstraintSet_layout_goneMarginEnd = 103;
+			// aapt resource value: 67
+			public const int ConstraintSet_layout_goneMarginEnd = 67;
 			
-			// aapt resource value: 0x68
-			public const int ConstraintSet_layout_goneMarginLeft = 104;
+			// aapt resource value: 68
+			public const int ConstraintSet_layout_goneMarginLeft = 68;
 			
-			// aapt resource value: 0x69
-			public const int ConstraintSet_layout_goneMarginRight = 105;
+			// aapt resource value: 69
+			public const int ConstraintSet_layout_goneMarginRight = 69;
 			
-			// aapt resource value: 0x70
-			public const int ConstraintSet_layout_goneMarginStart = 112;
+			// aapt resource value: 70
+			public const int ConstraintSet_layout_goneMarginStart = 70;
 			
-			// aapt resource value: 0x71
-			public const int ConstraintSet_layout_goneMarginTop = 113;
+			// aapt resource value: 71
+			public const int ConstraintSet_layout_goneMarginTop = 71;
 			
 			// aapt resource value: { 0x7F0400E4,0x7F04019A }
 			public static int[] CoordinatorLayout = new int[] {
 					2130968804,
 					2130968986};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CoordinatorLayout_keylines = 0;
 			
 			// aapt resource value: { 0x10100B3,0x7F0400E8,0x7F0400E9,0x7F0400EB,0x7F040116,0x7F040122,0x7F040123 }
@@ -9648,35 +9730,35 @@ namespace Dash.Forms.AndroidWear
 					2130968866,
 					2130968867};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int CoordinatorLayout_Layout_android_layout_gravity = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CoordinatorLayout_Layout_layout_anchor = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int CoordinatorLayout_Layout_layout_anchorGravity = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int CoordinatorLayout_Layout_layout_behavior = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int CoordinatorLayout_Layout_layout_dodgeInsetEdges = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int CoordinatorLayout_Layout_layout_insetEdge = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int CoordinatorLayout_Layout_layout_keyline = 6;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int CoordinatorLayout_statusBarBackground = 1;
 			
 			// aapt resource value: { 0x7F0401D5 }
 			public static int[] DelayedConfirmationView = new int[] {
 					2130969045};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int DelayedConfirmationView_update_interval = 0;
 			
 			// aapt resource value: { 0x7F04009B,0x7F04009C,0x7F04009D,0x7F04009E,0x7F04009F,0x7F0400A0,0x7F0400A1,0x7F0400A2,0x7F0400A3,0x7F0400A4,0x7F0400A5,0x7F0400A6,0x7F0400A7 }
@@ -9695,44 +9777,44 @@ namespace Dash.Forms.AndroidWear
 					2130968742,
 					2130968743};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int DotsPageIndicator_dotColor = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int DotsPageIndicator_dotColorSelected = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int DotsPageIndicator_dotFadeInDuration = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int DotsPageIndicator_dotFadeOutDelay = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int DotsPageIndicator_dotFadeOutDuration = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int DotsPageIndicator_dotFadeWhenIdle = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int DotsPageIndicator_dotRadius = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int DotsPageIndicator_dotRadiusSelected = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int DotsPageIndicator_dotShadowColor = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int DotsPageIndicator_dotShadowDx = 9;
 			
-			// aapt resource value: 0x10
-			public const int DotsPageIndicator_dotShadowDy = 16;
+			// aapt resource value: 10
+			public const int DotsPageIndicator_dotShadowDy = 10;
 			
-			// aapt resource value: 0x11
-			public const int DotsPageIndicator_dotShadowRadius = 17;
+			// aapt resource value: 11
+			public const int DotsPageIndicator_dotShadowRadius = 11;
 			
-			// aapt resource value: 0x12
-			public const int DotsPageIndicator_dotSpacing = 18;
+			// aapt resource value: 12
+			public const int DotsPageIndicator_dotSpacing = 12;
 			
 			// aapt resource value: { 0x7F04002B,0x7F04002C,0x7F040043,0x7F040073,0x7F0400A8,0x7F0400C8,0x7F040192,0x7F0401B6 }
 			public static int[] DrawerArrowToggle = new int[] {
@@ -9745,28 +9827,28 @@ namespace Dash.Forms.AndroidWear
 					2130968978,
 					2130969014};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int DrawerArrowToggle_arrowHeadLength = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int DrawerArrowToggle_arrowShaftLength = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int DrawerArrowToggle_barLength = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int DrawerArrowToggle_color = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int DrawerArrowToggle_drawableSize = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int DrawerArrowToggle_gapBetweenBars = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int DrawerArrowToggle_spinBars = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int DrawerArrowToggle_thickness = 7;
 			
 			// aapt resource value: { 0x7F0400BF,0x7F0400C0,0x7F0400C1,0x7F0400C2,0x7F0400C3,0x7F0400C4 }
@@ -9791,52 +9873,52 @@ namespace Dash.Forms.AndroidWear
 					2130968775,
 					2130969044};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int FontFamilyFont_android_font = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int FontFamilyFont_android_fontStyle = 2;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int FontFamilyFont_android_fontVariationSettings = 4;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int FontFamilyFont_android_fontWeight = 1;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int FontFamilyFont_android_ttcIndex = 3;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int FontFamilyFont_font = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int FontFamilyFont_fontStyle = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int FontFamilyFont_fontVariationSettings = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int FontFamilyFont_fontWeight = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int FontFamilyFont_ttcIndex = 9;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int FontFamily_fontProviderAuthority = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int FontFamily_fontProviderCerts = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int FontFamily_fontProviderFetchStrategy = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int FontFamily_fontProviderFetchTimeout = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int FontFamily_fontProviderPackage = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int FontFamily_fontProviderQuery = 5;
 			
 			// aapt resource value: { 0x101019D,0x101019E,0x10101A1,0x10101A2,0x10101A3,0x10101A4,0x1010201,0x101020B,0x1010510,0x1010511,0x1010512,0x1010513 }
@@ -9859,53 +9941,53 @@ namespace Dash.Forms.AndroidWear
 					16843173,
 					16844052};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int GradientColorItem_android_color = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int GradientColorItem_android_offset = 1;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int GradientColor_android_centerColor = 7;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int GradientColor_android_centerX = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int GradientColor_android_centerY = 4;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int GradientColor_android_endColor = 1;
 			
-			// aapt resource value: 0x10
-			public const int GradientColor_android_endX = 16;
+			// aapt resource value: 10
+			public const int GradientColor_android_endX = 10;
 			
-			// aapt resource value: 0x11
-			public const int GradientColor_android_endY = 17;
+			// aapt resource value: 11
+			public const int GradientColor_android_endY = 11;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int GradientColor_android_gradientRadius = 5;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int GradientColor_android_startColor = 0;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int GradientColor_android_startX = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int GradientColor_android_startY = 9;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int GradientColor_android_tileMode = 6;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int GradientColor_android_type = 2;
 			
 			// aapt resource value: { 0x10100C4 }
 			public static int[] LinearConstraintLayout = new int[] {
 					16842948};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int LinearConstraintLayout_android_orientation = 0;
 			
 			// aapt resource value: { 0x10100AF,0x10100C4,0x1010126,0x1010127,0x1010128,0x7F040097,0x7F040099,0x7F040143,0x7F040189 }
@@ -9920,25 +10002,25 @@ namespace Dash.Forms.AndroidWear
 					2130968899,
 					2130968969};
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int LinearLayoutCompat_android_baselineAligned = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int LinearLayoutCompat_android_baselineAlignedChildIndex = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int LinearLayoutCompat_android_gravity = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int LinearLayoutCompat_android_orientation = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int LinearLayoutCompat_android_weightSum = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int LinearLayoutCompat_divider = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int LinearLayoutCompat_dividerPadding = 6;
 			
 			// aapt resource value: { 0x10100B3,0x10100F4,0x10100F5,0x1010181 }
@@ -9948,22 +10030,22 @@ namespace Dash.Forms.AndroidWear
 					16842997,
 					16843137};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int LinearLayoutCompat_Layout_android_layout_gravity = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int LinearLayoutCompat_Layout_android_layout_height = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int LinearLayoutCompat_Layout_android_layout_weight = 3;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int LinearLayoutCompat_Layout_android_layout_width = 1;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int LinearLayoutCompat_measureWithLargestChild = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int LinearLayoutCompat_showDividers = 8;
 			
 			// aapt resource value: { 0x10102AC,0x10102AD }
@@ -9971,10 +10053,10 @@ namespace Dash.Forms.AndroidWear
 					16843436,
 					16843437};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ListPopupWindow_android_dropDownHorizontalOffset = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
 			
 			// aapt resource value: { 0x7F040061,0x7F0400D4,0x7F0400D5 }
@@ -9983,13 +10065,13 @@ namespace Dash.Forms.AndroidWear
 					2130968788,
 					2130968789};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int LoadingImageView_circleCrop = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int LoadingImageView_imageAspectRatio = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int LoadingImageView_imageAspectRatioAdjust = 2;
 			
 			// aapt resource value: { 0x101000E,0x10100D0,0x1010194,0x10101DE,0x10101DF,0x10101E0 }
@@ -10001,22 +10083,22 @@ namespace Dash.Forms.AndroidWear
 					16843231,
 					16843232};
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int MenuGroup_android_checkableBehavior = 5;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int MenuGroup_android_enabled = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int MenuGroup_android_id = 1;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int MenuGroup_android_menuCategory = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int MenuGroup_android_orderInCategory = 4;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int MenuGroup_android_visible = 2;
 			
 			// aapt resource value: { 0x1010002,0x101000E,0x10100D0,0x1010106,0x1010194,0x10101DE,0x10101DF,0x10101E1,0x10101E2,0x10101E3,0x10101E4,0x10101E5,0x101026F,0x7F04000D,0x7F040020,0x7F040021,0x7F04002A,0x7F040085,0x7F0400D1,0x7F0400D2,0x7F04014E,0x7F040186,0x7F0401D0 }
@@ -10045,74 +10127,74 @@ namespace Dash.Forms.AndroidWear
 					2130968966,
 					2130969040};
 			
-			// aapt resource value: 0x13
-			public const int MenuItem_actionLayout = 19;
+			// aapt resource value: 13
+			public const int MenuItem_actionLayout = 13;
 			
-			// aapt resource value: 0x14
-			public const int MenuItem_actionProviderClass = 20;
+			// aapt resource value: 14
+			public const int MenuItem_actionProviderClass = 14;
 			
-			// aapt resource value: 0x15
-			public const int MenuItem_actionViewClass = 21;
+			// aapt resource value: 15
+			public const int MenuItem_actionViewClass = 15;
 			
-			// aapt resource value: 0x16
-			public const int MenuItem_alphabeticModifiers = 22;
+			// aapt resource value: 16
+			public const int MenuItem_alphabeticModifiers = 16;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int MenuItem_android_alphabeticShortcut = 9;
 			
-			// aapt resource value: 0x11
-			public const int MenuItem_android_checkable = 17;
+			// aapt resource value: 11
+			public const int MenuItem_android_checkable = 11;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int MenuItem_android_checked = 3;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int MenuItem_android_enabled = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int MenuItem_android_icon = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int MenuItem_android_id = 2;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int MenuItem_android_menuCategory = 5;
 			
-			// aapt resource value: 0x10
-			public const int MenuItem_android_numericShortcut = 16;
+			// aapt resource value: 10
+			public const int MenuItem_android_numericShortcut = 10;
 			
-			// aapt resource value: 0x12
-			public const int MenuItem_android_onClick = 18;
+			// aapt resource value: 12
+			public const int MenuItem_android_onClick = 12;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int MenuItem_android_orderInCategory = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int MenuItem_android_title = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int MenuItem_android_titleCondensed = 8;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int MenuItem_android_visible = 4;
 			
-			// aapt resource value: 0x17
-			public const int MenuItem_contentDescription = 23;
+			// aapt resource value: 17
+			public const int MenuItem_contentDescription = 17;
 			
-			// aapt resource value: 0x18
-			public const int MenuItem_iconTint = 24;
+			// aapt resource value: 18
+			public const int MenuItem_iconTint = 18;
 			
-			// aapt resource value: 0x19
-			public const int MenuItem_iconTintMode = 25;
+			// aapt resource value: 19
+			public const int MenuItem_iconTintMode = 19;
 			
-			// aapt resource value: 0x20
-			public const int MenuItem_numericModifiers = 32;
+			// aapt resource value: 20
+			public const int MenuItem_numericModifiers = 20;
 			
-			// aapt resource value: 0x21
-			public const int MenuItem_showAsAction = 33;
+			// aapt resource value: 21
+			public const int MenuItem_showAsAction = 21;
 			
-			// aapt resource value: 0x22
-			public const int MenuItem_tooltipText = 34;
+			// aapt resource value: 22
+			public const int MenuItem_tooltipText = 22;
 			
 			// aapt resource value: { 0x10100AE,0x101012C,0x101012D,0x101012E,0x101012F,0x1010130,0x1010131,0x7F04016A,0x7F04019C }
 			public static int[] MenuView = new int[] {
@@ -10126,31 +10208,31 @@ namespace Dash.Forms.AndroidWear
 					2130968938,
 					2130968988};
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int MenuView_android_headerBackground = 4;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int MenuView_android_horizontalDivider = 2;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int MenuView_android_itemBackground = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int MenuView_android_itemIconDisabledAlpha = 6;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int MenuView_android_itemTextAppearance = 1;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int MenuView_android_verticalDivider = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int MenuView_android_windowAnimationStyle = 0;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int MenuView_preserveIconSpacing = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int MenuView_subMenuArrow = 8;
 			
 			// aapt resource value: { 0x7F040154,0x7F040155,0x7F040156,0x7F040157,0x7F040158,0x7F040159,0x7F04015A,0x7F04015B,0x7F04015C,0x7F04015D,0x7F04015E,0x7F04015F,0x7F040160,0x7F0401E2,0x7F0401E3,0x7F0401E4,0x7F0401E5,0x7F0401E6,0x7F0401E7,0x7F0401E8,0x7F0401E9,0x7F0401EA,0x7F0401EB,0x7F0401EC,0x7F0401ED,0x7F0401EE }
@@ -10182,83 +10264,83 @@ namespace Dash.Forms.AndroidWear
 					2130969069,
 					2130969070};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int PageIndicatorView_pageIndicatorDotColor = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int PageIndicatorView_pageIndicatorDotColorSelected = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int PageIndicatorView_pageIndicatorDotFadeInDuration = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int PageIndicatorView_pageIndicatorDotFadeOutDelay = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int PageIndicatorView_pageIndicatorDotFadeOutDuration = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int PageIndicatorView_pageIndicatorDotFadeWhenIdle = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int PageIndicatorView_pageIndicatorDotRadius = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int PageIndicatorView_pageIndicatorDotRadiusSelected = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int PageIndicatorView_pageIndicatorDotShadowColor = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int PageIndicatorView_pageIndicatorDotShadowDx = 9;
 			
-			// aapt resource value: 0x10
-			public const int PageIndicatorView_pageIndicatorDotShadowDy = 16;
+			// aapt resource value: 10
+			public const int PageIndicatorView_pageIndicatorDotShadowDy = 10;
 			
-			// aapt resource value: 0x11
-			public const int PageIndicatorView_pageIndicatorDotShadowRadius = 17;
+			// aapt resource value: 11
+			public const int PageIndicatorView_pageIndicatorDotShadowRadius = 11;
 			
-			// aapt resource value: 0x12
-			public const int PageIndicatorView_pageIndicatorDotSpacing = 18;
+			// aapt resource value: 12
+			public const int PageIndicatorView_pageIndicatorDotSpacing = 12;
 			
-			// aapt resource value: 0x13
-			public const int PageIndicatorView_wsPageIndicatorDotColor = 19;
+			// aapt resource value: 13
+			public const int PageIndicatorView_wsPageIndicatorDotColor = 13;
 			
-			// aapt resource value: 0x14
-			public const int PageIndicatorView_wsPageIndicatorDotColorSelected = 20;
+			// aapt resource value: 14
+			public const int PageIndicatorView_wsPageIndicatorDotColorSelected = 14;
 			
-			// aapt resource value: 0x15
-			public const int PageIndicatorView_wsPageIndicatorDotFadeInDuration = 21;
+			// aapt resource value: 15
+			public const int PageIndicatorView_wsPageIndicatorDotFadeInDuration = 15;
 			
-			// aapt resource value: 0x16
-			public const int PageIndicatorView_wsPageIndicatorDotFadeOutDelay = 22;
+			// aapt resource value: 16
+			public const int PageIndicatorView_wsPageIndicatorDotFadeOutDelay = 16;
 			
-			// aapt resource value: 0x17
-			public const int PageIndicatorView_wsPageIndicatorDotFadeOutDuration = 23;
+			// aapt resource value: 17
+			public const int PageIndicatorView_wsPageIndicatorDotFadeOutDuration = 17;
 			
-			// aapt resource value: 0x18
-			public const int PageIndicatorView_wsPageIndicatorDotFadeWhenIdle = 24;
+			// aapt resource value: 18
+			public const int PageIndicatorView_wsPageIndicatorDotFadeWhenIdle = 18;
 			
-			// aapt resource value: 0x19
-			public const int PageIndicatorView_wsPageIndicatorDotRadius = 25;
+			// aapt resource value: 19
+			public const int PageIndicatorView_wsPageIndicatorDotRadius = 19;
 			
-			// aapt resource value: 0x20
-			public const int PageIndicatorView_wsPageIndicatorDotRadiusSelected = 32;
+			// aapt resource value: 20
+			public const int PageIndicatorView_wsPageIndicatorDotRadiusSelected = 20;
 			
-			// aapt resource value: 0x21
-			public const int PageIndicatorView_wsPageIndicatorDotShadowColor = 33;
+			// aapt resource value: 21
+			public const int PageIndicatorView_wsPageIndicatorDotShadowColor = 21;
 			
-			// aapt resource value: 0x22
-			public const int PageIndicatorView_wsPageIndicatorDotShadowDx = 34;
+			// aapt resource value: 22
+			public const int PageIndicatorView_wsPageIndicatorDotShadowDx = 22;
 			
-			// aapt resource value: 0x23
-			public const int PageIndicatorView_wsPageIndicatorDotShadowDy = 35;
+			// aapt resource value: 23
+			public const int PageIndicatorView_wsPageIndicatorDotShadowDy = 23;
 			
-			// aapt resource value: 0x24
-			public const int PageIndicatorView_wsPageIndicatorDotShadowRadius = 36;
+			// aapt resource value: 24
+			public const int PageIndicatorView_wsPageIndicatorDotShadowRadius = 24;
 			
-			// aapt resource value: 0x25
-			public const int PageIndicatorView_wsPageIndicatorDotSpacing = 37;
+			// aapt resource value: 25
+			public const int PageIndicatorView_wsPageIndicatorDotSpacing = 25;
 			
 			// aapt resource value: { 0x7F0400EA,0x7F040120,0x7F040124,0x7F040126,0x7F040127,0x7F040129,0x7F04012A,0x7F04012D,0x7F04012E,0x7F040131 }
 			public static int[] PercentLayout_Layout = new int[] {
@@ -10273,34 +10355,34 @@ namespace Dash.Forms.AndroidWear
 					2130968878,
 					2130968881};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int PercentLayout_Layout_layout_aspectRatio = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int PercentLayout_Layout_layout_heightPercent = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int PercentLayout_Layout_layout_marginBottomPercent = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int PercentLayout_Layout_layout_marginEndPercent = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int PercentLayout_Layout_layout_marginLeftPercent = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int PercentLayout_Layout_layout_marginPercent = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int PercentLayout_Layout_layout_marginRightPercent = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int PercentLayout_Layout_layout_marginStartPercent = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int PercentLayout_Layout_layout_marginTopPercent = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int PercentLayout_Layout_layout_widthPercent = 9;
 			
 			// aapt resource value: { 0x1010176,0x10102C9,0x7F04014F }
@@ -10313,23 +10395,23 @@ namespace Dash.Forms.AndroidWear
 			public static int[] PopupWindowBackgroundState = new int[] {
 					2130968985};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int PopupWindowBackgroundState_state_above_anchor = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int PopupWindow_android_popupAnimationStyle = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int PopupWindow_android_popupBackground = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int PopupWindow_overlapAnchor = 2;
 			
 			// aapt resource value: { 0x7F040080 }
 			public static int[] ProgressSpinner = new int[] {
 					2130968704};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ProgressSpinner_color_sequence = 0;
 			
 			// aapt resource value: { 0x7F040150,0x7F040153 }
@@ -10337,10 +10419,10 @@ namespace Dash.Forms.AndroidWear
 					2130968912,
 					2130968915};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int RecycleListView_paddingBottomNoButtons = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int RecycleListView_paddingTopNoTitle = 1;
 			
 			// aapt resource value: { 0x10100C4,0x10100F1,0x7F0400B7,0x7F0400B8,0x7F0400B9,0x7F0400BA,0x7F0400BB,0x7F0400E7,0x7F04017A,0x7F040191,0x7F040198 }
@@ -10357,38 +10439,38 @@ namespace Dash.Forms.AndroidWear
 					2130968977,
 					2130968984};
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int RecyclerView_android_descendantFocusability = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int RecyclerView_android_orientation = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int RecyclerView_fastScrollEnabled = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int RecyclerView_fastScrollHorizontalThumbDrawable = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int RecyclerView_fastScrollHorizontalTrackDrawable = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int RecyclerView_fastScrollVerticalThumbDrawable = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int RecyclerView_fastScrollVerticalTrackDrawable = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int RecyclerView_layoutManager = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int RecyclerView_reverseLayout = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int RecyclerView_spanCount = 9;
 			
-			// aapt resource value: 0x10
-			public const int RecyclerView_stackFromEnd = 16;
+			// aapt resource value: 10
+			public const int RecyclerView_stackFromEnd = 10;
 			
 			// aapt resource value: { 0x1010119,0x7F040034,0x7F04006D,0x7F040171 }
 			public static int[] RoundedDrawable = new int[] {
@@ -10397,16 +10479,16 @@ namespace Dash.Forms.AndroidWear
 					2130968685,
 					2130968945};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int RoundedDrawable_android_src = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int RoundedDrawable_backgroundColor = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int RoundedDrawable_clipEnabled = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int RoundedDrawable_radius = 3;
 			
 			// aapt resource value: { 0x10100DA,0x101011F,0x1010220,0x1010264,0x7F04006F,0x7F040081,0x7F04008F,0x7F0400C9,0x7F0400D3,0x7F0400E6,0x7F04016E,0x7F04016F,0x7F04017F,0x7F040180,0x7F04019D,0x7F0401A2,0x7F0401D7 }
@@ -10429,56 +10511,56 @@ namespace Dash.Forms.AndroidWear
 					2130968994,
 					2130969047};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int SearchView_android_focusable = 0;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int SearchView_android_imeOptions = 3;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int SearchView_android_inputType = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int SearchView_android_maxWidth = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int SearchView_closeIcon = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int SearchView_commitIcon = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int SearchView_defaultQueryHint = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int SearchView_goIcon = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int SearchView_iconifiedByDefault = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int SearchView_layout = 9;
 			
-			// aapt resource value: 0x10
-			public const int SearchView_queryBackground = 16;
+			// aapt resource value: 10
+			public const int SearchView_queryBackground = 10;
 			
-			// aapt resource value: 0x11
-			public const int SearchView_queryHint = 17;
+			// aapt resource value: 11
+			public const int SearchView_queryHint = 11;
 			
-			// aapt resource value: 0x12
-			public const int SearchView_searchHintIcon = 18;
+			// aapt resource value: 12
+			public const int SearchView_searchHintIcon = 12;
 			
-			// aapt resource value: 0x13
-			public const int SearchView_searchIcon = 19;
+			// aapt resource value: 13
+			public const int SearchView_searchIcon = 13;
 			
-			// aapt resource value: 0x14
-			public const int SearchView_submitBackground = 20;
+			// aapt resource value: 14
+			public const int SearchView_submitBackground = 14;
 			
-			// aapt resource value: 0x15
-			public const int SearchView_suggestionRowLayout = 21;
+			// aapt resource value: 15
+			public const int SearchView_suggestionRowLayout = 15;
 			
-			// aapt resource value: 0x16
-			public const int SearchView_voiceIcon = 22;
+			// aapt resource value: 16
+			public const int SearchView_voiceIcon = 16;
 			
 			// aapt resource value: { 0x7F040059,0x7F04007D,0x7F04017C }
 			public static int[] SignInButton = new int[] {
@@ -10486,13 +10568,13 @@ namespace Dash.Forms.AndroidWear
 					2130968701,
 					2130968956};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int SignInButton_buttonSize = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int SignInButton_colorScheme = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int SignInButton_scopeUris = 2;
 			
 			// aapt resource value: { 0x10100B2,0x1010176,0x101017B,0x1010262,0x7F040167 }
@@ -10503,19 +10585,19 @@ namespace Dash.Forms.AndroidWear
 					16843362,
 					2130968935};
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int Spinner_android_dropDownWidth = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int Spinner_android_entries = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int Spinner_android_popupBackground = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int Spinner_android_prompt = 2;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int Spinner_popupTheme = 4;
 			
 			// aapt resource value: { 0x101011C,0x1010194,0x1010195,0x1010196,0x101030C,0x101030D }
@@ -10531,25 +10613,25 @@ namespace Dash.Forms.AndroidWear
 			public static int[] StateListDrawableItem = new int[] {
 					16843161};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int StateListDrawableItem_android_drawable = 0;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int StateListDrawable_android_constantSize = 3;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int StateListDrawable_android_dither = 0;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int StateListDrawable_android_enterFadeDuration = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int StateListDrawable_android_exitFadeDuration = 5;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int StateListDrawable_android_variablePadding = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int StateListDrawable_android_visible = 1;
 			
 			// aapt resource value: { 0x1010124,0x1010125,0x1010142,0x7F04018D,0x7F040195,0x7F0401A3,0x7F0401A4,0x7F0401A6,0x7F0401B7,0x7F0401B8,0x7F0401B9,0x7F0401D1,0x7F0401D2,0x7F0401D3 }
@@ -10569,47 +10651,47 @@ namespace Dash.Forms.AndroidWear
 					2130969042,
 					2130969043};
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int SwitchCompat_android_textOff = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int SwitchCompat_android_textOn = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int SwitchCompat_android_thumb = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int SwitchCompat_showText = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int SwitchCompat_splitTrack = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int SwitchCompat_switchMinWidth = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int SwitchCompat_switchPadding = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int SwitchCompat_switchTextAppearance = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int SwitchCompat_thumbTextPadding = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int SwitchCompat_thumbTint = 9;
 			
-			// aapt resource value: 0x10
-			public const int SwitchCompat_thumbTintMode = 16;
+			// aapt resource value: 10
+			public const int SwitchCompat_thumbTintMode = 10;
 			
-			// aapt resource value: 0x11
-			public const int SwitchCompat_track = 17;
+			// aapt resource value: 11
+			public const int SwitchCompat_track = 11;
 			
-			// aapt resource value: 0x12
-			public const int SwitchCompat_trackTint = 18;
+			// aapt resource value: 12
+			public const int SwitchCompat_trackTint = 12;
 			
-			// aapt resource value: 0x13
-			public const int SwitchCompat_trackTintMode = 19;
+			// aapt resource value: 13
+			public const int SwitchCompat_trackTintMode = 13;
 			
 			// aapt resource value: { 0x1010095,0x1010096,0x1010097,0x1010098,0x101009A,0x101009B,0x1010161,0x1010162,0x1010163,0x1010164,0x10103AC,0x7F0400BE,0x7F0401A7 }
 			public static int[] TextAppearance = new int[] {
@@ -10627,44 +10709,44 @@ namespace Dash.Forms.AndroidWear
 					2130968766,
 					2130968999};
 			
-			// aapt resource value: 0x10
-			public const int TextAppearance_android_fontFamily = 16;
+			// aapt resource value: 10
+			public const int TextAppearance_android_fontFamily = 10;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int TextAppearance_android_shadowColor = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int TextAppearance_android_shadowDx = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int TextAppearance_android_shadowDy = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int TextAppearance_android_shadowRadius = 9;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int TextAppearance_android_textColor = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int TextAppearance_android_textColorHint = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int TextAppearance_android_textColorLink = 5;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int TextAppearance_android_textSize = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int TextAppearance_android_textStyle = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int TextAppearance_android_typeface = 1;
 			
-			// aapt resource value: 0x11
-			public const int TextAppearance_fontFamily = 17;
+			// aapt resource value: 11
+			public const int TextAppearance_fontFamily = 11;
 			
-			// aapt resource value: 0x12
-			public const int TextAppearance_textAllCaps = 18;
+			// aapt resource value: 12
+			public const int TextAppearance_textAllCaps = 12;
 			
 			// aapt resource value: { 0x10100AF,0x1010140,0x7F040055,0x7F040071,0x7F040072,0x7F040086,0x7F040087,0x7F040088,0x7F040089,0x7F04008A,0x7F04008B,0x7F04013F,0x7F040140,0x7F040141,0x7F040146,0x7F040147,0x7F040167,0x7F04019E,0x7F04019F,0x7F0401A0,0x7F0401BF,0x7F0401C1,0x7F0401C2,0x7F0401C3,0x7F0401C4,0x7F0401C5,0x7F0401C6,0x7F0401C8,0x7F0401C9 }
 			public static int[] Toolbar = new int[] {
@@ -10698,92 +10780,92 @@ namespace Dash.Forms.AndroidWear
 					2130969032,
 					2130969033};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int Toolbar_android_gravity = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int Toolbar_android_minHeight = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int Toolbar_buttonGravity = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int Toolbar_collapseContentDescription = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int Toolbar_collapseIcon = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int Toolbar_contentInsetEnd = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int Toolbar_contentInsetEndWithActions = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int Toolbar_contentInsetLeft = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int Toolbar_contentInsetRight = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int Toolbar_contentInsetStart = 9;
 			
-			// aapt resource value: 0x10
-			public const int Toolbar_contentInsetStartWithNavigation = 16;
+			// aapt resource value: 10
+			public const int Toolbar_contentInsetStartWithNavigation = 10;
 			
-			// aapt resource value: 0x11
-			public const int Toolbar_logo = 17;
+			// aapt resource value: 11
+			public const int Toolbar_logo = 11;
 			
-			// aapt resource value: 0x12
-			public const int Toolbar_logoDescription = 18;
+			// aapt resource value: 12
+			public const int Toolbar_logoDescription = 12;
 			
-			// aapt resource value: 0x13
-			public const int Toolbar_maxButtonHeight = 19;
+			// aapt resource value: 13
+			public const int Toolbar_maxButtonHeight = 13;
 			
-			// aapt resource value: 0x14
-			public const int Toolbar_navigationContentDescription = 20;
+			// aapt resource value: 14
+			public const int Toolbar_navigationContentDescription = 14;
 			
-			// aapt resource value: 0x15
-			public const int Toolbar_navigationIcon = 21;
+			// aapt resource value: 15
+			public const int Toolbar_navigationIcon = 15;
 			
-			// aapt resource value: 0x16
-			public const int Toolbar_popupTheme = 22;
+			// aapt resource value: 16
+			public const int Toolbar_popupTheme = 16;
 			
-			// aapt resource value: 0x17
-			public const int Toolbar_subtitle = 23;
+			// aapt resource value: 17
+			public const int Toolbar_subtitle = 17;
 			
-			// aapt resource value: 0x18
-			public const int Toolbar_subtitleTextAppearance = 24;
+			// aapt resource value: 18
+			public const int Toolbar_subtitleTextAppearance = 18;
 			
-			// aapt resource value: 0x19
-			public const int Toolbar_subtitleTextColor = 25;
+			// aapt resource value: 19
+			public const int Toolbar_subtitleTextColor = 19;
 			
-			// aapt resource value: 0x20
-			public const int Toolbar_title = 32;
+			// aapt resource value: 20
+			public const int Toolbar_title = 20;
 			
-			// aapt resource value: 0x21
-			public const int Toolbar_titleMargin = 33;
+			// aapt resource value: 21
+			public const int Toolbar_titleMargin = 21;
 			
-			// aapt resource value: 0x22
-			public const int Toolbar_titleMarginBottom = 34;
+			// aapt resource value: 22
+			public const int Toolbar_titleMarginBottom = 22;
 			
-			// aapt resource value: 0x23
-			public const int Toolbar_titleMarginEnd = 35;
+			// aapt resource value: 23
+			public const int Toolbar_titleMarginEnd = 23;
 			
-			// aapt resource value: 0x26
-			public const int Toolbar_titleMargins = 38;
+			// aapt resource value: 26
+			public const int Toolbar_titleMargins = 26;
 			
-			// aapt resource value: 0x24
-			public const int Toolbar_titleMarginStart = 36;
+			// aapt resource value: 24
+			public const int Toolbar_titleMarginStart = 24;
 			
-			// aapt resource value: 0x25
-			public const int Toolbar_titleMarginTop = 37;
+			// aapt resource value: 25
+			public const int Toolbar_titleMarginTop = 25;
 			
-			// aapt resource value: 0x27
-			public const int Toolbar_titleTextAppearance = 39;
+			// aapt resource value: 27
+			public const int Toolbar_titleTextAppearance = 27;
 			
-			// aapt resource value: 0x28
-			public const int Toolbar_titleTextColor = 40;
+			// aapt resource value: 28
+			public const int Toolbar_titleTextColor = 28;
 			
 			// aapt resource value: { 0x1010000,0x10100DA,0x7F040151,0x7F040152,0x7F0401B5 }
 			public static int[] View = new int[] {
@@ -10799,13 +10881,13 @@ namespace Dash.Forms.AndroidWear
 					2130968632,
 					2130968633};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ViewBackgroundHelper_android_background = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ViewBackgroundHelper_backgroundTint = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ViewBackgroundHelper_backgroundTintMode = 2;
 			
 			// aapt resource value: { 0x10100D0,0x10100F2,0x10100F3 }
@@ -10814,28 +10896,28 @@ namespace Dash.Forms.AndroidWear
 					16842994,
 					16842995};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int ViewStubCompat_android_id = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int ViewStubCompat_android_inflatedId = 2;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int ViewStubCompat_android_layout = 1;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int View_android_focusable = 1;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int View_android_theme = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int View_paddingEnd = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int View_paddingStart = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int View_theme = 4;
 			
 			// aapt resource value: { 0x7F040179,0x7F04017B }
@@ -10843,10 +10925,10 @@ namespace Dash.Forms.AndroidWear
 					2130968953,
 					2130968955};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WatchViewStub_rectLayout = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WatchViewStub_roundLayout = 1;
 			
 			// aapt resource value: { 0x7F040022,0x7F0400AD,0x7F04018F }
@@ -10861,22 +10943,22 @@ namespace Dash.Forms.AndroidWear
 					2130968747,
 					2130968971};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableActionDrawerView_actionMenu = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableActionDrawerView_drawerTitle = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableActionDrawerView_showOverflowInPeek = 2;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableActionDrawer_action_menu = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableActionDrawer_drawer_title = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableActionDrawer_show_overflow_in_peek = 2;
 			
 			// aapt resource value: { 0x7F04014B,0x7F04014C,0x7F04014D,0x7F040169 }
@@ -10886,16 +10968,16 @@ namespace Dash.Forms.AndroidWear
 					2130968909,
 					2130968937};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableDialogPreference_negativeButtonIcon = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableDialogPreference_neutralButtonIcon = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableDialogPreference_neutralButtonText = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int WearableDialogPreference_positiveButtonIcon = 3;
 			
 			// aapt resource value: { 0x10100D4,0x1010440,0x7F0400AA,0x7F0400AC,0x7F0400B5,0x7F040164,0x7F040165 }
@@ -10908,25 +10990,25 @@ namespace Dash.Forms.AndroidWear
 					2130968932,
 					2130968933};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableDrawerView_android_background = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableDrawerView_android_elevation = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableDrawerView_drawerContent = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int WearableDrawerView_drawer_content = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int WearableDrawerView_enableAutoPeek = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int WearableDrawerView_peekView = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int WearableDrawerView_peek_view = 6;
 			
 			// aapt resource value: { 0x1010109,0x101010A,0x1010200,0x101046D,0x7F04011F,0x7F040121,0x7F040125,0x7F040128,0x7F04012B,0x7F04012C,0x7F04012F,0x7F040132 }
@@ -10944,41 +11026,41 @@ namespace Dash.Forms.AndroidWear
 					2130968879,
 					2130968882};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableFrameLayout_android_foreground = 0;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableFrameLayout_android_foregroundGravity = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int WearableFrameLayout_android_foregroundTint = 3;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableFrameLayout_android_measureAllChildren = 1;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int WearableFrameLayout_layout_gravityRound = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int WearableFrameLayout_layout_heightRound = 5;
 			
-			// aapt resource value: 0x6
+			// aapt resource value: 6
 			public const int WearableFrameLayout_layout_marginBottomRound = 6;
 			
-			// aapt resource value: 0x7
+			// aapt resource value: 7
 			public const int WearableFrameLayout_layout_marginLeftRound = 7;
 			
-			// aapt resource value: 0x8
+			// aapt resource value: 8
 			public const int WearableFrameLayout_layout_marginRightRound = 8;
 			
-			// aapt resource value: 0x9
+			// aapt resource value: 9
 			public const int WearableFrameLayout_layout_marginRound = 9;
 			
-			// aapt resource value: 0x10
-			public const int WearableFrameLayout_layout_marginTopRound = 16;
+			// aapt resource value: 10
+			public const int WearableFrameLayout_layout_marginTopRound = 10;
 			
-			// aapt resource value: 0x11
-			public const int WearableFrameLayout_layout_widthRound = 17;
+			// aapt resource value: 11
+			public const int WearableFrameLayout_layout_widthRound = 11;
 			
 			// aapt resource value: { 0x7F04014A }
 			public static int[] WearableNavigationDrawer = new int[] {
@@ -10988,10 +11070,10 @@ namespace Dash.Forms.AndroidWear
 			public static int[] WearableNavigationDrawerView = new int[] {
 					2130968905};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableNavigationDrawerView_navigationStyle = 0;
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableNavigationDrawer_navigation_style = 0;
 			
 			// aapt resource value: { 0x7F040046,0x7F040047,0x7F04006B,0x7F04006C,0x7F04017D,0x7F04017E }
@@ -11003,22 +11085,22 @@ namespace Dash.Forms.AndroidWear
 					2130968957,
 					2130968958};
 			
-			// aapt resource value: 0x0
+			// aapt resource value: 0
 			public const int WearableRecyclerView_bezelWidth = 0;
 			
-			// aapt resource value: 0x1
+			// aapt resource value: 1
 			public const int WearableRecyclerView_bezel_width = 1;
 			
-			// aapt resource value: 0x2
+			// aapt resource value: 2
 			public const int WearableRecyclerView_circularScrollingGestureEnabled = 2;
 			
-			// aapt resource value: 0x3
+			// aapt resource value: 3
 			public const int WearableRecyclerView_circular_scrolling_gesture_enabled = 3;
 			
-			// aapt resource value: 0x4
+			// aapt resource value: 4
 			public const int WearableRecyclerView_scrollDegreesPerScreen = 4;
 			
-			// aapt resource value: 0x5
+			// aapt resource value: 5
 			public const int WearableRecyclerView_scroll_degrees_per_screen = 5;
 			
 			static Styleable()

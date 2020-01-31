@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
+using CarouselView.FormsPlugin.Android;
 using Dash.Forms.AndroidShared;
 using Dash.Forms.AndroidShared.Interfaces;
 using Dash.Forms.AndroidShared.Receivers;
