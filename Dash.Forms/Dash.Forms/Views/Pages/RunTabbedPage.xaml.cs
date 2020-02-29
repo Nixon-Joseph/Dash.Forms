@@ -353,81 +353,84 @@ namespace Dash.Forms.Views.Pages
 
         private void _locationService_LocationChanged(object sender, LocationData loc)
         {
-            if (IsTracking == true)
+            if (loc != null)
             {
-                var newPos = new Position(loc.Latitude, loc.Longitude);
-                if (Locations.Count() > 0 && Locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
+                if (IsTracking == true)
                 {
-                    RunMap.AddPosition(newPos);
-                    RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
-                    MinElevation = Math.Min(MinElevation ?? lastLoc.Altitude, lastLoc.Altitude);
-                    MaxElevation = Math.Max(MaxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
-                    var meters = LocationService.GetDistance(lastLoc.GetPosition(), newPos);
-                    TotalDistance += meters;
-                    var convertedDistance = ConvertMeters(TotalDistance);
-                    if (GetCurrentSegment() is RunSegment curSegment && curSegment.Locations.Count() > 0)
+                    var newPos = new Position(loc.Latitude, loc.Longitude);
+                    if (Locations.Count() > 0 && Locations.Last() is LocationData lastLoc && lastLoc.IsTracked == true)
                     {
-                        curSegment.Distance += meters;
-                        if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && curSegment.Distance >= NextPaceUnit)
+                        RunMap.AddPosition(newPos);
+                        RunMap.MoveToRegion(MapSpan.FromCenterAndRadius(newPos, Distance.FromKilometers(GetMaxDistance() / 1000d)));
+                        MinElevation = Math.Min(MinElevation ?? lastLoc.Altitude, lastLoc.Altitude);
+                        MaxElevation = Math.Max(MaxElevation ?? lastLoc.Altitude, lastLoc.Altitude);
+                        var meters = LocationService.GetDistance(lastLoc.GetPosition(), newPos);
+                        TotalDistance += meters;
+                        var convertedDistance = ConvertMeters(TotalDistance);
+                        if (GetCurrentSegment() is RunSegment curSegment && curSegment.Locations.Count() > 0)
+                        {
+                            curSegment.Distance += meters;
+                            if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && curSegment.Distance >= NextPaceUnit)
+                            {
+                                SpeakDistancePace();
+                            }
+                            if (TrainingType == TrainingType.Distance)
+                            {
+                                // speak segment distance pace
+                                if (HitHalfway == false && convertedDistance >= TrainingEndValue / 2)
+                                {
+                                    HitHalfway = true;
+                                    SpeakHalfway();
+                                }
+                                // end of segment
+                                var convertedSegmentDistance = ConvertMeters(curSegment.Distance);
+                                if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && convertedSegmentDistance >= trainingSegment.Value)
+                                {
+                                    HandleNextSegment(curSegment);
+                                }
+                            }
+                        }
+                        else if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && TotalDistance >= NextPaceUnit)
                         {
                             SpeakDistancePace();
                         }
-                        if (TrainingType == TrainingType.Distance)
+                        var pace = convertedDistance > 0d ? TimeSpan.FromMinutes(GetRunDuration().TotalMinutes / convertedDistance) : TimeSpan.FromMinutes(0);
+                        if (App.IsAsleep == false)
                         {
-                            // speak segment distance pace
-                            if (HitHalfway == false && convertedDistance >= TrainingEndValue / 2)
+                            Device.BeginInvokeOnMainThread(() =>
                             {
-                                HitHalfway = true;
-                                SpeakHalfway();
-                            }
-                            // end of segment
-                            var convertedSegmentDistance = ConvertMeters(curSegment.Distance);
-                            if (GetCurrentTrainingSegment() is TrainingSegment trainingSegment && convertedSegmentDistance >= trainingSegment.Value)
-                            {
-                                HandleNextSegment(curSegment);
-                            }
+                                ElevationLabel.Text = (MaxElevation.Value - MinElevation.Value).ToString("N1");
+                                RunDistanceLabel.Text = convertedDistance.ToString("N2");
+                                StatsDistanceLabel.Text = convertedDistance.ToString("N2");
+                                if (convertedDistance > 0.1d)
+                                {
+                                    StatsPaceLabel.Text = pace.ToString("mm':'ss");
+                                }
+                                else
+                                {
+                                    StatsPaceLabel.Text = "∞";
+                                }
+                                if (CalcCalories == true)
+                                {
+                                    StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, UserWeight)).ToString();
+                                }
+                                else
+                                {
+                                    StatsCaloriesLabel.Text = "---";
+                                }
+                            });
                         }
                     }
-                    else if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && TotalDistance >= NextPaceUnit)
+                    if (JustUnpaused == true)
                     {
-                        SpeakDistancePace();
-                    }
-                    var pace = convertedDistance > 0d ? TimeSpan.FromMinutes(GetRunDuration().TotalMinutes / convertedDistance) : TimeSpan.FromMinutes(0);
-                    if (App.IsAsleep == false)
-                    {
-                        Device.BeginInvokeOnMainThread(() =>
-                        {
-                            ElevationLabel.Text = (MaxElevation.Value - MinElevation.Value).ToString("N1");
-                            RunDistanceLabel.Text = convertedDistance.ToString("N2");
-                            StatsDistanceLabel.Text = convertedDistance.ToString("N2");
-                            if (convertedDistance > 0.1d)
-                            {
-                                StatsPaceLabel.Text = pace.ToString("mm':'ss");
-                            }
-                            else
-                            {
-                                StatsPaceLabel.Text = "∞";
-                            }
-                            if (CalcCalories == true)
-                            {
-                                StatsCaloriesLabel.Text = ((int)RunHelper.CalculateCalories(TotalDistance, UserWeight)).ToString();
-                            }
-                            else
-                            {
-                                StatsCaloriesLabel.Text = "---";
-                            }
-                        }); 
+                        JustUnpaused = false;
+                        RunMap.AddPosition(newPos, false);
                     }
                 }
-                if (JustUnpaused == true)
-                {
-                    JustUnpaused = false;
-                    RunMap.AddPosition(newPos, false);
-                }
+                loc.IsTracked = IsTracking;
+                Locations.Add(loc);
+                GetCurrentSegment()?.Locations.Add(loc);
             }
-            loc.IsTracked = IsTracking;
-            Locations.Add(loc);
-            GetCurrentSegment()?.Locations.Add(loc);
         }
 
         private void SpeakDistancePace()
