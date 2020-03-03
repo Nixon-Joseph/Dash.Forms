@@ -5,12 +5,14 @@ namespace Dash.Forms.Models.Run
 {
     public class RunSegment
     {
-        public RunSegment() { }
+        public RunSegment()
+        {
+            Locations = new List<LocationData>();
+        }
 
-        public RunSegment(TrainingSegment segment)
+        public RunSegment(TrainingSegment segment) : this()
         {
             Speed = segment.Speed;
-            Locations = new List<LocationData>();
         }
 
         /// <summary>

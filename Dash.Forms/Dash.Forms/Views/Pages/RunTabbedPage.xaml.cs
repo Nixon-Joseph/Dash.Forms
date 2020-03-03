@@ -147,24 +147,47 @@ namespace Dash.Forms.Views.Pages
             StartTime = DateTime.UtcNow;
             LastDistancePaceSpeak = DateTime.UtcNow;
             SetRunState(RunState.Running);
-            Speak("Lets go!");
+            QueueSpeach("Lets go!");
             if (GetCurrentSegment() is RunSegment curSegment)
             {
-                SpeakNextSegment(curSegment);
+                QueueSpeach(SpeakNextSegment(curSegment));
                 curSegment.StartTime = StartTime;
             }
             IsTracking = true;
         }
 
-        private void Speak(string text)
+
+        private readonly Queue<string> SpeechQueue = new Queue<string>();
+        private bool Speaking = false;
+        private void QueueSpeach(string text)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            if (text.IsNullOrEmpty() == false)
             {
-                TextToSpeech.SpeakAsync(text);
-            });
+                Console.WriteLine($"Enqueued text: {text}");
+                SpeechQueue.Enqueue(text);
+                if (Speaking == false)
+                {
+                    Speaking = true;
+                    Task.Run(async () =>
+                    {
+                        Console.WriteLine("Begin queue");
+                        await DependencyService.Get<IMediaService>().PauseBackgroundMusicForTask(async () => {
+                            Console.WriteLine("paused(quieted) music");
+                            while (SpeechQueue.Count() > 0)
+                            {
+                                var txt = SpeechQueue.Dequeue();
+                                Console.WriteLine($"speaking: {txt}");
+                                await TextToSpeech.SpeakAsync(txt);
+                            }
+                            Speaking = false;
+                            Console.WriteLine("unpaused(louded) music");
+                        });
+                    });
+                }
+            }
         }
 
-        private void SpeakNextSegment(RunSegment segment)
+        private string SpeakNextSegment(RunSegment segment)
         {
             string message = null;
             switch (segment.Speed)
@@ -194,10 +217,7 @@ namespace Dash.Forms.Views.Pages
                 default:
                     break;
             }
-            if (message.IsNullOrEmpty() == false)
-            {
-                Speak(message);
-            }
+            return message;
         }
 
         ~RunTabbedPage()
@@ -334,12 +354,12 @@ namespace Dash.Forms.Views.Pages
 
         private void SpeakHalfway()
         {
-            Speak("You're halfway there! Keep going!");
+            QueueSpeach("You're halfway there! Keep going!");
         }
 
         private void SpeakEnd()
         {
-            Speak("You made it, way to go!");
+            QueueSpeach("You made it, way to go!");
         }
 
         private TrainingSegment GetCurrentTrainingSegment()
@@ -367,7 +387,7 @@ namespace Dash.Forms.Views.Pages
                         var meters = LocationService.GetDistance(lastLoc.GetPosition(), newPos);
                         TotalDistance += meters;
                         var convertedDistance = ConvertMeters(TotalDistance);
-                        if (GetCurrentSegment() is RunSegment curSegment && curSegment.Locations.Count() > 0)
+                        if (GetCurrentSegment() is RunSegment curSegment && (curSegment.Locations?.Count() ?? 0) > 0)
                         {
                             curSegment.Distance += meters;
                             if ((SpeakHalfDistanceUnits || SpeakDistanceUnits) && curSegment.Distance >= NextPaceUnit)
@@ -438,7 +458,7 @@ namespace Dash.Forms.Views.Pages
             var lastPace = TimeSpan.FromMinutes((DateTime.UtcNow - LastDistancePaceSpeak).TotalMinutes / ConvertMeters(NextPaceUnitStep));
             NextPaceUnit += NextPaceUnitStep;
             LastDistancePaceSpeak = DateTime.UtcNow;
-            Speak($"Your pace for the last {GetPaceDistanceText()} has been {lastPace.Minutes} minutes, {lastPace.Seconds} seconds");
+            QueueSpeach($"Your pace for the last {GetPaceDistanceText()} has been {lastPace.Minutes} minutes, {lastPace.Seconds} seconds");
         }
 
         private string GetPaceDistanceText()
@@ -473,7 +493,7 @@ namespace Dash.Forms.Views.Pages
             if (SpeakSegmentEnd == true && curSegment.Distance > 0d)
             {
                 var segmentPace = TimeSpan.FromMinutes(curSegment.Duration.TotalMinutes / ConvertMeters(curSegment.Distance));
-                Speak($"Your pace for the previous segment was {segmentPace.Minutes} minutes, {segmentPace.Seconds} seconds.");
+                QueueSpeach($"Your pace for the previous segment was {segmentPace.Minutes} minutes, {segmentPace.Seconds} seconds.");
             }
         }
 

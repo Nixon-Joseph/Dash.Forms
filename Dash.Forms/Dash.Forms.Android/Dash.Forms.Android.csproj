@@ -134,6 +134,7 @@
     <Compile Include="Renderers\RoundedContentViewRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Services\MediaService.cs" />
     <Compile Include="Services\MessageService.cs" />
   </ItemGroup>
   <ItemGroup>
